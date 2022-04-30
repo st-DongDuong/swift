@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderCollectionReusableView" customModule="BTTongHop" customModuleProvider="target">
             <connections>
-                <outlet property="header" destination="fiC-Fb-Ief" id="CpZ-Qv-Xeu"/>
+                <outlet property="titleLabel" destination="fiC-Fb-Ief" id="sBC-2p-gZx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

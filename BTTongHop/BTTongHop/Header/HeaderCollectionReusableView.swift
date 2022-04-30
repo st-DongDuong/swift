@@ -10,12 +10,14 @@ import UIKit
 class HeaderCollectionReusableView: UICollectionReusableView {
 
 
-    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        header.layer.cornerRadius = 10
+        titleLabel.layer.cornerRadius = 10
     }
-    
+    func updateTitle(_ title: String) {
+            titleLabel.text = title
+        }
 }

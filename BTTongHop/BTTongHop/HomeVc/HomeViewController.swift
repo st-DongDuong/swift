@@ -8,30 +8,22 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    
+
+    var listMenu: [Menu] = []
+    var lasrOder:  [Menu] = []
     @IBOutlet weak var menuCollection: UICollectionView!
     @IBOutlet weak var bannerCollection: UICollectionView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         title =  " Home"
-        configTabbar()
-        registerCollection()
-    }
-    func configTabbar(){
-        navigationController?.navigationBar.backgroundColor = .cyan
-        let cart = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-        cart.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
-        cart.setImage(UIImage(named: "car"), for: .normal)
+        let cartButton = UIBarButtonItem(image: UIImage(named: "car"), style: .done, target: self, action: #selector(cartButton))
+        cartButton.tintColor = UIColor(red: 0.486, green: 0.525, blue: 0.569, alpha: 1)
+        navigationItem.rightBarButtonItem = cartButton
         
-        let rightCustomView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        rightCustomView.bounds = rightCustomView.bounds.offsetBy(dx: -20, dy: 0)
-        rightCustomView.addSubview(cart)
-        
-        let rightButton = UIBarButtonItem(customView: rightCustomView)
-        navigationItem.rightBarButtonItem = rightButton
-        
+        registerCollection() //dky cellBanner vs Menu
+
     }
     @objc func cartButton() {
         print("button in cart")
@@ -46,33 +38,28 @@ class HomeViewController: UIViewController {
         let cellMenu = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
         menuCollection.register(cellMenu, forCellWithReuseIdentifier: "MenuCollectionViewCell")
         
+        menuCollection.register(UINib(nibName: "FoodCollectionViewCell" , bundle: nil), forCellWithReuseIdentifier: "Food")
+       
         // dky Header của menu  "Restaurant"
-        menuCollection.register(UINib(nibName: "Header", bundle: Bundle.main),
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: "Header")
-        
+//        menuCollection.register(UINib(nibName:" HeaderCollectionReusableView", bundle: Bundle.main),
+//                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+//                                withReuseIdentifier: "Header")
+//        
         bannerCollection.dataSource = self
         bannerCollection.delegate = self
-        
         menuCollection.dataSource = self
         menuCollection.delegate = self
     }
     
-    @IBAction func rightButton(_ sender: Any) {
-        guard var currentIndexPath = bannerCollection.indexPathsForVisibleItems.last else { return }
-        print(currentIndexPath)
-        currentIndexPath.item -= 1
-        if currentIndexPath.item >= 0 {
-            self.bannerCollection.scrollToItem(at: currentIndexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-        }
-    }
-    @IBAction func leftButton(_ sender: Any){
-        guard var currentIndexPath = bannerCollection.indexPathsForVisibleItems.first else { return }
-        print(currentIndexPath)
-        currentIndexPath.item += 1
-        if currentIndexPath.item < 3 {
-            self.bannerCollection.scrollToItem(at: currentIndexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-        }
+    func setUpData(){
+        listMenu = [Menu(name: "cake1", price: 1000, img: UIImage(named: "cake1")!, number: 0, favorite: false),
+                    Menu(name: "cake2", price: 2000, img: UIImage(named: "cake2")!, number: 0, favorite: false),
+                    Menu(name: "cake3", price: 3000, img: UIImage(named: "cake3")!, number: 0, favorite: false),
+                    Menu(name: "cake2", price: 2000, img: UIImage(named: "cake2")!, number: 0, favorite: false),
+                    Menu(name: "cake3", price: 3000, img: UIImage(named: "cake3")!, number: 0, favorite: false),
+                    Menu(name: "cake2", price: 2000, img: UIImage(named: "cake2")!, number: 0, favorite: false),
+                    Menu(name: "cake3", price: 3000, img: UIImage(named: "cake3")!, number: 0, favorite: false),
+                    Menu(name: "cake4", price: 4000, img: UIImage(named: "cake4")!, number: 0, favorite: false),]
     }
 }
 
@@ -80,7 +67,7 @@ extension HomeViewController : UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == menuCollection {
-            return 3
+            return 2
         }else{
             return 1
         }
@@ -88,7 +75,12 @@ extension HomeViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == menuCollection {
-            return 2
+            if section == 0 {
+                return listMenu.count
+            }else{
+                return 4//  trả về ds last order
+            }
+            
         }else{
             return 3
         }
@@ -96,44 +88,69 @@ extension HomeViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if  collectionView == menuCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCollectionViewCell", for: indexPath)
-            //cell.largeContentTitle = "alo"
-            cell.backgroundColor =  .gray
-            return cell
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Food", for: indexPath) as? FoodCollectionViewCell
+            if (indexPath.section == 0){
+                
+                let menu = listMenu[indexPath.item]
+                cell?.setData(img: menu.img,
+                              name: "\(menu.name)",
+                              price: menu.price,
+                              number: menu.number,
+                              isFavorite: menu.favorite)
+                
+            }
+            return cell ?? FoodCollectionViewCell()
             
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath)
             
-            return cell
-        }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionViewCell", for: indexPath) as! BannerCollectionViewCell
+                       let indexPathItem = indexPath.item
+                       switch indexPathItem{
+                       case 0:
+                           cell.bannerIMG(img: UIImage(named: "banner")!)
+                       case 1:
+                           cell.bannerIMG(img: UIImage(named: "banner")!)
+                       case 2:
+                           cell.bannerIMG(img: UIImage(named: "banner")!)
+                       default:
+                            return cell
+                       }
+            
+                return cell
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "Header", for: indexPath)
-        return header
     }
+
+
 }
-extension HomeViewController :UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if collectionView == menuCollection {
-            
-            let b  =  (Int(UIScreen.main.bounds.width) - 67 ) / 2
-            return CGSize(width: b, height: 300)
-        } else {
-            let width  =  bannerCollection.bounds.size.width - 20
-            let heigh = bannerCollection.bounds.size.height
-            return CGSize(width: width , height: heigh)
-        }
-    }
     
+        if collectionView == menuCollection {
+            let leftSpacing = 20
+            let width  = (Int(UIScreen.main.bounds.width) - (leftSpacing * 2) - 5) / 3
+            let height = bannerCollection.bounds.size.height
+            return CGSize(width: width + 20, height: 150)
+        } else {
+//            let width  =  bannerCollection.bounds.size.width + 40
+//            let heigh = bannerCollection.bounds.size.height
+            return CGSize(width: bannerCollection.frame.width + 20 , height: bannerCollection.frame.height)
+        }
+        
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == menuCollection {
-            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return UIEdgeInsets(top: 17, left: 10, bottom: 20, right: 10)
         }else {
-            return UIEdgeInsets(top: 5, left: 10, bottom: 10, right: 10)
+            return UIEdgeInsets(top:0 , left: 0, bottom: 0, right: 0)
         }
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            if collectionView == menuCollection {
+                return CGSize(width: 10, height: 19)
+            }else {
+                return  .zero
+            }
+        }
 
 }

@@ -9,10 +9,12 @@ import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var Image: UIImageView!
+    @IBOutlet weak var bannerImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func bannerIMG (img : UIImage) {
+        bannerImage.image = img
+       }
 }

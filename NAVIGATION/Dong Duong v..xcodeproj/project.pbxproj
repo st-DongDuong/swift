@@ -6,34 +6,8 @@
 	objectVersion = 55;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		DE46FC9627FC25EE00E60EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46FC9527FC25EE00E60EDB /* AppDelegate.swift */; };
-		DE46FC9D27FC25EE00E60EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE46FC9B27FC25EE00E60EDB /* Main.storyboard */; };
-		DE46FC9F27FC25FF00E60EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE46FC9E27FC25FF00E60EDB /* Assets.xcassets */; };
-		DE46FCA227FC25FF00E60EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE46FCA027FC25FF00E60EDB /* LaunchScreen.storyboard */; };
-		DE46FCAC27FC266900E60EDB /* CustomViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46FCAA27FC266900E60EDB /* CustomViewViewController.swift */; };
-		DE46FCAD27FC266900E60EDB /* CustomViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE46FCAB27FC266900E60EDB /* CustomViewViewController.xib */; };
-		DE46FD0727FDE02300E60EDB /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46FD0627FDE02300E60EDB /* Navigation.swift */; };
-		DE46FD0A27FDFE2800E60EDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46FD0827FDFE2800E60EDB /* HomeViewController.swift */; };
-		DE46FD0B27FDFE2900E60EDB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE46FD0927FDFE2800E60EDB /* HomeViewController.xib */; };
-		DE46FD0E27FDFF4B00E60EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46FD0C27FDFF4B00E60EDB /* LoginViewController.swift */; };
-		DE46FD0F27FDFF4B00E60EDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE46FD0D27FDFF4B00E60EDB /* LoginViewController.xib */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		DE46FC9227FC25EE00E60EDB /* Dong Duong v..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dong Duong v..app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE46FC9527FC25EE00E60EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE46FC9C27FC25EE00E60EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DE46FC9E27FC25FF00E60EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DE46FCA127FC25FF00E60EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DE46FCA327FC25FF00E60EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE46FCAA27FC266900E60EDB /* CustomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewViewController.swift; sourceTree = "<group>"; };
-		DE46FCAB27FC266900E60EDB /* CustomViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewViewController.xib; sourceTree = "<group>"; };
-		DE46FD0627FDE02300E60EDB /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
-		DE46FD0827FDFE2800E60EDB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		DE46FD0927FDFE2800E60EDB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		DE46FD0C27FDFF4B00E60EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DE46FD0D27FDFF4B00E60EDB /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +24,6 @@
 		DE46FC8927FC25EE00E60EDB = {
 			isa = PBXGroup;
 			children = (
-				DE46FC9427FC25EE00E60EDB /* Dong Duong v. */,
 				DE46FC9327FC25EE00E60EDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,33 +34,6 @@
 				DE46FC9227FC25EE00E60EDB /* Dong Duong v..app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DE46FC9427FC25EE00E60EDB /* Dong Duong v. */ = {
-			isa = PBXGroup;
-			children = (
-				DE46FCA927FC264500E60EDB /* Navigation */,
-				DE46FC9B27FC25EE00E60EDB /* Main.storyboard */,
-				DE46FC9527FC25EE00E60EDB /* AppDelegate.swift */,
-				DE46FC9E27FC25FF00E60EDB /* Assets.xcassets */,
-				DE46FCA027FC25FF00E60EDB /* LaunchScreen.storyboard */,
-				DE46FCA327FC25FF00E60EDB /* Info.plist */,
-				DE46FD0827FDFE2800E60EDB /* HomeViewController.swift */,
-				DE46FD0927FDFE2800E60EDB /* HomeViewController.xib */,
-				DE46FCAA27FC266900E60EDB /* CustomViewViewController.swift */,
-				DE46FD0C27FDFF4B00E60EDB /* LoginViewController.swift */,
-				DE46FD0D27FDFF4B00E60EDB /* LoginViewController.xib */,
-				DE46FCAB27FC266900E60EDB /* CustomViewViewController.xib */,
-			);
-			path = "Dong Duong v.";
-			sourceTree = "<group>";
-		};
-		DE46FCA927FC264500E60EDB /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				DE46FD0627FDE02300E60EDB /* Navigation.swift */,
-			);
-			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,12 +94,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE46FCA227FC25FF00E60EDB /* LaunchScreen.storyboard in Resources */,
-				DE46FC9F27FC25FF00E60EDB /* Assets.xcassets in Resources */,
-				DE46FD0F27FDFF4B00E60EDB /* LoginViewController.xib in Resources */,
-				DE46FD0B27FDFE2900E60EDB /* HomeViewController.xib in Resources */,
-				DE46FCAD27FC266900E60EDB /* CustomViewViewController.xib in Resources */,
-				DE46FC9D27FC25EE00E60EDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,34 +104,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE46FD0727FDE02300E60EDB /* Navigation.swift in Sources */,
-				DE46FCAC27FC266900E60EDB /* CustomViewViewController.swift in Sources */,
-				DE46FC9627FC25EE00E60EDB /* AppDelegate.swift in Sources */,
-				DE46FD0E27FDFF4B00E60EDB /* LoginViewController.swift in Sources */,
-				DE46FD0A27FDFE2800E60EDB /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DE46FC9B27FC25EE00E60EDB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE46FC9C27FC25EE00E60EDB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DE46FCA027FC25FF00E60EDB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE46FCA127FC25FF00E60EDB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DE46FCA427FC25FF00E60EDB /* Debug */ = {

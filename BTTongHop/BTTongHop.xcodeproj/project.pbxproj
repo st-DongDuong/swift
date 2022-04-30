@@ -19,10 +19,15 @@
 		DE9ED7FA280CF2B400A3425B /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9ED7F8280CF2B400A3425B /* MenuCollectionViewCell.xib */; };
 		DE9ED800280CF5E600A3425B /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9ED7FE280CF5E600A3425B /* HeaderCollectionReusableView.swift */; };
 		DE9ED801280CF5E600A3425B /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE9ED7FF280CF5E600A3425B /* HeaderCollectionReusableView.xib */; };
-		DEA3194B280D1A63001850A4 /* HeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA31949280D1A63001850A4 /* HeartViewController.swift */; };
-		DEA3194C280D1A63001850A4 /* HeartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA3194A280D1A63001850A4 /* HeartViewController.xib */; };
-		DEA3194F280D1A76001850A4 /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3194D280D1A76001850A4 /* HomeTabbarViewController.swift */; };
-		DEA31950280D1A76001850A4 /* HomeTabbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA3194E280D1A76001850A4 /* HomeTabbarViewController.xib */; };
+		DEA8BFA1281A235400F91CBA /* Home2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8BF9F281A235400F91CBA /* Home2ViewController.swift */; };
+		DEA8BFA2281A235400F91CBA /* Home2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA8BFA0281A235400F91CBA /* Home2ViewController.xib */; };
+		DEB07189280E94BB00822101 /* HeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB07187280E94BB00822101 /* HeartViewController.swift */; };
+		DEB0718A280E94BB00822101 /* HeartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEB07188280E94BB00822101 /* HeartViewController.xib */; };
+		DEB07192280E953600822101 /* HomeVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB07190280E953600822101 /* HomeVCViewController.swift */; };
+		DEB07193280E953600822101 /* HomeVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEB07191280E953600822101 /* HomeVCViewController.xib */; };
+		DED958C3280E5661003D6EF2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED958C2280E5661003D6EF2 /* Menu.swift */; };
+		DED958C7280E5A8C003D6EF2 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED958C5280E5A8B003D6EF2 /* FoodCollectionViewCell.swift */; };
+		DED958C8280E5A8C003D6EF2 /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DED958C6280E5A8B003D6EF2 /* FoodCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +45,15 @@
 		DE9ED7F8280CF2B400A3425B /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		DE9ED7FE280CF5E600A3425B /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		DE9ED7FF280CF5E600A3425B /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
-		DEA31949280D1A63001850A4 /* HeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartViewController.swift; sourceTree = "<group>"; };
-		DEA3194A280D1A63001850A4 /* HeartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartViewController.xib; sourceTree = "<group>"; };
-		DEA3194D280D1A76001850A4 /* HomeTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabbarViewController.swift; sourceTree = "<group>"; };
-		DEA3194E280D1A76001850A4 /* HomeTabbarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTabbarViewController.xib; sourceTree = "<group>"; };
+		DEA8BF9F281A235400F91CBA /* Home2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2ViewController.swift; sourceTree = "<group>"; };
+		DEA8BFA0281A235400F91CBA /* Home2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home2ViewController.xib; sourceTree = "<group>"; };
+		DEB07187280E94BB00822101 /* HeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartViewController.swift; sourceTree = "<group>"; };
+		DEB07188280E94BB00822101 /* HeartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartViewController.xib; sourceTree = "<group>"; };
+		DEB07190280E953600822101 /* HomeVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCViewController.swift; sourceTree = "<group>"; };
+		DEB07191280E953600822101 /* HomeVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVCViewController.xib; sourceTree = "<group>"; };
+		DED958C2280E5661003D6EF2 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		DED958C5280E5A8B003D6EF2 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		DED958C6280E5A8B003D6EF2 /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 		DE9ED7CA280CF12800A3425B = {
 			isa = PBXGroup;
 			children = (
+				DEA8BF9D281A232D00F91CBA /* BtTongHop2 */,
 				DE9ED7D5280CF12800A3425B /* BTTongHop */,
 				DE9ED7D4280CF12800A3425B /* Products */,
 			);
@@ -82,6 +93,7 @@
 				DE9ED7F0280CF26B00A3425B /* Banner */,
 				DE9ED7EA280CF1F100A3425B /* HomeVc */,
 				DE9ED7D6280CF12800A3425B /* AppDelegate.swift */,
+				DED958C2280E5661003D6EF2 /* Menu.swift */,
 				DE9ED7DA280CF12800A3425B /* ViewController.swift */,
 				DE9ED7DF280CF12F00A3425B /* Assets.xcassets */,
 				DE9ED7E1280CF12F00A3425B /* LaunchScreen.storyboard */,
@@ -111,6 +123,7 @@
 		DE9ED7F2280CF28100A3425B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				DED958C4280E5A63003D6EF2 /* Food */,
 				DE9ED7F7280CF2B400A3425B /* MenuCollectionViewCell.swift */,
 				DE9ED7F8280CF2B400A3425B /* MenuCollectionViewCell.xib */,
 			);
@@ -129,28 +142,54 @@
 		DEA31945280D1A1E001850A4 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				DEA31948280D1A39001850A4 /* Heart */,
-				DEA31946280D1A2A001850A4 /* Home */,
+				DEB0718F280E952400822101 /* HomeVC */,
+				DEB07186280E949C00822101 /* HearTab */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
-		DEA31946280D1A2A001850A4 /* Home */ = {
+		DEA8BF9D281A232D00F91CBA /* BtTongHop2 */ = {
 			isa = PBXGroup;
 			children = (
-				DEA3194D280D1A76001850A4 /* HomeTabbarViewController.swift */,
-				DEA3194E280D1A76001850A4 /* HomeTabbarViewController.xib */,
+				DEA8BF9E281A233700F91CBA /* Home2 */,
 			);
-			path = Home;
+			path = BtTongHop2;
 			sourceTree = "<group>";
 		};
-		DEA31948280D1A39001850A4 /* Heart */ = {
+		DEA8BF9E281A233700F91CBA /* Home2 */ = {
 			isa = PBXGroup;
 			children = (
-				DEA31949280D1A63001850A4 /* HeartViewController.swift */,
-				DEA3194A280D1A63001850A4 /* HeartViewController.xib */,
+				DEA8BF9F281A235400F91CBA /* Home2ViewController.swift */,
+				DEA8BFA0281A235400F91CBA /* Home2ViewController.xib */,
 			);
-			path = Heart;
+			path = Home2;
+			sourceTree = "<group>";
+		};
+		DEB07186280E949C00822101 /* HearTab */ = {
+			isa = PBXGroup;
+			children = (
+				DEB07187280E94BB00822101 /* HeartViewController.swift */,
+				DEB07188280E94BB00822101 /* HeartViewController.xib */,
+			);
+			path = HearTab;
+			sourceTree = "<group>";
+		};
+		DEB0718F280E952400822101 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				DEB07190280E953600822101 /* HomeVCViewController.swift */,
+				DEB07191280E953600822101 /* HomeVCViewController.xib */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		DED958C4280E5A63003D6EF2 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				DED958C5280E5A8B003D6EF2 /* FoodCollectionViewCell.swift */,
+				DED958C6280E5A8B003D6EF2 /* FoodCollectionViewCell.xib */,
+			);
+			path = Food;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,11 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE9ED7E3280CF12F00A3425B /* LaunchScreen.storyboard in Resources */,
-				DEA31950280D1A76001850A4 /* HomeTabbarViewController.xib in Resources */,
 				DE9ED7E0280CF12F00A3425B /* Assets.xcassets in Resources */,
+				DEA8BFA2281A235400F91CBA /* Home2ViewController.xib in Resources */,
 				DE9ED801280CF5E600A3425B /* HeaderCollectionReusableView.xib in Resources */,
-				DEA3194C280D1A63001850A4 /* HeartViewController.xib in Resources */,
+				DEB0718A280E94BB00822101 /* HeartViewController.xib in Resources */,
 				DE9ED7FA280CF2B400A3425B /* MenuCollectionViewCell.xib in Resources */,
+				DED958C8280E5A8C003D6EF2 /* FoodCollectionViewCell.xib in Resources */,
+				DEB07193280E953600822101 /* HomeVCViewController.xib in Resources */,
 				DE9ED7F6280CF2A600A3425B /* BannerCollectionViewCell.xib in Resources */,
 				DE9ED7EE280CF22900A3425B /* HomeViewController.xib in Resources */,
 			);
@@ -229,14 +270,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB07189280E94BB00822101 /* HeartViewController.swift in Sources */,
+				DED958C7280E5A8C003D6EF2 /* FoodCollectionViewCell.swift in Sources */,
+				DEB07192280E953600822101 /* HomeVCViewController.swift in Sources */,
 				DE9ED7DB280CF12800A3425B /* ViewController.swift in Sources */,
 				DE9ED7D7280CF12800A3425B /* AppDelegate.swift in Sources */,
 				DE9ED7F5280CF2A600A3425B /* BannerCollectionViewCell.swift in Sources */,
 				DE9ED7ED280CF22900A3425B /* HomeViewController.swift in Sources */,
 				DE9ED800280CF5E600A3425B /* HeaderCollectionReusableView.swift in Sources */,
-				DEA3194F280D1A76001850A4 /* HomeTabbarViewController.swift in Sources */,
+				DEA8BFA1281A235400F91CBA /* Home2ViewController.swift in Sources */,
+				DED958C3280E5661003D6EF2 /* Menu.swift in Sources */,
 				DE9ED7F9280CF2B400A3425B /* MenuCollectionViewCell.swift in Sources */,
-				DEA3194B280D1A63001850A4 /* HeartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
