@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Dong" customModuleProvider="target">
+            <connections>
+                <outlet property="bannerCollectionView" destination="p0B-Zc-FUx" id="ak1-MK-48w"/>
+                <outlet property="pageControl" destination="ibc-dz-1IR" id="UpJ-c1-EvY"/>
+                <outlet property="searchBar" destination="Gf3-Or-QYZ" id="p0F-Ax-GE2"/>
+                <outlet property="tableView" destination="KDy-AN-NQt" id="qXF-bF-Zp7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDy-AN-NQt">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="PVu-WH-rrp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="241"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Or-QYZ">
+                                <rect key="frame" x="48" y="0.0" width="318" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="fSo-sl-i62"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p0B-Zc-FUx">
+                                <rect key="frame" x="20" y="36" width="394" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Bno-ez-XDM"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hI1-kd-pQh">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-dz-1IR">
+                                <rect key="frame" x="149" y="201" width="116" height="26"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="pageIndicatorTintColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ibc-dz-1IR" firstAttribute="top" secondItem="p0B-Zc-FUx" secondAttribute="bottom" constant="-15" id="AKe-hT-Itu"/>
+                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="48" id="FpV-Sz-gKO"/>
+                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="top" secondItem="PVu-WH-rrp" secondAttribute="top" id="LU4-2I-dXe"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="20" id="OlS-gr-bTw"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="Xgp-iJ-W88"/>
+                            <constraint firstAttribute="trailing" secondItem="Gf3-Or-QYZ" secondAttribute="trailing" constant="48" id="hJU-ia-Qk4"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="jVj-rx-AHM"/>
+                            <constraint firstAttribute="trailing" secondItem="p0B-Zc-FUx" secondAttribute="trailing" id="oNf-vq-sfK"/>
+                            <constraint firstItem="ibc-dz-1IR" firstAttribute="centerX" secondItem="PVu-WH-rrp" secondAttribute="centerX" id="uBQ-rr-wyb"/>
+                        </constraints>
+                    </view>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KDy-AN-NQt" secondAttribute="trailing" id="Cph-Rk-WwQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KDy-AN-NQt" secondAttribute="bottom" id="T6r-th-BC8"/>
+                <constraint firstItem="KDy-AN-NQt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rIf-iW-Rm7"/>
+                <constraint firstItem="KDy-AN-NQt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zD0-FY-Lcf"/>
+            </constraints>
+            <point key="canvasLocation" x="-994.20289855072474" y="-15.401785714285714"/>
+        </view>
+    </objects>
+</document>

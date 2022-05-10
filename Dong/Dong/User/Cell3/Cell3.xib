@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="Cell3" customModule="Dong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="196"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="196"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0x-es-66h">
+                        <rect key="frame" x="23" y="0.0" width="283" height="196"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Language" translatesAutoresizingMaskIntoConstraints="NO" id="zBi-Vh-xqK">
+                                <rect key="frame" x="27" y="28" width="19" height="17"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVy-fB-fpt">
+                                <rect key="frame" x="91" y="24" width="80" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.21568627450980393" green="0.25490196078431371" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Hd-WY-ZYQ">
+                                <rect key="frame" x="248" y="32" width="7" height="11"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Feeback" translatesAutoresizingMaskIntoConstraints="NO" id="HWM-zL-z5Z">
+                                <rect key="frame" x="27" y="68" width="22" height="22"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FeedBack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmE-73-yX8">
+                                <rect key="frame" x="91" y="64" width="80" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.2156862745" green="0.25490196079999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector-1" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-4f-QsH">
+                                <rect key="frame" x="248" y="72" width="7" height="11"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rate" translatesAutoresizingMaskIntoConstraints="NO" id="h6w-fL-Ceb">
+                                <rect key="frame" x="27" y="108" width="20" height="21"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector-1" translatesAutoresizingMaskIntoConstraints="NO" id="AQ7-R2-zs1">
+                                <rect key="frame" x="248" y="152" width="7" height="11"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="New" translatesAutoresizingMaskIntoConstraints="NO" id="ziC-sn-bJI">
+                                <rect key="frame" x="27" y="148" width="20" height="20"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv4-au-DUp">
+                                <rect key="frame" x="90" y="144" width="101" height="22"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="textColor" red="0.2156862745" green="0.25490196079999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector-1" translatesAutoresizingMaskIntoConstraints="NO" id="3aG-j3-DFd">
+                                <rect key="frame" x="248" y="112" width="7" height="11"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoR-lQ-M0g">
+                                <rect key="frame" x="91" y="104" width="60" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.2156862745" green="0.25490196079999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7Hd-WY-ZYQ" secondAttribute="trailing" constant="28" id="0fq-gJ-xuP"/>
+                            <constraint firstItem="Tv4-au-DUp" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="144" id="5Uf-8d-A0F"/>
+                            <constraint firstItem="7Hd-WY-ZYQ" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="32" id="96C-Gi-JwG"/>
+                            <constraint firstItem="GoR-lQ-M0g" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="104" id="AVq-J5-xn5"/>
+                            <constraint firstItem="Tv4-au-DUp" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="90" id="C9z-Oh-Gry"/>
+                            <constraint firstAttribute="trailing" secondItem="3aG-j3-DFd" secondAttribute="trailing" constant="28" id="ChW-mB-HSq"/>
+                            <constraint firstItem="HWM-zL-z5Z" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="68" id="FeC-cw-N0U"/>
+                            <constraint firstItem="EmE-73-yX8" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="91" id="IgV-tG-i48"/>
+                            <constraint firstItem="3aG-j3-DFd" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="112" id="JRn-3Y-edp"/>
+                            <constraint firstItem="CVy-fB-fpt" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="91" id="OnJ-3g-01I"/>
+                            <constraint firstItem="5oH-4f-QsH" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="72" id="PAl-7Z-GZ5"/>
+                            <constraint firstItem="ziC-sn-bJI" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="148" id="RZU-NY-AuF"/>
+                            <constraint firstItem="CVy-fB-fpt" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="24" id="Slr-oU-KDT"/>
+                            <constraint firstAttribute="trailing" secondItem="AQ7-R2-zs1" secondAttribute="trailing" constant="28" id="XRV-DQ-abA"/>
+                            <constraint firstAttribute="trailing" secondItem="5oH-4f-QsH" secondAttribute="trailing" constant="28" id="ZJf-d4-SU0"/>
+                            <constraint firstItem="ziC-sn-bJI" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="27" id="ZqJ-1Q-DLX"/>
+                            <constraint firstItem="EmE-73-yX8" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="64" id="iZx-L1-gNY"/>
+                            <constraint firstItem="h6w-fL-Ceb" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="108" id="lGF-eV-roe"/>
+                            <constraint firstItem="zBi-Vh-xqK" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="28" id="n1v-lR-rgs"/>
+                            <constraint firstItem="zBi-Vh-xqK" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="27" id="of2-sT-VV3"/>
+                            <constraint firstItem="GoR-lQ-M0g" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="91" id="oqW-4N-8aN"/>
+                            <constraint firstItem="HWM-zL-z5Z" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="27" id="rVJ-a6-rIU"/>
+                            <constraint firstItem="h6w-fL-Ceb" firstAttribute="leading" secondItem="V0x-es-66h" secondAttribute="leading" constant="27" id="w8c-Ht-MpR"/>
+                            <constraint firstItem="AQ7-R2-zs1" firstAttribute="top" secondItem="V0x-es-66h" secondAttribute="top" constant="152" id="ww1-Yl-iUi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="V0x-es-66h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="MXy-ow-vcI"/>
+                    <constraint firstItem="V0x-es-66h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YKE-mf-yWq"/>
+                    <constraint firstAttribute="bottom" secondItem="V0x-es-66h" secondAttribute="bottom" id="mkG-5C-Fig"/>
+                    <constraint firstAttribute="trailing" secondItem="V0x-es-66h" secondAttribute="trailing" constant="23" id="nXb-fY-pea"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="totalView" destination="V0x-es-66h" id="FWn-bH-3gO"/>
+            </connections>
+            <point key="canvasLocation" x="-134" y="0.0"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Feeback" width="22" height="22"/>
+        <image name="Language" width="19" height="16.5"/>
+        <image name="New" width="20" height="20"/>
+        <image name="Rate" width="20" height="21"/>
+        <image name="Vector-1" width="7" height="11"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
