@@ -7,11 +7,22 @@
 
 import UIKit
 
+protocol TodayTableViewCellDelegate: AnyObject {
+    func cell(_ cell: TodayTableViewCell,_ action: TodayTableViewCell.Action)
+}
+
 class TodayTableViewCell: UITableViewCell {
+    
+    enum Action {
+        case didSelect(Restaurant)
+    }
     
     var menusRes: [Restaurant] = []
     
     @IBOutlet weak var collectionToday: UICollectionView!
+    
+    
+    weak var delegate: TodayTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,5 +68,9 @@ extension TodayTableViewCell : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("alo: \(menusRes[indexPath.row])")
+        delegate?.cell(self, .didSelect(menusRes[indexPath.row]))
+    }
 }

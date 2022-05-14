@@ -9,8 +9,10 @@ import UIKit
 
 class Cell1: UITableViewCell {
 
+    @IBOutlet weak var totalView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        totalView.layer.cornerRadius = 15
         // Initialization code
     }
 

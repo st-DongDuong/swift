@@ -17,13 +17,17 @@ class CustomCollection: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        totalVieww.layer.cornerRadius = 10
-        imageToday.layer.cornerRadius = 10
+        totalVieww.layer.cornerRadius = 15
+        imageToday.layer.cornerRadius = 15
     }
     
     func updateToday(image: String, name:String, address:String){
         imageToday.downloaded(from: image)
         nameToday.text = name
         addressToday.text = address
+    }
+    @IBAction func todayButton(_ sender: Any) {
+        print ("alo")
+       
     }
 }

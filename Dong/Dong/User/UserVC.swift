@@ -29,6 +29,9 @@ class UserVC: UIViewController {
         let cell3 = UINib(nibName: "Cell3", bundle: nil)
         tableView.register(cell3, forCellReuseIdentifier: "Cell3")
         
+        let Footer = UINib(nibName: "Footer", bundle: nil)
+        tableView.register(Footer, forCellReuseIdentifier: "Footer")
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -37,7 +40,7 @@ class UserVC: UIViewController {
 
 extension UserVC :UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -55,16 +58,16 @@ extension UserVC :UITableViewDataSource{
                 return Cell2()
             }
             return cell2
-        } else {
+        } else if(indexPath.section == 2) {
             guard let cell3 = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as? Cell3 else {
                 return Cell3()
             }
             return cell3
-//        } else {
-//            guard let cell4 = tableView.dequeueReusableCell(withIdentifier: "Footer", for: indexPath) as? Footer else {
-//                return Footer()
-//            }
-//            return cell4
+        } else {
+            guard let Footer = tableView.dequeueReusableCell(withIdentifier: "Footer", for: indexPath) as? Footer else {
+                return Footer()
+            }
+            return Footer
             
         }
         }

@@ -30,8 +30,6 @@ struct Menu {
     var imageUrl: String?
     var discount: Int?
 }
-struct Photos{
-    
-}
+
 
 

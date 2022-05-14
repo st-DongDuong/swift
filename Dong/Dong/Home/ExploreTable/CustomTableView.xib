@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,17 +46,20 @@ Chittagong</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ1-a4-Gn9">
-                                <rect key="frame" x="244" y="48" width="57" height="32"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Book">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </backgroundConfiguration>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ1-a4-Gn9">
+                                <rect key="frame" x="253" y="48" width="88" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Detail">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="gray" title="Detail">
+                                    <color key="baseForegroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                    <color key="baseBackgroundColor" red="0.19607843137254902" green="0.71764705882352942" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vkd-e3-VEs" firstAttribute="leading" secondItem="TWS-Lo-yYQ" secondAttribute="trailing" constant="16" id="0uN-9M-9Pj"/>
                             <constraint firstItem="TWS-Lo-yYQ" firstAttribute="top" secondItem="mnl-6N-KjV" secondAttribute="bottom" constant="12" id="37P-mL-8un"/>
@@ -67,9 +69,6 @@ Chittagong</string>
                             <constraint firstItem="TWS-Lo-yYQ" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="90" id="IGe-Oj-tvM"/>
                             <constraint firstAttribute="trailing" secondItem="mnl-6N-KjV" secondAttribute="trailing" constant="25" id="Svq-Yf-gm8"/>
                             <constraint firstItem="tSJ-Ie-zQH" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="12" id="dU7-7a-6lS"/>
-                            <constraint firstAttribute="trailing" secondItem="wZ1-a4-Gn9" secondAttribute="trailing" constant="40" id="hA6-Is-Jnq"/>
-                            <constraint firstItem="wZ1-a4-Gn9" firstAttribute="top" secondItem="4OL-iU-5eR" secondAttribute="top" constant="48" id="iFv-gI-d3a"/>
-                            <constraint firstAttribute="bottom" secondItem="wZ1-a4-Gn9" secondAttribute="bottom" constant="12" id="mOr-eh-Mmt"/>
                             <constraint firstAttribute="bottom" secondItem="tSJ-Ie-zQH" secondAttribute="bottom" constant="12" id="mtU-Qg-ZsH"/>
                             <constraint firstItem="mnl-6N-KjV" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="90" id="rpB-lg-Ha5"/>
                         </constraints>
@@ -91,6 +90,7 @@ Chittagong</string>
                 </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="totalView" destination="4OL-iU-5eR" id="5HH-w4-Dlf"/>
             </connections>
@@ -100,8 +100,8 @@ Chittagong</string>
     <resources>
         <image name="explore2" width="64" height="64"/>
         <image name="gps" width="12" height="14"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

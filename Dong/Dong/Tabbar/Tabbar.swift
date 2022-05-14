@@ -24,9 +24,9 @@ class Tabbar : UITabBarController{
         homeNavi.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
         
             
-        let list = ListVC()
-        let listNavi = UINavigationController(rootViewController: list)
-        list.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), tag: 1)
+        let listVC = ListVC()
+        let listNavi = UINavigationController(rootViewController: listVC)
+        listVC.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), tag: 1)
         
         
         let user = UserVC()

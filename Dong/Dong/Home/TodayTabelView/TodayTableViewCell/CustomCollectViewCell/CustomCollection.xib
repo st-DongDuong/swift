@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="148" height="196"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Biryani" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMj-up-3Bh">
-                                <rect key="frame" x="10" y="131.5" width="133" height="20.5"/>
+                                <rect key="frame" x="10" y="136.5" width="133" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,19 +34,29 @@ Restaurant</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euV-RF-v2j">
-                                <rect key="frame" x="10" y="0.0" width="128" height="135"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euV-RF-v2j">
+                                <rect key="frame" x="10" y="5" width="128" height="130"/>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gps" translatesAutoresizingMaskIntoConstraints="NO" id="Aza-0M-ssZ">
-                                <rect key="frame" x="10" y="157" width="10" height="31"/>
+                                <rect key="frame" x="10" y="162" width="10" height="26"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKQ-kM-Rig">
+                                <rect key="frame" x="10" y="131" width="123" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="todayButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="k04-b1-ndW"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="euV-RF-v2j" secondAttribute="bottom" constant="61" id="1Qd-17-Tzv"/>
                             <constraint firstItem="nEA-4h-Mfp" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="35" id="3Dh-Er-MUP"/>
                             <constraint firstAttribute="bottom" secondItem="nEA-4h-Mfp" secondAttribute="bottom" constant="10" id="3ZO-d5-pos"/>
-                            <constraint firstItem="euV-RF-v2j" firstAttribute="top" secondItem="xDp-xg-zRp" secondAttribute="top" id="3e3-jK-28x"/>
+                            <constraint firstItem="euV-RF-v2j" firstAttribute="top" secondItem="xDp-xg-zRp" secondAttribute="top" constant="5" id="3e3-jK-28x"/>
                             <constraint firstAttribute="trailing" secondItem="Aza-0M-ssZ" secondAttribute="trailing" constant="128" id="4pp-xC-CJ9"/>
                             <constraint firstAttribute="trailing" secondItem="nEA-4h-Mfp" secondAttribute="trailing" constant="5" id="Ga7-vy-BpY"/>
                             <constraint firstItem="Aza-0M-ssZ" firstAttribute="bottom" secondItem="xDp-xg-zRp" secondAttribute="bottomMargin" id="IRJ-Iq-Zsn"/>
@@ -54,7 +64,7 @@ Restaurant</string>
                             <constraint firstItem="FMj-up-3Bh" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="J7P-mL-zep"/>
                             <constraint firstItem="Aza-0M-ssZ" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="Moa-gz-qvk"/>
                             <constraint firstAttribute="trailing" secondItem="euV-RF-v2j" secondAttribute="trailing" constant="10" id="UGP-2W-roO"/>
-                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="10" id="lYY-aD-vBf"/>
+                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="5" id="lYY-aD-vBf"/>
                             <constraint firstItem="euV-RF-v2j" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="z4W-vp-yZT"/>
                             <constraint firstAttribute="trailing" secondItem="FMj-up-3Bh" secondAttribute="trailing" constant="5" id="zs2-RA-lP4"/>
                         </constraints>
@@ -83,13 +93,13 @@ Restaurant</string>
                 <outlet property="nameToday" destination="FMj-up-3Bh" id="Iim-Se-tb2"/>
                 <outlet property="totalVieww" destination="xDp-xg-zRp" id="q1A-NM-2iV"/>
             </connections>
-            <point key="canvasLocation" x="-404.34782608695656" y="-22.098214285714285"/>
+            <point key="canvasLocation" x="-1188" y="-27"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="gps" width="12" height="14"/>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

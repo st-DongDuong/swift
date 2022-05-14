@@ -35,12 +35,9 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p0B-Zc-FUx">
-                                <rect key="frame" x="20" y="36" width="394" height="180"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p0B-Zc-FUx">
+                                <rect key="frame" x="0.0" y="36" width="409" height="221"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="Bno-ez-XDM"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hI1-kd-pQh">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,23 +45,22 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-dz-1IR">
-                                <rect key="frame" x="149" y="201" width="116" height="26"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-dz-1IR">
+                                <rect key="frame" x="146" y="231" width="116" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="pageIndicatorTintColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ibc-dz-1IR" firstAttribute="top" secondItem="p0B-Zc-FUx" secondAttribute="bottom" constant="-15" id="AKe-hT-Itu"/>
+                            <constraint firstAttribute="bottom" secondItem="p0B-Zc-FUx" secondAttribute="bottom" id="6E9-V0-5gx"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="Cl7-rx-hS5"/>
                             <constraint firstItem="Gf3-Or-QYZ" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="48" id="FpV-Sz-gKO"/>
                             <constraint firstItem="Gf3-Or-QYZ" firstAttribute="top" secondItem="PVu-WH-rrp" secondAttribute="top" id="LU4-2I-dXe"/>
-                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="20" id="OlS-gr-bTw"/>
-                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="Xgp-iJ-W88"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" id="OXE-f3-WA2"/>
+                            <constraint firstAttribute="trailing" secondItem="p0B-Zc-FUx" secondAttribute="trailing" constant="5" id="b0a-Gt-ZeB"/>
                             <constraint firstAttribute="trailing" secondItem="Gf3-Or-QYZ" secondAttribute="trailing" constant="48" id="hJU-ia-Qk4"/>
-                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="jVj-rx-AHM"/>
-                            <constraint firstAttribute="trailing" secondItem="p0B-Zc-FUx" secondAttribute="trailing" id="oNf-vq-sfK"/>
-                            <constraint firstItem="ibc-dz-1IR" firstAttribute="centerX" secondItem="PVu-WH-rrp" secondAttribute="centerX" id="uBQ-rr-wyb"/>
                         </constraints>
                     </view>
                 </tableView>
@@ -77,7 +73,7 @@
                 <constraint firstItem="KDy-AN-NQt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rIf-iW-Rm7"/>
                 <constraint firstItem="KDy-AN-NQt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zD0-FY-Lcf"/>
             </constraints>
-            <point key="canvasLocation" x="-994.20289855072474" y="-15.401785714285714"/>
+            <point key="canvasLocation" x="-1443.4782608695652" y="-56.25"/>
         </view>
     </objects>
 </document>
