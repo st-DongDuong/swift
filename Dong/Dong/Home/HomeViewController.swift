@@ -26,8 +26,8 @@ class HomeViewController: UIViewController {
         setupPageControl()
         getRestaurants()
         
-       // self.navigationController?.isNavigationBarHidden = true
-       // self.tabBarController?.tabBar.isHidden = true
+       self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         
     }
     
@@ -242,7 +242,7 @@ extension HomeViewController:  UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 3
+            return listRestaurant.count
         }
     }
     
@@ -253,12 +253,14 @@ extension HomeViewController:  UITableViewDataSource {
             }
             cell.menusRes = listRestaurant
             cell.reloadData()
+            
             cell.delegate = self
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableView") as? CustomTableView else {
                 return UITableViewCell()
             }
+        
             return cell
         }
     }
@@ -283,7 +285,7 @@ extension HomeViewController: TodayTableViewCellDelegate {
         switch action {
         case .didSelect(let restaurant):
         
-            print(restaurant.name)
+            print("truyền sự kiên từ cell con về man hình cha")
             let vc = DetailRes()
             // Truỳen dữ liệu
             vc.restaurant = restaurant

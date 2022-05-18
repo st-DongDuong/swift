@@ -8,9 +8,15 @@
 import UIKit
 
 class DetailRes: UIViewController {
+  
+    @IBOutlet weak var numberLabel: UILabel!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    var order: Restaurant?
     var restaurant: Restaurant?
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -19,11 +25,28 @@ class DetailRes: UIViewController {
         navigationController?.navigationBar.isHidden = true
         viewFooter.layer.cornerRadius = 20
         self.tabBarController?.tabBar.isHidden = true
+        headerView.layer.cornerRadius = 16
+        headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
         
+    }
+    
+    
+    @IBAction func checkOutButton(_ sender: Any) {
+        let cart = CartVC()
+        print("tạo cartDetail ở Cart và gán = restaurant để truyền vào cell")
+        cart.cartDetail = restaurant
+        cart.delegate = self
+        cart.modalPresentationStyle = .fullScreen
+        present(cart, animated: true, completion: nil)
+
     }
     
     @IBAction private func  backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    @IBAction func cartButton(_ sender: Any) {
+        
+    
     }
     
     func configDetail(){
@@ -72,13 +95,15 @@ extension DetailRes :UICollectionViewDataSource{
             guard  let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "Detail2", for: indexPath) as? Detail2  else {
                 return UICollectionViewCell()
             }
+            
             cell2.updateDetail2(img: restaurant?.menus[indexPath.item].imageUrl ?? "",
                                 name: restaurant?.menus[indexPath.item].name ?? "",
                                 price: restaurant?.menus[indexPath.item].price ?? 0)
+            
             return cell2
+            
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0{
             return CGSize (width: 0, height: 0)
@@ -86,7 +111,8 @@ extension DetailRes :UICollectionViewDataSource{
             return CGSize (width: collectionView.bounds.width, height: 70)
         }
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {       if indexPath.section == 0 {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if indexPath.section == 0 {
         let Header = collectionView.dequeueReusableSupplementaryView(
             ofKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "Header", for: indexPath)
@@ -98,6 +124,7 @@ extension DetailRes :UICollectionViewDataSource{
         return HeaderDetailCollection
     }
     }
+    
 }
 
 extension DetailRes: UICollectionViewDelegateFlowLayout{
@@ -113,7 +140,7 @@ extension DetailRes: UICollectionViewDelegateFlowLayout{
         if section == 0{
             return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         } else {
-            return UIEdgeInsets(top: 12, left: 8, bottom: 6, right: 8)
+            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 8)
         }
     }
     
@@ -126,12 +153,47 @@ extension DetailRes: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(restaurant?.menus[indexPath.row])
+        print("BẤM VÀO CELL COLLEC VÀ TRUYÊN DỮ LIỆU THUẬN")
+     
         if indexPath.section != 0 {
             let order  = Ordering()
+            order.delegate = self  // nhận uỷ quyền từ màn hình bên kia 
             order.menu = restaurant?.menus[indexPath.item]
+
+
             order.modalPresentationStyle = .fullScreen
             present(order, animated: true, completion: nil)
         }
     }
 }
+
+extension DetailRes :OrderingDelegate{
+    func cell(_ cell: Ordering, _ action: Ordering.Action) {
+//        for cell in Ordering {
+        
+        switch action {
+        case .total(let number):
+          //  print("màn hình detail\(number) ")
+            numberLabel.text = "\(number)"
+            print("recive delege from Ordering \(number) ")
+
+        case .price(let totaly ):
+            priceLabel.text = "Check out  \(totaly).000đ"
+            print("recive delege from Ordering \(totaly)")
+    }
+    }
+}
+extension DetailRes: CartVCDelegate{
+    func cart(_ cart: CartVC, _ Action: CartVC.Action) {
+        switch Action{
+    
+        case.totalAmount(let totalAmount):
+            numberLabel.text = "\(totalAmount)"
+        case .Order( let price ):
+            priceLabel.text = "check out \(price).000đ"
+            collectionView.reloadData()
+        }
+    }
+}
+    
+

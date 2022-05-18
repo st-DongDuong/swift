@@ -7,6 +7,15 @@
 
 import UIKit
 
+class History{
+    static var history: [Order] = []
+}
+
+
+class CartData { // tạo biến toàn cục cart để sd dc hết
+    static var cart: [ItemOrder] = []
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

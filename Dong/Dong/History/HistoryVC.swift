@@ -1,13 +1,13 @@
 //
-//  CartVC.swift
+//  HistoryVC.swift
 //  Dong
 //
-//  Created by Dong Duong V. on 5/12/22.
+//  Created by Dong Duong V. on 5/16/22.
 //
 
 import UIKit
 
-class CartVC: UIViewController {
+class HistoryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTableView: UITableViewCell {
-
+   // var menuExplore : [Restaurant] = []
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,7 +24,8 @@ class CustomTableView: UITableViewCell {
    }
     func updateTabel(image:UIImage, name:String, address:String){
         imageTable.image = image
-        nameLabel.text = name
+            nameLabel.text = name
         addressLabel.text = address
+    
     }
 }

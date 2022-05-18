@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,22 +19,22 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSV-8T-utI">
-                        <rect key="frame" x="5" y="0.0" width="162" height="242"/>
+                        <rect key="frame" x="5" y="10" width="162" height="230"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="today2" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-N5-gTE">
-                                <rect key="frame" x="8" y="12" width="146" height="110"/>
+                                <rect key="frame" x="8" y="5" width="146" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="foN-xF-T64"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơm gà xé trộn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB7-id-dsy">
-                                <rect key="frame" x="8" y="136" width="146" height="17"/>
+                                <rect key="frame" x="8" y="129" width="146" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-gp-yKh">
-                                <rect key="frame" x="8" y="161" width="146" height="12"/>
+                                <rect key="frame" x="8" y="154" width="146" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.41960784313725491" green="0.44705882352941173" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +44,7 @@
                         <constraints>
                             <constraint firstItem="TB7-id-dsy" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="CiJ-GB-zvI"/>
                             <constraint firstAttribute="trailing" secondItem="dRL-gp-yKh" secondAttribute="trailing" constant="8" id="DwM-50-Dax"/>
-                            <constraint firstItem="bOk-N5-gTE" firstAttribute="top" secondItem="TSV-8T-utI" secondAttribute="top" constant="12" id="H7k-sB-uoG"/>
+                            <constraint firstItem="bOk-N5-gTE" firstAttribute="top" secondItem="TSV-8T-utI" secondAttribute="top" constant="5" id="H7k-sB-uoG"/>
                             <constraint firstItem="dRL-gp-yKh" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="OBP-1w-mGK"/>
                             <constraint firstItem="dRL-gp-yKh" firstAttribute="top" secondItem="TB7-id-dsy" secondAttribute="bottom" constant="8" id="Rbu-an-naR"/>
                             <constraint firstAttribute="trailing" secondItem="TB7-id-dsy" secondAttribute="trailing" constant="8" id="a97-y1-1so"/>
@@ -60,8 +61,8 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="TSV-8T-utI" secondAttribute="trailing" constant="5" id="Kn9-WW-cb0"/>
                 <constraint firstItem="TSV-8T-utI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="bhp-Z2-cat"/>
-                <constraint firstAttribute="bottom" secondItem="TSV-8T-utI" secondAttribute="bottom" id="nKr-Hf-tlc"/>
-                <constraint firstItem="TSV-8T-utI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zNv-IP-Q03"/>
+                <constraint firstAttribute="bottom" secondItem="TSV-8T-utI" secondAttribute="bottom" constant="2" id="nKr-Hf-tlc"/>
+                <constraint firstItem="TSV-8T-utI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="zNv-IP-Q03"/>
             </constraints>
             <size key="customSize" width="320" height="191"/>
             <connections>

@@ -7,8 +7,11 @@
 
 import UIKit
 
-protocol TodayTableViewCellDelegate: AnyObject {
-    func cell(_ cell: TodayTableViewCell,_ action: TodayTableViewCell.Action)
+//protocol TodayTableViewCellDelegate: AnyObject {
+//    func cell(_ cell: TodayTableViewCell,_ action: TodayTableViewCell.Action)
+//}
+protocol TodayTableViewCellDelegate : AnyObject{
+    func cell(_ cell :TodayTableViewCell,_ action: TodayTableViewCell.Action)
 }
 
 class TodayTableViewCell: UITableViewCell {
@@ -16,9 +19,10 @@ class TodayTableViewCell: UITableViewCell {
     enum Action {
         case didSelect(Restaurant)
     }
-    
-    var menusRes: [Restaurant] = []
-    
+
+   
+    var menusRes: [Restaurant] = [] // gán. = res để truy cập thông tin cho cell
+    var listMe : [Menu] = []
     @IBOutlet weak var collectionToday: UICollectionView!
     
     
@@ -70,7 +74,7 @@ extension TodayTableViewCell : UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("alo: \(menusRes[indexPath.row])")
+       // print("alo: \(menusRes[indexPath.row])")
         delegate?.cell(self, .didSelect(menusRes[indexPath.row]))
     }
 }

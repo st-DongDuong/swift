@@ -26,8 +26,5 @@ class CustomCollection: UICollectionViewCell {
         nameToday.text = name
         addressToday.text = address
     }
-    @IBAction func todayButton(_ sender: Any) {
-        print ("alo")
-       
-    }
+ 
 }

@@ -16,6 +16,7 @@ class Detail1: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 20
+    
     }
     func updateCell1(image: String, name: String, address: String){
         imageView.downloaded(from: image)
