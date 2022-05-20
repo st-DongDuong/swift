@@ -8,12 +8,12 @@
 import UIKit
 
 class DetailRestaurant: UIViewController {
-
+    var orderItems :[OrderItem] = []
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-   var restaurant: Restaurant = Restaurant(id: 0, name: "", description: "", address: Address(lat: 0, lng: 0, address: ""), photos: [], menus: [])
+    var restaurant: Restaurant?
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var viewFooter: UIView!
@@ -21,6 +21,7 @@ class DetailRestaurant: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configDetail()
+        
         navigationController?.navigationBar.isHidden = true
         viewFooter.layer.cornerRadius = 20
         self.tabBarController?.tabBar.isHidden = true
@@ -30,51 +31,51 @@ class DetailRestaurant: UIViewController {
     }
 
     // MARK: - checkOutButton
-    
     @IBAction func checkOutButton(_ sender: Any) {
-        let his = CartVC  ()
-//        CartData.cart.forEach { cart in
-           //if let index = HistoryRestaurantData.orderHistories.firstIndex(where: { $0.id == restaurant.id}) {
-////                if let index = HistoryRestaurantData.listRestaurant[index].orederItems.firstIndex(where: {$0.menuItem.id == cart.menuItem.id}) {
-////                    HistoryRestaurantData.listRestaurant[index].orederItems[index] = cart
-////                } else {
-////                    HistoryRestaurantData.listRestaurant[index].orederItems.append(cart)
-////                }
-//                HistoryRestaurantData.orderHistories[index].orederItems.append(cart)
-//            } else {
-//                HistoryRestaurantData.orderHistories.append(.init(nameStore: restaurant.name, id: restaurant.id, orderDate: "" , address: restaurant.address.address, imgStore: restaurant.photos.first!, orederItems: [cart]))
-//            }
-//        }
+        
+        // Save order  in history
+        // 1 Tao Order
+        let order = Order(restaurant: restaurant!,
+                          paymentDate: Date(),
+                          orederItems: orderItems)
+        // 2.Save Order
+        OrderHistories.orderHistories.append(order)
+        print(OrderHistories.orderHistories.first?.restaurant.name)
+        let his = OrderHistory()
         his.modalPresentationStyle = .fullScreen
         present(his, animated: true, completion: nil)    }
     
     // MARK: - backButton
+   
     @IBAction private func  backButton(_ sender: UIButton) {
+       
         tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
+   
     // MARK: - cartButtonTotal
+   
     @IBAction func cartButton(_ sender: Any) {
         let cartOrder = CartVC()
         cartOrder.cartDetail = restaurant
-        //cartOrder.delegate = self
+        cartOrder.delegate = self
         cartOrder.modalPresentationStyle = .fullScreen
         present(cartOrder, animated: true, completion: nil)
-        
+        collectionView.reloadData()
     }
     
     // MARK: - ConfigDetail
     
     func configDetail() {
-        let cell1 = UINib(nibName:"Detail1", bundle: nil)
-        collectionView.register(cell1, forCellWithReuseIdentifier: "Detail1")
-        let cell2 = UINib(nibName: "Detail2", bundle: nil)
-        collectionView.register(cell2, forCellWithReuseIdentifier: "Detail2")
+        let CustomDetailRestaurant = UINib(nibName: "CustomDetailRestaurant", bundle: nil)
+        collectionView.register(CustomDetailRestaurant, forCellWithReuseIdentifier: "CustomDetailRestaurant")
+        let CustomRecomendMenu = UINib(nibName: "CustomRecomendMenu", bundle: nil)
+        collectionView.register(CustomRecomendMenu, forCellWithReuseIdentifier: "CustomRecomendMenu")
         
         collectionView.register(
-            UINib(nibName: "HeaderDetailCollection", bundle: Bundle.main),
+            UINib(nibName: "HeaderRecomendMenu", bundle: Bundle.main),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "HeaderDetailCollection")
+            withReuseIdentifier: "HeaderRecomendMenu")
         
         collectionView.register(
             UINib(nibName: "Header", bundle: Bundle.main),
@@ -94,28 +95,28 @@ extension DetailRestaurant :UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return restaurant.menus.count ?? 0
+            return restaurant?.menus.count ?? 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Detail1", for: indexPath) as? Detail1  else {
+            guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomDetailRestaurant", for: indexPath) as? CustomDetailRestaurant  else {
                 return UICollectionViewCell()
             }
             
-            cell.updateCell1(image: restaurant.photos.first ?? "",
-                             name: restaurant.name ?? "",
-                             address: restaurant.address.address ?? "")
+            cell.updateCell1(image: restaurant?.photos.first ?? "",
+                             name: restaurant?.name ?? "",
+                             address: restaurant?.address.address ?? "")
             return cell
             
         } else {
-            guard  let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "Detail2", for: indexPath) as? Detail2  else {
+            guard  let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomRecomendMenu", for: indexPath) as? CustomRecomendMenu  else {
                 return UICollectionViewCell()
             }
-            cell2.updateDetail2(img: restaurant.menus[indexPath.item].imageUrl ?? "",
-                                name: restaurant.menus[indexPath.item].name ?? "",
-                                price: restaurant.menus[indexPath.item].price ?? 0)
+            cell2.updateDetail2(img: restaurant?.menus[indexPath.item].imageUrl ?? "",
+                                name: restaurant?.menus[indexPath.item].name ?? "",
+                                price: restaurant?.menus[indexPath.item].price ?? 0)
             
             return cell2
             
@@ -139,7 +140,7 @@ extension DetailRestaurant :UICollectionViewDataSource {
         } else {
             let HeaderDetailCollection = collectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: "HeaderDetailCollection", for: indexPath)
+                withReuseIdentifier: "HeaderRecomendMenu", for: indexPath)
             return HeaderDetailCollection
         }
     }
@@ -175,10 +176,10 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout{
         // MARK: - push qua Order
         
         if indexPath.section != 0 {
-            let order  = Ordering()
+            let order  = OrderingVC()
             order.delegate = self  // nhận uỷ quyền từ màn hình bên kia
-            order.menu = restaurant.menus[indexPath.item]
-            order.restaurant = restaurant
+            order.menu = restaurant?.menus[indexPath.item]
+           // order.restaurant = restaurant
             
             order.modalPresentationStyle = .fullScreen
             present(order, animated: true, completion: nil)
@@ -189,23 +190,23 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout{
 
 
 extension DetailRestaurant :OrderingDelegate{
-    func cell(_ cell: Ordering, _ action: Ordering.Action) {
+    func cell(_ cell: OrderingVC, _ action: OrderingVC.Action) {
         
         switch action {
-        case .total(let number):
-            //  print("màn hình detail\(number) ")
-            numberLabel.text = "\(number)"
-            print("recive delege from Ordering \(number) ")
+        case .save(let menuItem, let amount, let notes):
+            let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
+            numberLabel.text = "\(amount)"
+            priceLabel.text =  "\(menuItem.price ?? 0 * amount)"
+        orderItems.append(orderItem)
             
-        case .price(let totaly ):
-            priceLabel.text = "Check out  \(totaly).000đ"
-            print("recive delege from Ordering \(totaly)")
+            print(orderItems.count)
+       
         }
     }
 }
 
 extension DetailRestaurant: CartVCDelegate {
-    func cart(_ cart: CartVC, _ Action: CartVC.Action) {
+    func cartdata(_ cart: CartVC, _ Action: CartVC.Action) {
         switch Action{
         case.totalAmount(let totalAmount):
             numberLabel.text = "\(totalAmount)"

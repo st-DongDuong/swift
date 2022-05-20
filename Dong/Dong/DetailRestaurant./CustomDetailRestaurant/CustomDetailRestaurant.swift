@@ -8,7 +8,7 @@
 import UIKit
 
 
-class Detail1: UICollectionViewCell {
+class CustomDetailRestaurant: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!

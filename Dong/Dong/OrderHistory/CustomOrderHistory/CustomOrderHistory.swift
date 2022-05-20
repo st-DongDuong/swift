@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomHistoryVC: UITableViewCell {
+class CustomOrderHistory: UITableViewCell {
 
    
     @IBOutlet weak var addressHis: UILabel!

@@ -7,53 +7,58 @@
 
 import UIKit
 
-class HistoryVC: UIViewController {
+class OrderHistory: UIViewController {
     
+    var orderDetail = OrderHistories.orderHistories
     @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
+      
     }
-    
+
     @IBAction func back(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    @IBAction func backbu(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+    }
     
     func configTable() {
-        let cell = UINib(nibName: "CustomTableView", bundle: nil)
-        tableView.register(cell, forCellReuseIdentifier: "CustomTableView")
+        let cell = UINib(nibName: "CustomOrderHistory", bundle: nil)
+        tableView.register(cell, forCellReuseIdentifier: "CustomOrderHistory")
+       
         tableView.dataSource = self
         tableView .delegate = self
     }
 }
 
-extension HistoryVC :UITableViewDataSource {
-    
+extension OrderHistory :UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        HistoryRestaurantData.orderHistories.count
+        orderDetail.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableView") as? CustomTableView else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomOrderHistory") as? CustomOrderHistory else {
             return UITableViewCell()
         }
-        
-        let res = HistoryRestaurantData.orderHistories[indexPath.item]
-        cell.updateTabel(image: res.imgStore, name: res.nameStore, address: res.address)
+    
+        cell.updateHis(image: orderDetail.first?.restaurant.photos.first ?? ""  , name: orderDetail.first?.restaurant.name ?? "" ,
+                       address: orderDetail.first?.restaurant.address.address ?? "")
         
         return cell
     }
 }
 
-extension HistoryVC : UITableViewDelegate{
+extension OrderHistory : UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var order  = OrderingDetailVC()
-        order.orderDetail  = HistoryRestaurantData.orderHistories
+        var order  = OrderHistoryDetail()
+    //    order.orderDetail  = HistoryRestaurantData.orderHistories
         navigationController?.pushViewController(order, animated: true)
     }
 }

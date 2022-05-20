@@ -7,13 +7,11 @@
 
 import UIKit
 
-class OrderingDetailVC: UIViewController {
+class OrderHistoryDetail: UIViewController {
    
-    var orderDetail = HistoryRestaurantData.orderHistories
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerOD: UIView!
-    
     
     @IBOutlet weak var totalOD: UIButton!
     @IBAction private func  backButton(_ sender: UIButton) {
@@ -35,17 +33,16 @@ class OrderingDetailVC: UIViewController {
     }
 }
 
-extension OrderingDetailVC :UITableViewDataSource{
+extension OrderHistoryDetail :UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        orderDetail.count
+      //  orderDetail.count
+        1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewOrdering") as? CustomViewOrdering else {
             return UITableViewCell()
         }
-        cell.updateCustom(name: orderDetail.first?.orederItems[indexPath.item].MenuItem.name ?? "", note: orderDetail.first?.orederItems[indexPath.item].note ?? "", quality: orderDetail.first?.orederItems[indexPath.item].amout ?? 0,
-                          price:  orderDetail.first?.orederItems[indexPath.item].MenuItem.price ?? 0)
-
+//        cell.updateCustom(name: orderDetail.first?.restaurant.name, note: <#T##String#>, quality: <#T##Int#>, price: <#T##Int#>)
         return cell
     }
 }

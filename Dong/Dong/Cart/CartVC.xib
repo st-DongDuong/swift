@@ -17,7 +17,7 @@
                 <outlet property="footerView" destination="9WL-2G-svv" id="ufm-7g-Zoh"/>
                 <outlet property="priceLabel" destination="c1r-V9-Pe9" id="Jxa-oX-qRj"/>
                 <outlet property="qualityLabel" destination="cDf-ZP-8hv" id="iBg-33-MvX"/>
-                <outlet property="tableView" destination="u0m-HN-irB" id="gBP-94-he3"/>
+                <outlet property="tableView" destination="8bE-Jl-JVh" id="vaE-9t-TBA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,10 +26,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u0m-HN-irB" customClass="CartVc" customModule="Dong" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="177" width="414" height="634"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxl-33-zju">
                     <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                     <subviews>
@@ -116,22 +112,26 @@
                         <constraint firstItem="cDf-ZP-8hv" firstAttribute="leading" secondItem="9WL-2G-svv" secondAttribute="leading" constant="8" id="uFa-r3-fse"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8bE-Jl-JVh">
+                    <rect key="frame" x="0.0" y="140" width="414" height="660"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="9WL-2G-svv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="6PG-1B-s6W"/>
                 <constraint firstAttribute="bottom" secondItem="9WL-2G-svv" secondAttribute="bottom" constant="19" id="BMd-qD-hi5"/>
-                <constraint firstItem="9WL-2G-svv" firstAttribute="centerX" secondItem="u0m-HN-irB" secondAttribute="centerX" id="CLC-Hh-DQV"/>
-                <constraint firstItem="9WL-2G-svv" firstAttribute="top" secondItem="u0m-HN-irB" secondAttribute="bottom" constant="27" id="Kc4-CU-gyd"/>
+                <constraint firstItem="9WL-2G-svv" firstAttribute="centerX" secondItem="8bE-Jl-JVh" secondAttribute="centerX" id="CNq-lv-KiS"/>
                 <constraint firstItem="jxl-33-zju" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="N5b-Qa-t4c"/>
+                <constraint firstItem="8bE-Jl-JVh" firstAttribute="top" secondItem="jxl-33-zju" secondAttribute="bottom" constant="41" id="OW0-Hz-MMf"/>
                 <constraint firstItem="jxl-33-zju" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UQo-VK-scF"/>
-                <constraint firstItem="u0m-HN-irB" firstAttribute="top" secondItem="jxl-33-zju" secondAttribute="bottom" constant="78" id="cEc-Vu-gnc"/>
-                <constraint firstItem="u0m-HN-irB" firstAttribute="trailing" secondItem="jxl-33-zju" secondAttribute="trailing" id="hMo-Dk-rae"/>
+                <constraint firstItem="9WL-2G-svv" firstAttribute="top" secondItem="8bE-Jl-JVh" secondAttribute="bottom" constant="38" id="aAC-eG-yEA"/>
+                <constraint firstItem="8bE-Jl-JVh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aZB-R6-thx"/>
                 <constraint firstItem="jxl-33-zju" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="k8a-d7-Xg3"/>
-                <constraint firstItem="u0m-HN-irB" firstAttribute="leading" secondItem="jxl-33-zju" secondAttribute="leading" id="oXI-jb-Ucb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8bE-Jl-JVh" secondAttribute="trailing" id="lbu-fC-jPN"/>
             </constraints>
-            <point key="canvasLocation" x="-2365" y="261"/>
+            <point key="canvasLocation" x="-2365.217391304348" y="260.49107142857144"/>
         </view>
     </objects>
     <resources>

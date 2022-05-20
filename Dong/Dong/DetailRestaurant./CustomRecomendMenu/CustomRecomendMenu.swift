@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class Detail2: UICollectionViewCell {
+class CustomRecomendMenu: UICollectionViewCell {
 
 
     

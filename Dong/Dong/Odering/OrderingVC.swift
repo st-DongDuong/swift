@@ -8,15 +8,15 @@
 import UIKit
 
 protocol OrderingDelegate: AnyObject {
-    func cell(_ cell: Ordering,_ action: Ordering.Action)
+    func cell(_ cell: OrderingVC,_ action: OrderingVC.Action)
 }
 
-class Ordering: UIViewController {
+class OrderingVC: UIViewController {
     
     enum Action {
-        case total(number: Int)
-        case price(add : Int)
-        
+//        case total(number: Int)
+//        case price(add : Int)
+        case save(menuItem: Menu, amount: Int, notes: String)
     }
     
     
@@ -35,12 +35,12 @@ class Ordering: UIViewController {
     
     
     var menu: Menu?
-    var restaurant: Restaurant?
+   // var restaurant: Restaurant?
     
     var number:Int = 0
     var total: Int = 0
     var note: String = ""
-    var descri: String = ""
+  var descri: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,14 @@ class Ordering: UIViewController {
     }
     
     @IBAction func pop(_ sender: Any) {
+//        var totaly = ((menu?.price ?? 0) * number ) ?? 0
+//        delegate?.cell(self, .total(number: number))
+//        print(number)
+//        delegate?.cell(self, .price(add: totaly))
+//        note = noteToStore.text ?? ""
+//        descri = descrip.text ?? ""
+//       
+//        saveOrder()
         dismiss(animated: true, completion: nil)
     }
     
@@ -68,49 +76,64 @@ class Ordering: UIViewController {
     @IBAction func minusOrder(_ sender: Any) {
         if number > 0 {
             number -= 1
+            totalLabel.text = "check out: \((menu?.price ?? 0) * number ) $" ?? ""
             numberLabel.text = "\(number)"
-            
         }
-        
     }
     
     @IBAction func plusOrder(_ sender: Any) {
         number += 1
+        totalLabel.text = "check out: \((menu?.price ?? 0) * number ) $" ?? ""
         numberLabel.text = "\(number)"
     }
     
     func saveOrder () {  // tạo hàm để lưu lại những biến đã chọn
-        let item = OrderItem(MenuItem: menu!, amout: number,
-                             note: note, descrip: descri)
-        
-        if let index = CartData.cart.firstIndex(where: {$0.MenuItem.id == item.MenuItem.id}) {
-            // so sánh id khi chọn == vs id đã chọn first thì thêm vô
-            CartData.cart[index] = item
+        let item = OrderItem(MenuItem: menu!, amout: number, note: note)
+        if let index = ItemOrdering.cart.firstIndex(
+            where: {$0.MenuItem.id == item.MenuItem.id }) {
+            // so sánh id khi chọn == vs id đã chọn first thì thêm vô                
+            ItemOrdering.cart[index] = item
         }else {
-            CartData.cart.append(item)
+            ItemOrdering.cart.append(item)
         }
+        
+        
     }
     
-    @IBAction func addButton(_ sender: Any) {
+    @IBAction func addButton(_ sender: Any) { // CKECKOUT
+               
         var totaly = ((menu?.price ?? 0) * number ) ?? 0
-        totalLabel.text = "Add: \(totaly).000đ"
-        
-        delegate?.cell(self, .total(number: number))
+        print(menu?.name)
+     //  delegate?.cell(self, .total(number: number))
         print(number)
-        delegate?.cell(self, .price(add: totaly))
-        
+//        delegate?.cell(self, .price(add: totaly))
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
-        saveOrder()
+       
+       saveOrder()
+        
+        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note))
+        dismiss(animated: true, completion: nil)
+        
+    
+        totalLabel.text = "\(totaly)"
+        
+//        delegate?.cell(self, .total(number: number))
+//        print(number)
+//        delegate?.cell(self, .price(add: totaly))
+//
+    
     }
 }
 struct Order{
-    var nameStore: String
-    var id :Int
-    var orderDate: String
-    var address: String
-    var imgStore: String
-    var orederItems: [OrderItem] = []
+//    var nameStore: String
+//    var id :Int
+//    var orderDate: String
+//    var address: String
+//    var imgStore: String
+    var restaurant:Restaurant
+    var paymentDate: Date
+    var orederItems: [OrderItem]
 }
 
 struct OrderItem {
@@ -118,5 +141,5 @@ struct OrderItem {
 //    var restaurant: Int
     var amout: Int
     var note: String
-    var descrip: String
+   // var descrip: String
 }

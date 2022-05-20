@@ -7,14 +7,13 @@
 
 import UIKit
 
-let currentDateTime = Date()
-let someDateTime = Date(timeIntervalSinceReferenceDate: -123456789.0) // 
 
-class HistoryRestaurantData {
+
+class OrderHistories {
     static var orderHistories: [Order] = []
 }
 
-class CartData { // create variable global to add item inside when chooose
+class ItemOrdering { // create variable global to add item inside when chooose
     static var cart: [OrderItem] = []
 }
 

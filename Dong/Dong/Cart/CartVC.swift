@@ -7,7 +7,7 @@
 
 import UIKit
 protocol CartVCDelegate: AnyObject{
-    func cart(_ cart: CartVC, _ Action: CartVC.Action )
+    func cartdata(_ cart: CartVC, _ Action: CartVC.Action )
 }
 
 class CartVC: UIViewController {
@@ -17,13 +17,14 @@ class CartVC: UIViewController {
         case totalAmount(totalOrder:Int)
 
     }
+    weak var delegate: CartVCDelegate?
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var checkOutlabel: UILabel!
     @IBOutlet weak var qualityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var clearButton: UIButton!
     
     
@@ -38,9 +39,16 @@ class CartVC: UIViewController {
         super.viewDidLoad()
         configTable()
         updateCart()
-        getCurrentDate()
+        
+        if ItemOrdering.cart.isEmpty {
+            footerView.isHidden = true
+            tableView.reloadData()
+        }else {
+            footerView.isHidden = false
+        }
         
     }
+
     func getCurrentDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
@@ -54,41 +62,42 @@ class CartVC: UIViewController {
     func updateCart() {
         price = 0
         totalAmout = 0
-        CartData.cart.forEach{ item in
+        ItemOrdering.cart.forEach{ item in
             let amout = item.amout
             let pri = item.MenuItem.price ?? 0
             price += amout * pri
             totalAmout += item.amout // cộng dồn mỗi lần lấy vào total
-            
         }
-        
         priceLabel.text = "\(price) 000đ"
-        
         qualityLabel.text = "\(totalAmout)" // bỏ ra ngoài for để lấy tổng thôi
-        
     }
-    
+
     @IBAction func checkOutButton(_ sender: Any) {
         
-        //delegate?.cart(self, .Order(number: price))
-        print("push delege from Cart  \(price)")
-      // delegate?.cart(self, .totalAmount(totalOrder: totalAmout))
-        print("push delege from Cart \(totalAmout)" )
+        priceLabel.text = " 0 "
+        qualityLabel.text = " 0 "
         dismiss(animated: true, completion: nil)
-        tableView.reloadData()
+        
+        self.navigationController?.isNavigationBarHidden = true
+              self.tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func backButton(_ sender: Any) {
-               dismiss(animated: true, completion: nil)
+        delegate?.cartdata(self, .Order(number: price))
+        print("push delege from Cart  \(price)")
+       delegate?.cartdata(self, .totalAmount(totalOrder: totalAmout))
+        print("push delege from Cart \(totalAmout)" )
+       
+        dismiss(animated: true, completion: nil)
         }
     
-//    @IBAction func clearButton(_ sender: UIButton) {
-//        CartData.cart.removeAll()
-//        
-//        dismiss(animated: true, completion: nil)
-//
-//        tableView.reloadData()
-//    }
+    
+        @IBAction func clearButton(_ sender: UIButton) {
+            ItemOrdering.cart.removeAll()
+            dismiss(animated: true, completion: nil)
+    
+            tableView.reloadData()
+    }
     
     func configTable() {
         let cell = UINib(nibName: "CartCustom", bundle: nil)
@@ -99,31 +108,32 @@ class CartVC: UIViewController {
     }
 }
 
-extension CartVC : UITableViewDataSource{
+extension CartVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        CartData.cart.count
+        ItemOrdering.cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartCustom") as? CartCustom else {
             return UITableViewCell()
         }
-        cell.updateCart(name: CartData.cart[indexPath.row].MenuItem.name ?? "",
-                        note: CartData.cart[indexPath.row].note ,
-                        price: CartData.cart[indexPath.row].MenuItem.price ?? 0,
-                        number: CartData.cart[indexPath.row].amout)
+        cell.updateCart(name: ItemOrdering.cart[indexPath.row].MenuItem.name ?? "",
+                        note: ItemOrdering.cart[indexPath.row].note ,
+                        price: ItemOrdering.cart[indexPath.row].MenuItem.price ?? 0,
+                        number: ItemOrdering.cart[indexPath.row].amout)
         
         cell.delegate = self
         return cell
     }
 }
+
 extension CartVC :CartCustomDelegate{
     func cell(_ cell: CartCustom, _ action: CartCustom.Action) {
         switch action {
         case .amount( let number):
             print(number)
             guard let indexPath = tableView.indexPath(for: cell) else { return }
-            CartData.cart[indexPath.row].amout = number
+            ItemOrdering.cart[indexPath.row].amout = number
              updateCart()
             priceLabel.text  = "\(price).000đ"
             // qualityLabel.text = "\(totalAmout)"
