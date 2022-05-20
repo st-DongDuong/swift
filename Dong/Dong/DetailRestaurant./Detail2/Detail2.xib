@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TB7-id-dsy" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="CiJ-GB-zvI"/>
                             <constraint firstAttribute="trailing" secondItem="dRL-gp-yKh" secondAttribute="trailing" constant="8" id="DwM-50-Dax"/>
@@ -76,8 +76,8 @@
     </objects>
     <resources>
         <image name="today2" width="128" height="103.5"/>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

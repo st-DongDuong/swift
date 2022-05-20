@@ -15,10 +15,8 @@ class CartVC: UIViewController {
     enum Action {
         case Order(number: Int)
         case totalAmount(totalOrder:Int)
-        
+
     }
-    
-    weak var delegate:CartVCDelegate?
     
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var checkOutlabel: UILabel!
@@ -31,10 +29,10 @@ class CartVC: UIViewController {
     
     var cartDetail: Restaurant?
     
-    var hisOrder:Restaurant?
-    var total: Restaurant?
-    var totalAmout = 0
+//    var hisOrder:Restaurant?
+//    var total: Restaurant?
     
+    var totalAmout = 0
     var price: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +56,7 @@ class CartVC: UIViewController {
         totalAmout = 0
         CartData.cart.forEach{ item in
             let amout = item.amout
-            let pri = item.menuItem.price ?? 0
+            let pri = item.MenuItem.price ?? 0
             price += amout * pri
             totalAmout += item.amout // cộng dồn mỗi lần lấy vào total
             
@@ -72,44 +70,35 @@ class CartVC: UIViewController {
     
     @IBAction func checkOutButton(_ sender: Any) {
         
-        delegate?.cart(self, .Order(number: price))
+        //delegate?.cart(self, .Order(number: price))
         print("push delege from Cart  \(price)")
-        delegate?.cart(self, .totalAmount(totalOrder: totalAmout))
+      // delegate?.cart(self, .totalAmount(totalOrder: totalAmout))
         print("push delege from Cart \(totalAmout)" )
         dismiss(animated: true, completion: nil)
-        
+        tableView.reloadData()
     }
-    
-    
-    
-    //    func updateHistory(){
-    //        let order  = Order(nameStore: hisOrder?.name ?? "",
-    //                           address: hisOrder?.address,
-    //                           imgStore: hisOrder?.photos ?? "" ,
-    //                           orederItems: ItemOrder ?? [])
-    //
-    //    }
     
     @IBAction func backButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        
-    }
+               dismiss(animated: true, completion: nil)
+        }
     
-    @IBAction func clearButton(_ sender: UIButton) {
-        CartData.cart.remove(at: CartData.cart.count)
-        
-    }
-    func configTable(){
-        
+//    @IBAction func clearButton(_ sender: UIButton) {
+//        CartData.cart.removeAll()
+//        
+//        dismiss(animated: true, completion: nil)
+//
+//        tableView.reloadData()
+//    }
+    
+    func configTable() {
         let cell = UINib(nibName: "CartCustom", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "CartCustom")
         
         //tableView.delegate = self
         tableView.dataSource = self
-        
     }
-    
 }
+
 extension CartVC : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         CartData.cart.count
@@ -119,9 +108,9 @@ extension CartVC : UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartCustom") as? CartCustom else {
             return UITableViewCell()
         }
-        cell.updateCart(name: CartData.cart[indexPath.row].menuItem.name ?? "",
+        cell.updateCart(name: CartData.cart[indexPath.row].MenuItem.name ?? "",
                         note: CartData.cart[indexPath.row].note ,
-                        price: CartData.cart[indexPath.row].menuItem.price ?? 0,
+                        price: CartData.cart[indexPath.row].MenuItem.price ?? 0,
                         number: CartData.cart[indexPath.row].amout)
         
         cell.delegate = self
@@ -135,10 +124,10 @@ extension CartVC :CartCustomDelegate{
             print(number)
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             CartData.cart[indexPath.row].amout = number
-            updateCart()
+             updateCart()
             priceLabel.text  = "\(price).000đ"
-           // qualityLabel.text = "\(totalAmout)"
-    
+            // qualityLabel.text = "\(totalAmout)"
         }
     }
+    
 }

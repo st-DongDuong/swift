@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CustomCollection: UICollectionViewCell {
 
     @IBOutlet weak var totalVieww: UIView!

@@ -55,7 +55,6 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Clear"/>
                             <connections>
-                                <action selector="clearButotn:" destination="-1" eventType="touchUpInside" id="JtY-Tn-u6P"/>
                                 <action selector="clearButton:" destination="-1" eventType="touchUpInside" id="84X-Nu-2Ja"/>
                             </connections>
                         </button>

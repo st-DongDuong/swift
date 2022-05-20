@@ -7,13 +7,15 @@
 
 import UIKit
 
-class History{
-    static var history: [Order] = []
+let currentDateTime = Date()
+let someDateTime = Date(timeIntervalSinceReferenceDate: -123456789.0) // 
+
+class HistoryRestaurantData {
+    static var orderHistories: [Order] = []
 }
 
-
-class CartData { // tạo biến toàn cục cart để sd dc hết
-    static var cart: [ItemOrder] = []
+class CartData { // create variable global to add item inside when chooose
+    static var cart: [OrderItem] = []
 }
 
 @main

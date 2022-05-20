@@ -16,7 +16,7 @@ class Detail2: UICollectionViewCell {
     @IBOutlet weak var totalView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 15
         totalView.layer.cornerRadius = 10
     }
     func updateDetail2(img: String, name:String, price:Int){

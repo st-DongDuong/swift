@@ -35,6 +35,7 @@ class Ordering: UIViewController {
     
     
     var menu: Menu?
+    var restaurant: Restaurant?
     
     var number:Int = 0
     var total: Int = 0
@@ -79,11 +80,10 @@ class Ordering: UIViewController {
     }
     
     func saveOrder () {  // tạo hàm để lưu lại những biến đã chọn
-
-        let item = ItemOrder(menuItem: menu!, amout: number,
+        let item = OrderItem(MenuItem: menu!, amout: number,
                              note: note, descrip: descri)
         
-        if let index = CartData.cart.firstIndex(where: {$0.menuItem.id == item.menuItem.id}) {
+        if let index = CartData.cart.firstIndex(where: {$0.MenuItem.id == item.MenuItem.id}) {
             // so sánh id khi chọn == vs id đã chọn first thì thêm vô
             CartData.cart[index] = item
         }else {
@@ -92,9 +92,7 @@ class Ordering: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        
         var totaly = ((menu?.price ?? 0) * number ) ?? 0
-        
         totalLabel.text = "Add: \(totaly).000đ"
         
         delegate?.cell(self, .total(number: number))
@@ -108,12 +106,16 @@ class Ordering: UIViewController {
 }
 struct Order{
     var nameStore: String
+    var id :Int
+    var orderDate: String
     var address: String
     var imgStore: String
-    var orederItems: [ItemOrder] = []
+    var orederItems: [OrderItem] = []
 }
-struct ItemOrder {
-    var menuItem: Menu
+
+struct OrderItem {
+    var MenuItem: Menu
+//    var restaurant: Int
     var amout: Int
     var note: String
     var descrip: String

@@ -2,8 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -46,9 +48,8 @@ Chittagong</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ1-a4-Gn9">
-                                <rect key="frame" x="253" y="48" width="88" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ1-a4-Gn9">
+                                <rect key="frame" x="267.5" y="48" width="61.5" height="32"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Detail">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,14 +64,18 @@ Chittagong</string>
                         <constraints>
                             <constraint firstItem="vkd-e3-VEs" firstAttribute="leading" secondItem="TWS-Lo-yYQ" secondAttribute="trailing" constant="16" id="0uN-9M-9Pj"/>
                             <constraint firstItem="TWS-Lo-yYQ" firstAttribute="top" secondItem="mnl-6N-KjV" secondAttribute="bottom" constant="12" id="37P-mL-8un"/>
+                            <constraint firstAttribute="trailing" secondItem="wZ1-a4-Gn9" secondAttribute="trailing" constant="12" id="7OY-S1-ITc"/>
                             <constraint firstItem="vkd-e3-VEs" firstAttribute="top" secondItem="mnl-6N-KjV" secondAttribute="bottom" constant="7" id="AMe-bR-Jxl"/>
+                            <constraint firstAttribute="bottom" secondItem="wZ1-a4-Gn9" secondAttribute="bottom" constant="12" id="BjR-BE-SuH"/>
                             <constraint firstItem="mnl-6N-KjV" firstAttribute="top" secondItem="4OL-iU-5eR" secondAttribute="top" constant="20" id="DOB-fZ-spu"/>
                             <constraint firstItem="tSJ-Ie-zQH" firstAttribute="top" secondItem="4OL-iU-5eR" secondAttribute="top" constant="12" id="GYA-kQ-phm"/>
                             <constraint firstItem="TWS-Lo-yYQ" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="90" id="IGe-Oj-tvM"/>
                             <constraint firstAttribute="trailing" secondItem="mnl-6N-KjV" secondAttribute="trailing" constant="25" id="Svq-Yf-gm8"/>
+                            <constraint firstItem="wZ1-a4-Gn9" firstAttribute="leading" secondItem="vkd-e3-VEs" secondAttribute="trailing" constant="41.5" id="XRA-dW-F1h"/>
                             <constraint firstItem="tSJ-Ie-zQH" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="12" id="dU7-7a-6lS"/>
                             <constraint firstAttribute="bottom" secondItem="tSJ-Ie-zQH" secondAttribute="bottom" constant="12" id="mtU-Qg-ZsH"/>
                             <constraint firstItem="mnl-6N-KjV" firstAttribute="leading" secondItem="4OL-iU-5eR" secondAttribute="leading" constant="90" id="rpB-lg-Ha5"/>
+                            <constraint firstItem="wZ1-a4-Gn9" firstAttribute="top" secondItem="4OL-iU-5eR" secondAttribute="top" constant="48" id="sOD-w3-cO5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -92,6 +97,9 @@ Chittagong</string>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="addressLabel" destination="vkd-e3-VEs" id="OeT-qH-9E1"/>
+                <outlet property="imageTable" destination="tSJ-Ie-zQH" id="ajf-Ff-SCB"/>
+                <outlet property="nameLabel" destination="mnl-6N-KjV" id="nm7-S4-WBS"/>
                 <outlet property="totalView" destination="4OL-iU-5eR" id="5HH-w4-Dlf"/>
             </connections>
             <point key="canvasLocation" x="-89.130434782608702" y="-42.857142857142854"/>

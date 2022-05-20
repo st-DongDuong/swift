@@ -26,8 +26,8 @@ class HomeViewController: UIViewController {
         setupPageControl()
         getRestaurants()
         
-       self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        //        self.tabBarController?.tabBar.isHidden = true
         
     }
     
@@ -131,30 +131,30 @@ class HomeViewController: UIViewController {
                         let lng = address?["lng"] as? Double ?? 0.0
                         let addressAdd  = address?["address"] as? String
                         let photos = data["photos"] as? [String]
-                       if let menus = data["menus"] as? [[String: Any]] {
+                        if let menus = data["menus"] as? [[String: Any]] {
                             print (menus)
-                           for menu in menus{
-                               let id1  = menu["id"] as? Int
-                               let type1 = menu["type"] as? Int
-                               let name1 = menu["name"] as? String
-                               let description1 = menu ["description"] as? String
-                               let price1 = menu["price"] as? Int
-                               let imageURL1 = menu["imageUrl"] as? String
-                               let discount1 = menu["discount"] as? Int
-                               
-                               let listMenu = Menu(id: id1 , type: type1  , name: name1 , description: description1 , price: price1 , imageUrl: imageURL1  , discount: discount1 )
-                               self.listMenus.append(listMenu)
-                           }
-                           print(listMenus)
+                            for menu in menus{
+                                let id1  = menu["id"] as? Int
+                                let type1 = menu["type"] as? Int
+                                let name1 = menu["name"] as? String
+                                let description1 = menu ["description"] as? String
+                                let price1 = menu["price"] as? Int
+                                let imageURL1 = menu["imageUrl"] as? String
+                                let discount1 = menu["discount"] as? Int
+                                
+                                let listMenu = Menu(id: id1 , type: type1  , name: name1 , description: description1 , price: price1 , imageUrl: imageURL1  , discount: discount1 )
+                                self.listMenus.append(listMenu)
+                            }
+                            print(listMenus)
                         }
                         let listRes = Restaurant(id: id ?? 0 , name: name ?? "", description: description ?? "" , address: Address(lat: lat, lng: lng, address: addressAdd ?? "" ), photos: photos ?? [] , menus: listMenus)
                         self.listRestaurant.append(listRes)
                     }
-                DispatchQueue.main.async {
-                    completion(self.listRestaurant)
+                    DispatchQueue.main.async {
+                        completion(self.listRestaurant)
+                    }
                 }
-             }
-          }
+            }
         }
         task.resume()
         
@@ -209,6 +209,7 @@ extension HomeViewController : UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionBanner", for: indexPath) as? CustomCollectionBanner else {
             return UICollectionViewCell()
         }
+        
         return cell
     }
     
@@ -253,14 +254,17 @@ extension HomeViewController:  UITableViewDataSource {
             }
             cell.menusRes = listRestaurant
             cell.reloadData()
-            
             cell.delegate = self
             return cell
+            
         } else {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableView") as? CustomTableView else {
                 return UITableViewCell()
+                
             }
-        
+            
+            
             return cell
         }
     }
@@ -284,11 +288,11 @@ extension HomeViewController: TodayTableViewCellDelegate {
     func cell(_ cell: TodayTableViewCell, _ action: TodayTableViewCell.Action) {
         switch action {
         case .didSelect(let restaurant):
-        
-            print("truyền sự kiên từ cell con về man hình cha")
-            let vc = DetailRes()
+          
+            let vc = DetailRestaurant()
             // Truỳen dữ liệu
             vc.restaurant = restaurant
+            // vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }
