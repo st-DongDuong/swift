@@ -18,43 +18,61 @@ class DetailRestaurant: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configDetail()
         
         navigationController?.navigationBar.isHidden = true
+              self.tabBarController?.tabBar.isHidden = true
+
         viewFooter.layer.cornerRadius = 20
-        self.tabBarController?.tabBar.isHidden = true
         headerView.layer.cornerRadius = 16
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
-        
-    }
-
+    
+//                if ItemOrdering.cart.isEmpty {
+//                    viewFooter.isHidden = true
+//                    collectionView.reloadData()
+//                }else {
+//                    viewFooter.isHidden = false
+//                }
+   }
+    
     // MARK: - checkOutButton
     @IBAction func checkOutButton(_ sender: Any) {
-        
-        // Save order  in history
-        // 1 Tao Order
+        let checkOut = CartVC()
         let order = Order(restaurant: restaurant!,
                           paymentDate: Date(),
-                          orederItems: orderItems)
+                          orderItems: orderItems)
+        print(order.paymentDate)
+        print(order.orderItems.first?.MenuItem.name)
         // 2.Save Order
         OrderHistories.orderHistories.append(order)
-        print(OrderHistories.orderHistories.first?.restaurant.name)
-        let his = OrderHistory()
-        his.modalPresentationStyle = .fullScreen
-        present(his, animated: true, completion: nil)    }
+        print(OrderHistories.orderHistories)
+        present(checkOut, animated: true, completion: nil)
+       
+        //viewFooter.isHidden = true
+        // dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - backButton
-   
+    
     @IBAction private func  backButton(_ sender: UIButton) {
-       
-        tabBarController?.tabBar.isHidden = false
+       // tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
-   
+    
     // MARK: - cartButtonTotal
-   
     @IBAction func cartButton(_ sender: Any) {
         let cartOrder = CartVC()
         cartOrder.cartDetail = restaurant
@@ -149,17 +167,17 @@ extension DetailRestaurant :UICollectionViewDataSource {
 extension DetailRestaurant: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0{
-            return CGSize(width: 380, height: 360)
+            return CGSize(width: UIScreen.main.bounds.width, height: 360)
         } else {
-            return CGSize(width: UIScreen.main.bounds.width / 2 - 12, height: 200)
+            return CGSize(width: UIScreen.main.bounds.width / 2 - 14, height: 200)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0{
-            return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+            return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 14)
         } else {
-            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 8)
+            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)
         }
     }
     
@@ -179,28 +197,27 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout{
             let order  = OrderingVC()
             order.delegate = self  // nhận uỷ quyền từ màn hình bên kia
             order.menu = restaurant?.menus[indexPath.item]
-           // order.restaurant = restaurant
+            // order.restaurant = restaurant
             
             order.modalPresentationStyle = .fullScreen
             present(order, animated: true, completion: nil)
         }
     }
 }
-// MARK: -  nhận delegate number và total từ order
-
 
 extension DetailRestaurant :OrderingDelegate{
     func cell(_ cell: OrderingVC, _ action: OrderingVC.Action) {
         
         switch action {
-        case .save(let menuItem, let amount, let notes):
+        case .save(let menuItem, let amount, let notes, let totalprice):
+            
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
             numberLabel.text = "\(amount)"
-            priceLabel.text =  "\(menuItem.price ?? 0 * amount)"
-        orderItems.append(orderItem)
+            priceLabel.text  = "Check Out: \(totalprice) $ "
+            
+            orderItems.append(orderItem)
             
             print(orderItems.count)
-       
         }
     }
 }
@@ -209,12 +226,14 @@ extension DetailRestaurant: CartVCDelegate {
     func cartdata(_ cart: CartVC, _ Action: CartVC.Action) {
         switch Action{
         case.totalAmount(let totalAmount):
-            numberLabel.text = "\(totalAmount)"
+            numberLabel.text = "\(totalAmount )"
             print("recive delegate from Cart \(totalAmount)")
         case .Order( let price ):
-            priceLabel.text = "check out \(price).000đ"
+            priceLabel.text = "Chek Out: \(price).$"
             print("recive delegate from Cart \(price)")
+            
             collectionView.reloadData()
+            
         }
     }
 }

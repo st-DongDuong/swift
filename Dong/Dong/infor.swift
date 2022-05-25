@@ -7,28 +7,42 @@
 
 import Foundation
 import UIKit
-struct Restaurant {
+
+struct Restaurant: Codable {
     var id: Int
     var name: String
-    var description:String
     var address: Address
     var photos: [String]
     var menus: [Menu]
 }
-struct Address{
-    var lat: Double
-    var lng: Double
-    var address: String
-    
+
+struct Address: Codable {
+    var lat: String = ""
+    var lng: String = ""
+    var address: String = ""
 }
-struct Menu {
-    var id : Int?
-    var type : Int?
-    var name: String?
-    var description: String?
-    var price: Int?
-    var imageUrl: String?
-    var discount: Int?
+
+struct Menu: Codable {
+    var id: Int = 0
+    var type: Int = 0
+    var name: String = ""
+    var description: String = ""
+    var price: Int = 0
+    var imageUrl: String = ""
+    var discount: Int = 0
+}
+
+struct RestaurantResponse: Codable {
+    var data: [Restaurant]
+}
+
+struct Banner: Codable {
+    var id: Int = 0
+    var imageUrl: String = ""
+}
+
+struct ListBannerResponse: Codable {
+    var data: [Banner]
 }
 
 

@@ -15,6 +15,7 @@
                 <outlet property="checkOutlabel" destination="KAs-Vt-zjX" id="gaW-VO-Wqm"/>
                 <outlet property="clearButton" destination="qMn-GP-2al" id="txR-Wz-t60"/>
                 <outlet property="footerView" destination="9WL-2G-svv" id="ufm-7g-Zoh"/>
+                <outlet property="headerView" destination="jxl-33-zju" id="aOe-k4-ucj"/>
                 <outlet property="priceLabel" destination="c1r-V9-Pe9" id="Jxa-oX-qRj"/>
                 <outlet property="qualityLabel" destination="cDf-ZP-8hv" id="iBg-33-MvX"/>
                 <outlet property="tableView" destination="8bE-Jl-JVh" id="vaE-9t-TBA"/>
@@ -30,8 +31,8 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OH-EO-ImZ">
-                            <rect key="frame" x="194.5" y="20.5" width="25" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="194" y="20.5" width="26.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -48,6 +49,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="31" id="DAW-ce-WSt"/>
                             </constraints>
+                            <color key="tintColor" red="0.92156862750000001" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Clear"/>
                             <connections>
@@ -72,14 +74,14 @@
                     <rect key="frame" x="18" y="838" width="378" height="39"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAs-Vt-zjX">
-                            <rect key="frame" x="158" y="11" width="62" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <rect key="frame" x="156" y="11" width="66" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-V9-Pe9">
-                            <rect key="frame" x="343.5" y="12" width="21.5" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <rect key="frame" x="340.5" y="12" width="22.5" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -91,8 +93,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-ZP-8hv">
-                            <rect key="frame" x="8" y="12" width="48" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <rect key="frame" x="15" y="12" width="52" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -101,15 +103,15 @@
                     <constraints>
                         <constraint firstItem="KAs-Vt-zjX" firstAttribute="centerY" secondItem="9WL-2G-svv" secondAttribute="centerY" id="1JI-P5-Lgm"/>
                         <constraint firstAttribute="height" constant="39" id="3oq-l2-H1S"/>
-                        <constraint firstAttribute="bottom" secondItem="cDf-ZP-8hv" secondAttribute="bottom" constant="6" id="ESQ-Ex-UG3"/>
-                        <constraint firstAttribute="trailing" secondItem="c1r-V9-Pe9" secondAttribute="trailing" constant="13" id="TIF-NC-gjP"/>
-                        <constraint firstAttribute="bottom" secondItem="c1r-V9-Pe9" secondAttribute="bottom" constant="9" id="Tso-nO-K7c"/>
+                        <constraint firstAttribute="bottom" secondItem="cDf-ZP-8hv" secondAttribute="bottom" constant="10" id="ESQ-Ex-UG3"/>
+                        <constraint firstAttribute="trailing" secondItem="c1r-V9-Pe9" secondAttribute="trailing" constant="15" id="TIF-NC-gjP"/>
+                        <constraint firstAttribute="bottom" secondItem="c1r-V9-Pe9" secondAttribute="bottom" constant="10" id="Tso-nO-K7c"/>
                         <constraint firstItem="cDf-ZP-8hv" firstAttribute="top" secondItem="9WL-2G-svv" secondAttribute="top" constant="12" id="V4R-fE-tOG"/>
                         <constraint firstItem="4uG-jR-riJ" firstAttribute="centerY" secondItem="9WL-2G-svv" secondAttribute="centerY" id="WDy-E9-wuP"/>
                         <constraint firstItem="4uG-jR-riJ" firstAttribute="centerX" secondItem="9WL-2G-svv" secondAttribute="centerX" id="XI5-2q-26R"/>
                         <constraint firstItem="c1r-V9-Pe9" firstAttribute="top" secondItem="9WL-2G-svv" secondAttribute="top" constant="12" id="dJs-Lh-HMb"/>
                         <constraint firstItem="KAs-Vt-zjX" firstAttribute="centerX" secondItem="9WL-2G-svv" secondAttribute="centerX" id="nml-td-5Co"/>
-                        <constraint firstItem="cDf-ZP-8hv" firstAttribute="leading" secondItem="9WL-2G-svv" secondAttribute="leading" constant="8" id="uFa-r3-fse"/>
+                        <constraint firstItem="cDf-ZP-8hv" firstAttribute="leading" secondItem="9WL-2G-svv" secondAttribute="leading" constant="15" id="uFa-r3-fse"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8bE-Jl-JVh">

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,23 +23,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDy-AN-NQt">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDy-AN-NQt">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <view key="tableHeaderView" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PVu-WH-rrp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="241"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="277"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Or-QYZ">
-                                <rect key="frame" x="48" y="0.0" width="318" height="36"/>
+                                <rect key="frame" x="40" y="15" width="334" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="fSo-sl-i62"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p0B-Zc-FUx">
-                                <rect key="frame" x="0.0" y="36" width="409" height="205"/>
+                                <rect key="frame" x="0.0" y="61" width="409" height="196"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="409" id="9Hh-Mb-ded"/>
+                                    <constraint firstAttribute="height" constant="200" id="LEV-vt-eeE"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hI1-kd-pQh">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -46,22 +51,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-dz-1IR">
-                                <rect key="frame" x="146" y="231" width="116" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-dz-1IR">
+                                <rect key="frame" x="128" y="231" width="152" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="85D-T1-NxQ"/>
+                                </constraints>
                                 <color key="pageIndicatorTintColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="p0B-Zc-FUx" secondAttribute="bottom" id="6E9-V0-5gx"/>
-                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" id="Cl7-rx-hS5"/>
-                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="48" id="FpV-Sz-gKO"/>
-                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="top" secondItem="PVu-WH-rrp" secondAttribute="top" id="LU4-2I-dXe"/>
+                            <constraint firstAttribute="bottom" secondItem="p0B-Zc-FUx" secondAttribute="bottom" constant="20" id="6E9-V0-5gx"/>
+                            <constraint firstItem="p0B-Zc-FUx" firstAttribute="top" secondItem="Gf3-Or-QYZ" secondAttribute="bottom" constant="10" id="Cl7-rx-hS5"/>
+                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="40" id="FpV-Sz-gKO"/>
+                            <constraint firstAttribute="bottom" secondItem="ibc-dz-1IR" secondAttribute="bottom" constant="20" id="G1M-BS-F6I"/>
+                            <constraint firstItem="Gf3-Or-QYZ" firstAttribute="top" secondItem="PVu-WH-rrp" secondAttribute="top" constant="15" id="LU4-2I-dXe"/>
                             <constraint firstItem="p0B-Zc-FUx" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" id="OXE-f3-WA2"/>
                             <constraint firstAttribute="trailing" secondItem="p0B-Zc-FUx" secondAttribute="trailing" constant="5" id="b0a-Gt-ZeB"/>
-                            <constraint firstAttribute="trailing" secondItem="Gf3-Or-QYZ" secondAttribute="trailing" constant="48" id="hJU-ia-Qk4"/>
+                            <constraint firstAttribute="trailing" secondItem="ibc-dz-1IR" secondAttribute="trailing" constant="134" id="ebx-ft-NaS"/>
+                            <constraint firstAttribute="trailing" secondItem="Gf3-Or-QYZ" secondAttribute="trailing" constant="40" id="hJU-ia-Qk4"/>
+                            <constraint firstItem="ibc-dz-1IR" firstAttribute="leading" secondItem="PVu-WH-rrp" secondAttribute="leading" constant="128" id="i9M-C1-NBi"/>
                         </constraints>
                     </view>
                 </tableView>
@@ -77,4 +87,9 @@
             <point key="canvasLocation" x="-1443.4782608695652" y="-56.25"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

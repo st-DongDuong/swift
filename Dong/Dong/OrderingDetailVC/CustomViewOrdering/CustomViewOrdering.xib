@@ -73,10 +73,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="name" destination="8mG-n9-ZDT" id="kOo-4e-cJM"/>
-                <outlet property="note" destination="gsK-iG-jBY" id="ljs-9f-xjO"/>
-                <outlet property="price" destination="HsJ-Po-Tku" id="E0j-qE-zut"/>
-                <outlet property="quality" destination="mOo-D8-swg" id="hfa-h8-IAy"/>
+                <outlet property="nameHis" destination="8mG-n9-ZDT" id="Z8C-3D-5D2"/>
+                <outlet property="noteHis" destination="gsK-iG-jBY" id="RpQ-aQ-5Wm"/>
+                <outlet property="priceHis" destination="HsJ-Po-Tku" id="bUo-mz-UEs"/>
+                <outlet property="qualityHis" destination="mOo-D8-swg" id="Usa-L5-6Z2"/>
             </connections>
             <point key="canvasLocation" x="139" y="66"/>
         </tableViewCell>

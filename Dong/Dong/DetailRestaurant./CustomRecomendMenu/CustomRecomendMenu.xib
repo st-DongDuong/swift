@@ -69,7 +69,6 @@
                 <outlet property="imageView" destination="bOk-N5-gTE" id="U4t-Hs-Zdn"/>
                 <outlet property="nameLabel" destination="TB7-id-dsy" id="mpr-Wi-PbI"/>
                 <outlet property="priceLabel" destination="dRL-gp-yKh" id="cTI-sR-85I"/>
-                <outlet property="totalView" destination="TSV-8T-utI" id="BPh-Wf-VpO"/>
             </connections>
             <point key="canvasLocation" x="14.492753623188406" y="87.053571428571431"/>
         </collectionViewCell>

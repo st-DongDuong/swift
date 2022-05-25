@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapVC" customModule="Dong" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeeAllVC" customModule="Dong" customModuleProvider="target">
             <connections>
-                <outlet property="map" destination="jLa-HK-cjn" id="ccG-wu-4ee"/>
+                <outlet property="tableView" destination="mAO-Hz-ymf" id="KmC-R5-Cn9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +20,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jLa-HK-cjn">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mAO-Hz-ymf">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                </mapView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="jLa-HK-cjn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="03Y-s4-sO7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jLa-HK-cjn" secondAttribute="trailing" id="AcB-w1-w8i"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jLa-HK-cjn" secondAttribute="bottom" id="Dlp-3s-j65"/>
-                <constraint firstItem="jLa-HK-cjn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="naD-wQ-RC9"/>
+                <constraint firstItem="mAO-Hz-ymf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6st-ZR-KcL"/>
+                <constraint firstItem="mAO-Hz-ymf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8sY-fK-b4c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mAO-Hz-ymf" secondAttribute="bottom" id="IQQ-xU-okR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mAO-Hz-ymf" secondAttribute="trailing" id="fLb-f9-tTT"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="54"/>
+            <point key="canvasLocation" x="139" y="56"/>
         </view>
     </objects>
     <resources>

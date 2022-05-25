@@ -28,13 +28,14 @@ class CustomOrderHistory: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateHis(image: String ,name: String, address:String){
+    func updateData(image: String ,name: String, address:String){
         imageHis.downloaded(from: image) 
         nameHis.text = name
         addressHis.text = address
     }
     
     @IBAction func detailButton(_ sender: Any) {
+        
     
     }
 }

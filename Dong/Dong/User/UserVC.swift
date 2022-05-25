@@ -82,6 +82,10 @@ extension UserVC :UITableViewDataSource{
                 return 200
             }
     }
+            
+        func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+            200
+        }
     }
 
 

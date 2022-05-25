@@ -119,65 +119,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2B2B09B3-74BF-4550-A14F-A0D1C94A5034"
+            uuid = "FEEF270D-9988-4D3A-8C51-9A678298119E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dong/DetailRestaurant./DetailRestaurant.swift"
+            filePath = "Dong/Odering/OrderingVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "checkOutButton(_:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "pop(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "75FD0B1E-233E-4146-AAF4-1A577A7FFCB8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dong/DetailRestaurant./DetailRestaurant.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "checkOutButton(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "75FD0B1E-233E-4146-AAF4-1A577A7FFCB8 - 2e21f348577af86d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Dong.DetailRestaurant.checkOutButton(Any) -&gt; ()"
-                  moduleName = "Dong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dongduongv./swift/Dong/Dong/DetailRestaurant./DetailRestaurant.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "612">
-               </Location>
-               <Location
-                  uuid = "75FD0B1E-233E-4146-AAF4-1A577A7FFCB8 - 2e21f348577af86d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Dong.DetailRestaurant.checkOutButton(Any) -&gt; ()"
-                  moduleName = "Dong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dongduongv./swift/Dong/Dong/DetailRestaurant./DetailRestaurant.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "840">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

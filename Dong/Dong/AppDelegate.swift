@@ -9,6 +9,7 @@ import UIKit
 
 
 
+
 class OrderHistories {
     static var orderHistories: [Order] = []
 }
@@ -16,6 +17,24 @@ class OrderHistories {
 class ItemOrdering { // create variable global to add item inside when chooose
     static var cart: [OrderItem] = []
 }
+
+struct Order{
+
+    var restaurant:Restaurant
+    var paymentDate: Date
+    var orderItems: [OrderItem]
+}
+
+struct OrderItem {
+    var MenuItem: Menu
+//    var restaurant: Int
+    var amout: Int
+    var note: String
+   // var descrip: String
+}
+
+
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

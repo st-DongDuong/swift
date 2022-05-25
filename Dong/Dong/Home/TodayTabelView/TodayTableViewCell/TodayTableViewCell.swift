@@ -25,7 +25,6 @@ class TodayTableViewCell: UITableViewCell {
     var listMe : [Menu] = []
     @IBOutlet weak var collectionToday: UICollectionView!
     
-    
     weak var delegate: TodayTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -50,6 +49,7 @@ extension TodayTableViewCell: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menusRes.count
     }

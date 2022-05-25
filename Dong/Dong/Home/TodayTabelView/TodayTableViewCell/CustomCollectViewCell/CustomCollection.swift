@@ -16,8 +16,10 @@ class CustomCollection: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        totalVieww.layer.cornerRadius = 15
-        imageToday.layer.cornerRadius = 15
+        imageToday.layer.cornerRadius = 8
+
+        totalVieww.layer.cornerRadius = 10
+       
     }
     
     func updateToday(image: String, name:String, address:String){

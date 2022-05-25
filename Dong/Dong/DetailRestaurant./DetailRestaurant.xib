@@ -41,18 +41,21 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0g-AC-ajZ">
                             <rect key="frame" x="27" y="26" width="73" height="39"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="73" id="PvS-P6-L3M"/>
                                 <constraint firstAttribute="height" constant="39" id="gYO-jo-g6U"/>
                             </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="tinted" title=""/>
+                            <buttonConfiguration key="configuration" style="tinted" title="" cornerStyle="medium"/>
                             <connections>
                                 <action selector="cartButton:" destination="-1" eventType="touchUpInside" id="obj-zP-6Ec"/>
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask group" translatesAutoresizingMaskIntoConstraints="NO" id="I5d-2R-QdO">
                             <rect key="frame" x="33" y="30" width="24" height="35"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="sh9-G8-xyW"/>
                             </constraints>
@@ -115,18 +118,21 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="62"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS6-ke-Ilf">
-                            <rect key="frame" x="166.5" y="20" width="103.5" height="15"/>
+                            <rect key="frame" x="158.5" y="20" width="111.5" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="tAR-B6-MXj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzr-8A-h3o">
                             <rect key="frame" x="10" y="15.5" width="24" height="24"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="Frame-1"/>
+                            <state key="normal" image="Frame-1">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="backButton:" destination="-1" eventType="touchUpInside" id="74O-33-hKx"/>
                             </connections>

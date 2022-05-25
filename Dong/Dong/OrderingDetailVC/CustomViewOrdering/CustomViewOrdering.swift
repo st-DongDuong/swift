@@ -23,7 +23,7 @@ class CustomViewOrdering: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateCustom(name: String, note: String, quality: Int, price: Int){
+    func updateCustom(name: String, note: String , quality: Int, price: Int){
         nameHis.text = name
         noteHis.text = note
         qualityHis.text = "\(quality)"

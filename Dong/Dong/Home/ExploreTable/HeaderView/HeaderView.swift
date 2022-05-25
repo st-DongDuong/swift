@@ -16,11 +16,18 @@ class HeaderView: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundView = UIView(frame: self.bounds)
+        self.backgroundView?.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         // Initialization code
     }
     
     func updateHeader(name: String, detail: String ){
         titleLabel .text = name
         detailLabel.text = detail
+    }
+    @IBAction func seeAllButton(_ sender: Any) {
+        let vc  = SeeAllVC()
+       // vc.seeAll = listBanner
+    
     }
 }

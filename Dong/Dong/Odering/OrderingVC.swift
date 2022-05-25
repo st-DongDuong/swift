@@ -14,9 +14,10 @@ protocol OrderingDelegate: AnyObject {
 class OrderingVC: UIViewController {
     
     enum Action {
-//        case total(number: Int)
-//        case price(add : Int)
-        case save(menuItem: Menu, amount: Int, notes: String)
+        case save(menuItem: Menu, amount: Int, notes: String, price: Int)
+
+        //        case total(number: Int)
+              //  case price(add : Int)
     }
     
     
@@ -33,6 +34,7 @@ class OrderingVC: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var noteToStore: UITextField!
     
+    @IBOutlet weak var viewAdd: UIView!
     
     var menu: Menu?
    // var restaurant: Restaurant?
@@ -50,9 +52,11 @@ class OrderingVC: UIViewController {
         footerView.layer.cornerRadius = 15
         footerView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner ]
         addview.layer.cornerRadius = 15
-        
-        
+        imageTest.layer.cornerRadius = 8
+        headerView.layer.cornerRadius = 16
+        viewAdd.layer.cornerRadius = 10
     }
+  
     
     @IBAction func pop(_ sender: Any) {
 //        var totaly = ((menu?.price ?? 0) * number ) ?? 0
@@ -76,14 +80,14 @@ class OrderingVC: UIViewController {
     @IBAction func minusOrder(_ sender: Any) {
         if number > 0 {
             number -= 1
-            totalLabel.text = "check out: \((menu?.price ?? 0) * number ) $" ?? ""
+            totalLabel.text = " Add : \((menu?.price ?? 0) * number ) $" ?? ""
             numberLabel.text = "\(number)"
         }
     }
     
     @IBAction func plusOrder(_ sender: Any) {
         number += 1
-        totalLabel.text = "check out: \((menu?.price ?? 0) * number ) $" ?? ""
+        totalLabel.text = "Add : \((menu?.price ?? 0) * number ) $" ?? ""
         numberLabel.text = "\(number)"
     }
     
@@ -102,21 +106,19 @@ class OrderingVC: UIViewController {
     
     @IBAction func addButton(_ sender: Any) { // CKECKOUT
                
-        var totaly = ((menu?.price ?? 0) * number ) ?? 0
+        var totalprice = ((menu?.price ?? 0) * number ) ?? 0
         print(menu?.name)
-     //  delegate?.cell(self, .total(number: number))
+        //delegate?.cell(self, .total(number: number))
         print(number)
-//        delegate?.cell(self, .price(add: totaly))
+        //delegate?.cell(self, .price(add: totaly))
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
-       
-       saveOrder()
-        
-        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note))
+               
+        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note, price:totalprice ))
         dismiss(animated: true, completion: nil)
-        
+        saveOrder()
     
-        totalLabel.text = "\(totaly)"
+        totalLabel.text = "\(totalprice)"
         
 //        delegate?.cell(self, .total(number: number))
 //        print(number)
@@ -125,21 +127,4 @@ class OrderingVC: UIViewController {
     
     }
 }
-struct Order{
-//    var nameStore: String
-//    var id :Int
-//    var orderDate: String
-//    var address: String
-//    var imgStore: String
-    var restaurant:Restaurant
-    var paymentDate: Date
-    var orederItems: [OrderItem]
-}
 
-struct OrderItem {
-    var MenuItem: Menu
-//    var restaurant: Int
-    var amout: Int
-    var note: String
-   // var descrip: String
-}

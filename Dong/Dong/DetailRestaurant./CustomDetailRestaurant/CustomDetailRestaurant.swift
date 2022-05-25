@@ -13,9 +13,13 @@ class CustomDetailRestaurant: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLael: UILabel!
+   
+    @IBOutlet weak var viewDetail: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 20
+   
+       // viewDetail.layer.cornerRadius = 16
     }
     
     @IBAction func visitResButton(_ sender: Any) {
