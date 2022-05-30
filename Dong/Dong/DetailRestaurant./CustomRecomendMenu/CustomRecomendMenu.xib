@@ -12,46 +12,50 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomRecomendMenu" customModule="Dong" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CustomRecomendMenu" customModule="Dong" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="172" height="242"/>
+            <rect key="frame" x="0.0" y="0.0" width="170" height="197"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="172" height="242"/>
+                <rect key="frame" x="0.0" y="0.0" width="170" height="197"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSV-8T-utI">
-                        <rect key="frame" x="5" y="10" width="162" height="230"/>
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="197"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="today2" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-N5-gTE">
-                                <rect key="frame" x="8" y="5" width="146" height="110"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="foN-xF-T64"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơm gà xé trộn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB7-id-dsy">
-                                <rect key="frame" x="8" y="129" width="146" height="17"/>
+                                <rect key="frame" x="8" y="129" width="139" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Hv8-7Y-TT9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-gp-yKh">
-                                <rect key="frame" x="8" y="154" width="146" height="12"/>
+                                <rect key="frame" x="8" y="157" width="30.5" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="XKj-3P-FEq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.41960784313725491" green="0.44705882352941173" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="today2" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-N5-gTE">
+                                <rect key="frame" x="8" y="12" width="154" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="qTz-EZ-e8x"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TB7-id-dsy" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="CiJ-GB-zvI"/>
-                            <constraint firstAttribute="trailing" secondItem="dRL-gp-yKh" secondAttribute="trailing" constant="8" id="DwM-50-Dax"/>
-                            <constraint firstItem="bOk-N5-gTE" firstAttribute="top" secondItem="TSV-8T-utI" secondAttribute="top" constant="5" id="H7k-sB-uoG"/>
-                            <constraint firstItem="dRL-gp-yKh" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="OBP-1w-mGK"/>
-                            <constraint firstItem="dRL-gp-yKh" firstAttribute="top" secondItem="TB7-id-dsy" secondAttribute="bottom" constant="8" id="Rbu-an-naR"/>
-                            <constraint firstAttribute="trailing" secondItem="TB7-id-dsy" secondAttribute="trailing" constant="8" id="a97-y1-1so"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dRL-gp-yKh" secondAttribute="bottom" constant="2" id="bBp-gj-M7j"/>
-                            <constraint firstItem="bOk-N5-gTE" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="cn3-lo-Kpp"/>
-                            <constraint firstItem="TB7-id-dsy" firstAttribute="top" secondItem="bOk-N5-gTE" secondAttribute="bottom" constant="14" id="ol7-7e-pWE"/>
-                            <constraint firstAttribute="trailing" secondItem="bOk-N5-gTE" secondAttribute="trailing" constant="8" id="xlW-8c-wHM"/>
+                            <constraint firstAttribute="trailing" secondItem="bOk-N5-gTE" secondAttribute="trailing" constant="8" id="23e-bt-Qr3"/>
+                            <constraint firstAttribute="trailing" secondItem="TB7-id-dsy" secondAttribute="trailing" constant="23" id="3CP-4K-nbp"/>
+                            <constraint firstItem="dRL-gp-yKh" firstAttribute="top" secondItem="TB7-id-dsy" secondAttribute="bottom" constant="8" id="CcG-p4-96h"/>
+                            <constraint firstItem="bOk-N5-gTE" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="MH3-9U-TTE"/>
+                            <constraint firstItem="bOk-N5-gTE" firstAttribute="top" secondItem="TSV-8T-utI" secondAttribute="top" constant="12" id="VLO-NJ-vZ9"/>
+                            <constraint firstItem="TB7-id-dsy" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="bOb-8L-NEm"/>
+                            <constraint firstItem="dRL-gp-yKh" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="dmr-J6-I2D"/>
+                            <constraint firstItem="TB7-id-dsy" firstAttribute="top" secondItem="bOk-N5-gTE" secondAttribute="bottom" constant="7" id="pT5-ZP-nuZ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -59,18 +63,19 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="TSV-8T-utI" secondAttribute="trailing" constant="5" id="Kn9-WW-cb0"/>
-                <constraint firstItem="TSV-8T-utI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="bhp-Z2-cat"/>
-                <constraint firstAttribute="bottom" secondItem="TSV-8T-utI" secondAttribute="bottom" constant="2" id="nKr-Hf-tlc"/>
-                <constraint firstItem="TSV-8T-utI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="zNv-IP-Q03"/>
+                <constraint firstItem="TSV-8T-utI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7kh-u1-zq2"/>
+                <constraint firstAttribute="trailing" secondItem="TSV-8T-utI" secondAttribute="trailing" id="CZa-lz-0jb"/>
+                <constraint firstItem="TSV-8T-utI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Dpp-it-tY5"/>
+                <constraint firstAttribute="bottom" secondItem="TSV-8T-utI" secondAttribute="bottom" id="aYD-0O-5GA"/>
             </constraints>
             <size key="customSize" width="320" height="191"/>
             <connections>
                 <outlet property="imageView" destination="bOk-N5-gTE" id="U4t-Hs-Zdn"/>
                 <outlet property="nameLabel" destination="TB7-id-dsy" id="mpr-Wi-PbI"/>
                 <outlet property="priceLabel" destination="dRL-gp-yKh" id="cTI-sR-85I"/>
+                <outlet property="totalViewCustom" destination="TSV-8T-utI" id="Cth-4L-C2x"/>
             </connections>
-            <point key="canvasLocation" x="14.492753623188406" y="87.053571428571431"/>
+            <point key="canvasLocation" x="-214" y="78"/>
         </collectionViewCell>
     </objects>
     <resources>

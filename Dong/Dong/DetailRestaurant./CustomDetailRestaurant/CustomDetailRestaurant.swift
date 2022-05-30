@@ -31,10 +31,6 @@ class CustomDetailRestaurant: UICollectionViewCell {
         nameLael.text = name
         addressLabel.text = address
         
-//        delegate?.infor(self ,  .Image(image: image))
-//        delegate?.infor( self , .Address(Address: address))
-//        delegate?.infor(self, .Name(name: name))
-
 
     }
 }

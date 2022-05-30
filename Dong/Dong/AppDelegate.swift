@@ -7,8 +7,20 @@
 
 import UIKit
 
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+//
+    var window: UIWindow?
 
-
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+       let tab = Tabbar()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tab
+        window?.makeKeyAndVisible()
+        return true
+    }
+}
 
 class OrderHistories {
     static var orderHistories: [Order] = []
@@ -19,7 +31,6 @@ class ItemOrdering { // create variable global to add item inside when chooose
 }
 
 struct Order{
-
     var restaurant:Restaurant
     var paymentDate: Date
     var orderItems: [OrderItem]
@@ -32,24 +43,3 @@ struct OrderItem {
     var note: String
    // var descrip: String
 }
-
-
-
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-       let tab = Tabbar()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = tab
-        window?.makeKeyAndVisible()
-        return true
-    }
-
-
-}
-

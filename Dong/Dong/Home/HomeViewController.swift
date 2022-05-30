@@ -14,10 +14,11 @@ class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loadingView: LoadingView!
+    @IBOutlet weak var containerLoadingView: UIView!
     
     var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
@@ -26,49 +27,81 @@ class HomeViewController: UIViewController {
         return control
     }()
     
+    @IBAction func addressButton(_ sender: Any) {
+        let map = MapVC()
+        navigationController?.pushViewController(map, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
         configCollectionView()
         configTableView()
-        indexPathOfCurrentCell()
+       // indexPathOfCurrentCell()
         setupPageControl()
-//        getRestaurants()
         getApiRestaurant()
-        getApiBanner()
+        getApiBanner()      
+        navigationController?.navigationBar.isHidden = true
+
     }
     
+    @IBAction func userButton(_ sender: Any) {
+        print("alo")
+        let user = UserViewController()
+        
+        navigationController?.pushViewController(user, animated: true)
     
-    
-    
-     func viewAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
     }
-
-
-    @objc func refreshData(){
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
-                self.tableView.reloadData()
-            }
+    
+    private func showLoadingView(isShow: Bool) {
+        if isShow {
+            loadingView.isHidden = false
+            containerLoadingView.isHidden = false
+            loadingView.startAnimating()
+        } else {
+            loadingView.isHidden = true
+            containerLoadingView.isHidden = true
+            loadingView.stopAnimating()
         }
     }
-    
+
+    @objc func refreshData() {
+        getApiBanner()
+        getApiRestaurant()
+        
+    }
     
     func getApiBanner() {
+        showLoadingView(isShow: true)
         getApiBanner { [weak self] in
-            guard let this = self else { return }
-            this.bannerCollectionView.reloadData()
+            guard let this = self else {
+                return
+                
+            }
+            
+        this.showLoadingView(isShow: false)
+        this.bannerCollectionView.reloadData()
+            
         }
     }
+    
     func getApiRestaurant() {
-        
+        showLoadingView(isShow: true)
         getApiRestaurant { [weak self] isSuccess in
-            guard let this = self else { return }
+            guard let this = self else {
+                return
+            }
+            
             DispatchQueue.main.async {
+                this.showLoadingView(isShow: false)
                 this.tableView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                this.refreshControl.endRefreshing()
+                this.tableView.contentOffset = .zero
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                this.tableView.scrollsToTop = true
+                    }
+                })
             }
         }
     }
@@ -80,7 +113,7 @@ class HomeViewController: UIViewController {
         bannerCollectionView.delegate  = self
     }
     
-    func configTableView() { // dky 2 table ở dưới
+    func configTableView() {
         let cellTable1 = UINib(nibName: "TodayTableViewCell", bundle: nil)
         tableView.register(cellTable1, forCellReuseIdentifier: "TodayTableViewCell")
         
@@ -92,7 +125,8 @@ class HomeViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.refreshControl = refreshControl
+
     }
     
     private func setupPageControl() {
@@ -100,9 +134,10 @@ class HomeViewController: UIViewController {
         pageControl.currentPageIndicatorTintColor = .green
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(2)
         pageControl.addTarget(self, action: #selector(pageControlHandle), for: .valueChanged)
+        
     }
     
-    @objc private func pageControlHandle(sender: UIPageControl){
+    @objc private func pageControlHandle(sender: UIPageControl) {
         guard let indexPath = indexPathOfCurrentCell() else { return }
         pageControl.currentPage = indexPath.row
         
@@ -116,122 +151,49 @@ class HomeViewController: UIViewController {
         guard let indexPath = bannerCollectionView.indexPathForItem(at: visbleOffset) else {
             return nil
         }
+        
         return indexPath
+    
     }
     
     // MARK: - Navigation
     
     private func configNavigationBar() {
-        self.navigationItem.title = "Home"
-        let image1 = UIBarButtonItem(image: UIImage(named: "left"), style: .plain, target: self, action: #selector(leftButton))
-        image1.tintColor = .black
-        navigationItem.leftBarButtonItem = image1
-        let image2 = UIBarButtonItem(image: UIImage(named: "person")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(rightButton))
-        image2.tintColor = .black
-        navigationItem.rightBarButtonItem = image2
-        
-    }
+        self.navigationController?.navigationBar.isHidden = true
     
-    @objc func rightButton(){
-        let map = MapVC()
-        navigationController?.pushViewController(map, animated: true)
-        print("tap in image2")
     }
-    
-    @objc func leftButton(){
-        print("tap in image1")
-    }
-    
-//    private func getRestaurants() {
-////        getAPI { [weak self] newList in
-////            guard let this = self else { return }
-////            this.listRestaurant = newList
-////            this.tableView.reloadData()
-////        }
-//    }
-
-    // MARK: - getApi
-//    func getAPI(completion: @escaping ([Restaurant]) -> ()) {
-//        guard let url = URL(string: "https://ios-interns.herokuapp.com/api/restaurants?page=3&limit=10")
-//                //" https://ios-interns.herokuapp.com/api/restaurants")
-//        else {
-//            return
-//        }
-//        let configuration = URLSessionConfiguration.ephemeral
-//        let session = URLSession(configuration: configuration)
-//        let task = session.dataTask(with: url) { [self] data, response, error in
-//            print(data)
-//            if let data = data {
-//                let json = self.converToJson(from: data)
-//                print(json)
-//                if let datas = json["data"] as? [[String:Any]] {// vì data dang trả vể mảng dic(key:value)
-//                    for data in datas {
-//                        print (data)    // data.count in 6 cai??/
-//                        let id = data["id"] as? Int
-//                        let name = data["name"] as? String
-//                        let description  = data ["description"] as? String
-//                        let address = data["address"] as? [String: Any]
-//                        let lat = address?["lat"] as? Double ?? 0.0
-//                        let lng = address?["lng"] as? Double ?? 0.0
-//                        let addressAdd  = address?["address"] as? String
-//                        let photos = data["photos"] as? [String]
-//                        if let menus = data["menus"] as? [[String: Any]] {
-//                            print (menus)
-//                            for menu in menus{
-//                                let id1  = menu["id"] as? Int
-//                                let type1 = menu["type"] as? Int
-//                                let name1 = menu["name"] as? String
-//                                let description1 = menu ["description"] as? String
-//                                let price1 = menu["price"] as? Int
-//                                let imageURL1 = menu["imageUrl"] as? String
-//                                let discount1 = menu["discount"] as? Int
-//
-//                                let listMenu = Menu(id: id1 , type: type1  , name: name1 , description: description1 , price: price1 , imageUrl: imageURL1  , discount: discount1 )
-//                                self.listMenus.append(listMenu)
-//                            }
-//                            print(listMenus)
-//                        }
-//                        let listRes = Restaurant(id: id ?? 0 , name: name ?? "", description: description ?? "" , address: Address(lat: lat, lng: lng, address: addressAdd ?? "" ), photos: photos ?? [] , menus: listMenus)
-//                        self.listRestaurant.append(listRes)
-//                    }
-//                    DispatchQueue.main.async {
-//                        completion(self.listRestaurant)
-//                    }
-//                }
-//            }
-//        }
-//        task.resume()
-//
-//    }
-//
     
     func getApiRestaurant(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "https://ios-interns.herokuapp.com/api/restaurants?page=0&limit=20") else {
             return
-        }
+    }
+        
         let configuration = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: configuration)
         let task = session.dataTask(with: url) { data, _, error in
             if error == nil {
                 completion(false)
-            }
+    }
             if let data = data {
-                let decoder = JSONDecoder()
-                if let datas = try? decoder.decode(RestaurantResponse.self, from: data) {
-                    for item in datas.data {
-                        self.listRestaurant.append(item)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        completion(true)
-                    }
+            let decoder = JSONDecoder()
+            if let datas = try? decoder.decode(RestaurantResponse.self, from: data) {
+            for item in datas.data {
+            self.listRestaurant.append(item)
+        
+        }
+                
+        DispatchQueue.main.async {
+        completion(true)
                 }
             }
         }
+    }
+        
         task.resume()
+    
     }
     
-    func getApiBanner(completion: @escaping() -> Void){
+    func getApiBanner(completion: @escaping() -> Void) {
         guard let url = URL(string: "https://ios-interns.herokuapp.com/api/banners") else { return }
         let configuration = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: configuration)
@@ -254,7 +216,7 @@ class HomeViewController: UIViewController {
     }
 }
 // MARK: - BannerCollection
-extension HomeViewController : UICollectionViewDataSource{
+extension HomeViewController : UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1// trả về 1 section của table trên
     }
@@ -269,10 +231,8 @@ extension HomeViewController : UICollectionViewDataSource{
         }
         
         cell.updateBanner(image: listBanner[indexPath.item].imageUrl)
-        
         return cell
     }
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) { // thêm thằng ni mới scroll ở trên dc
         guard let indexPath = indexPathOfCurrentCell() else { return }
@@ -291,14 +251,17 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         print(indexPath.row)
     }
 }
+
 // MARK: - tableView
 extension HomeViewController:  UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -309,9 +272,10 @@ extension HomeViewController:  UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTableViewCell") as? TodayTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTableViewCell") as? TodayTableViewCell else {
                 return UITableViewCell()
-            }
+        }
+            
             cell.menusRes = listRestaurant
             cell.reloadData()
             cell.delegate = self
@@ -323,22 +287,25 @@ extension HomeViewController:  UITableViewDataSource {
                 return UITableViewCell()
                 
             }
-            cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "", name: listRestaurant[indexPath.row].name, address: listRestaurant[indexPath.row].address.address )
             
+            cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "", name: listRestaurant[indexPath.row].name, address: listRestaurant[indexPath.row].address.address )
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? HeaderView else {
-            
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as?
+                HeaderView else {
             return UIView()
         }
         if section == 0 {
             headerView.updateHeader(name: "Today New Arivable", detail: "Best of the today food list update")
-            
+            headerView.tag = 0
+            headerView.delegate = self
         } else {
             headerView.updateHeader(name: "Explore Restaurant", detail: "Check your city Near by Restaurant")
+            headerView.tag = 1
+          //  headerView.delegate = self
         }
         return headerView
     }
@@ -348,42 +315,43 @@ extension HomeViewController: TodayTableViewCellDelegate {
     func cell(_ cell: TodayTableViewCell, _ action: TodayTableViewCell.Action) {
         switch action {
         case .didSelect(let restaurant):
-            
             let vc = DetailRestaurant()
-            // Truỳen dữ liệu
             vc.restaurant = restaurant
-            // vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
+
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0{
-            return 230
-        }else{
-            return 120
+        if indexPath.section == 0 {
+            return 200
+            
+        } else {
+            
+            return 100
+            
         }
     }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         70
     }
+}
+
+extension HomeViewController: HeaderViewDelegate{
+    func view(_view: HeaderView, action: HeaderView.Action) {
+        switch action {
+        case .seeAll(let tag):
+           // if tag == 0 {
+                let see = SeeAllViewController()
+                navigationController?.pushViewController(see, animated: true)
+//                print("---------0----------------\(tag)")
+//            } else {
+//                print("---------1----------------\(view.tag)")
+//            }
+        }
+    }
     
 }
-// MARK: - Json
-extension HomeViewController {
-    func converToJson(from data: Data) -> [String: Any] {
-        var json: [String: Any] = [:]
-        do {
-            if let jsonObj = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                json = jsonObj
-            }
-        }catch {
-            print("Json error")
-        }
-
-        return json
-    }
-}
-
 

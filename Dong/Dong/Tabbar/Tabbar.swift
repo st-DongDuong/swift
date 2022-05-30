@@ -19,19 +19,19 @@ class Tabbar : UITabBarController{
     }
     
     func setTab(){
-        let home = HomeViewController()
+        let home   = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
-        homeNavi.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
+        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "h1")?.withRenderingMode(.alwaysOriginal), tag: 0)
         
             
         let listVC = OrderHistory()
         let listNavi = UINavigationController(rootViewController: listVC)
-        listVC.tabBarItem = UITabBarItem(title: "List", image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), tag: 1)
+        listVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), tag: 1)
         
         
-        let user = UserVC()
+        let user = UserViewController()
         let userNavi = UINavigationController(rootViewController: user)
-        user.tabBarItem = UITabBarItem(title: "User", image: UIImage(named: "user")?.withRenderingMode(.alwaysOriginal), tag: 2)
+        user.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "user")?.withRenderingMode(.alwaysOriginal), tag: 2)
             
            
         let viewContro = [homeNavi,listNavi,userNavi]
@@ -41,5 +41,7 @@ class Tabbar : UITabBarController{
     }
     func setColor(){
         tabBar.tintColor = .red
+        tabBar.layer.cornerRadius = 16
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner , .layerMinXMinYCorner  ]
     }
 }

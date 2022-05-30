@@ -63,7 +63,7 @@ class OrderHistoryDetail: UIViewController {
         var total = 0
         data.forEach { item in
             item.orderItems.forEach { totalPrice in
-                let price = totalPrice.MenuItem.price ?? 0
+                let price = totalPrice.MenuItem.price
                 let amount = totalPrice.amout
                  total +=  price * amount
                 priceLabel.text  = "Total: \(total) $"

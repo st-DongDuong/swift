@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserVC: UIViewController {
+class UserViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -15,9 +15,9 @@ class UserVC: UIViewController {
         super.viewDidLoad()
         configUser()
         
+        //self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
     }
- 
-    
     
     func configUser(){
         let cell1 = UINib(nibName: "Cell1", bundle: nil)
@@ -38,7 +38,7 @@ class UserVC: UIViewController {
     }
 }
 
-extension UserVC :UITableViewDataSource{
+extension UserViewController :UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         4
     }
@@ -72,7 +72,7 @@ extension UserVC :UITableViewDataSource{
         }
         }
 }
-    extension UserVC: UITableViewDelegate {
+    extension UserViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if indexPath.section == 0{
                 return 80

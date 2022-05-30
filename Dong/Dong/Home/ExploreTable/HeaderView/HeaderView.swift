@@ -7,12 +7,21 @@
 
 import UIKit
 
+protocol HeaderViewDelegate: AnyObject{
+    func view(_view: HeaderView, action: HeaderView.Action)
+}
+
 class HeaderView: UITableViewHeaderFooterView {
 
+    enum Action{
+        case seeAll(tag: Int)
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
    // @IBOutlet weak var buttonLabel: UIButton!
     
+    weak var delegate:HeaderViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +35,6 @@ class HeaderView: UITableViewHeaderFooterView {
         detailLabel.text = detail
     }
     @IBAction func seeAllButton(_ sender: Any) {
-        let vc  = SeeAllVC()
-       // vc.seeAll = listBanner
-    
+        delegate?.view(_view: self, action: .seeAll(tag: tag))
     }
 }

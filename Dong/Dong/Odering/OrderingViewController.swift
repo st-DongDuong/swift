@@ -8,19 +8,17 @@
 import UIKit
 
 protocol OrderingDelegate: AnyObject {
-    func cell(_ cell: OrderingVC,_ action: OrderingVC.Action)
-}
+    func cell(_ cell: OrderingViewController,_ action: OrderingViewController.Action)
+    
+ }
 
-class OrderingVC: UIViewController {
+class OrderingViewController: UIViewController {
     
     enum Action {
         case save(menuItem: Menu, amount: Int, notes: String, price: Int)
-
-        //        case total(number: Int)
-              //  case price(add : Int)
+    
     }
-    
-    
+
     weak var delegate:OrderingDelegate?
     
     @IBOutlet weak var descrip: UILabel!
@@ -33,16 +31,13 @@ class OrderingVC: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var noteToStore: UITextField!
-    
     @IBOutlet weak var viewAdd: UIView!
     
     var menu: Menu?
-   // var restaurant: Restaurant?
-    
     var number:Int = 0
     var total: Int = 0
     var note: String = ""
-  var descri: String = ""
+    var descri: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,39 +50,35 @@ class OrderingVC: UIViewController {
         imageTest.layer.cornerRadius = 8
         headerView.layer.cornerRadius = 16
         viewAdd.layer.cornerRadius = 10
+        
     }
-  
-    
+        
     @IBAction func pop(_ sender: Any) {
-//        var totaly = ((menu?.price ?? 0) * number ) ?? 0
-//        delegate?.cell(self, .total(number: number))
-//        print(number)
-//        delegate?.cell(self, .price(add: totaly))
-//        note = noteToStore.text ?? ""
-//        descri = descrip.text ?? ""
-//       
-//        saveOrder()
         dismiss(animated: true, completion: nil)
     }
     
     private func updateView() {
-        imageTest.downloaded(from: menu?.imageUrl ?? "")
-        nameLabel.text = menu?.name
-        priceLabel.text = "\(menu?.price)"
-        descrip.text = menu?.description
+        guard let menu = menu else {
+            return
+        }
+        
+        imageTest.downloaded(from: menu.imageUrl)
+        nameLabel.text = menu.name
+        priceLabel.text = "\(menu.price)" + ",000đ"
+        descrip.text = menu.description
     }
     
     @IBAction func minusOrder(_ sender: Any) {
         if number > 0 {
             number -= 1
-            totalLabel.text = " Add : \((menu?.price ?? 0) * number ) $" ?? ""
+            totalLabel.text = " Add : \((menu?.price ?? 0) * number ),000đ"
             numberLabel.text = "\(number)"
         }
     }
     
     @IBAction func plusOrder(_ sender: Any) {
         number += 1
-        totalLabel.text = "Add : \((menu?.price ?? 0) * number ) $" ?? ""
+        totalLabel.text = "Add : \((menu?.price ?? 0) * number ),000đ"
         numberLabel.text = "\(number)"
     }
     
@@ -95,36 +86,24 @@ class OrderingVC: UIViewController {
         let item = OrderItem(MenuItem: menu!, amout: number, note: note)
         if let index = ItemOrdering.cart.firstIndex(
             where: {$0.MenuItem.id == item.MenuItem.id }) {
-            // so sánh id khi chọn == vs id đã chọn first thì thêm vô                
+            // so sánh id khi chọn == vs id đã chọn first thì thêm vô
             ItemOrdering.cart[index] = item
-        }else {
+            
+        } else {
+            
             ItemOrdering.cart.append(item)
         }
-        
-        
     }
     
-    @IBAction func addButton(_ sender: Any) { // CKECKOUT
-               
-        var totalprice = ((menu?.price ?? 0) * number ) ?? 0
-        print(menu?.name)
-        //delegate?.cell(self, .total(number: number))
-        print(number)
-        //delegate?.cell(self, .price(add: totaly))
+    @IBAction func addButton(_ sender: Any) {
+        
+        let totalprice = ((menu?.price ?? 0) * number ) 
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
-               
-        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note, price:totalprice ))
+        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note, price: totalprice ))
         dismiss(animated: true, completion: nil)
         saveOrder()
-    
-        totalLabel.text = "\(totalprice)"
-        
-//        delegate?.cell(self, .total(number: number))
-//        print(number)
-//        delegate?.cell(self, .price(add: totaly))
-//
-    
+        totalLabel.text = "\(totalprice),000đ"
     }
 }
 

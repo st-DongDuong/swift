@@ -8,21 +8,23 @@
 import UIKit
 class CustomRecomendMenu: UICollectionViewCell {
 
-
-    
-        @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var totalViewCustom: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var viewOut: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
         imageView.layer.cornerRadius = 8
-       // viewOut.layer.cornerRadius = 10
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+
     }
-    func updateDetail2(img: String, name:String, price:Int){
+    
+    func updateDetail2(img: String, name: String, price: Int){
         imageView.downloaded(from: img)
         nameLabel.text = name
-        priceLabel.text = "\(price)"
+        priceLabel.text = "\(price)" + ",000đ"
     }
 }

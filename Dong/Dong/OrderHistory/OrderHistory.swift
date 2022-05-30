@@ -72,7 +72,7 @@ extension OrderHistory : UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var order  = OrderHistoryDetail()
+        let order  = OrderHistoryDetail()
         order.data = OrderHistories.orderHistories
         navigationController?.pushViewController(order, animated: true)
     }

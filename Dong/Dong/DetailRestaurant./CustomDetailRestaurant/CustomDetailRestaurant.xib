@@ -40,14 +40,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit the Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpo-HS-thl">
-                                <rect key="frame" x="297" y="306" width="111" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="288" y="306" width="120" height="14.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tava Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epu-RT-0hi">
-                                <rect key="frame" x="18" y="20" width="140" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="18" y="20" width="151.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -64,15 +64,16 @@
                                     <constraint firstAttribute="height" constant="16" id="fPv-0e-NXy"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="crl-pu-qqd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="crl-pu-qqd">
                                 <rect key="frame" x="30" y="295" width="16" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="7jy-QF-MWu"/>
                                     <constraint firstAttribute="width" constant="16" id="Pjp-BY-EMh"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="directions_black_24dp 1" translatesAutoresizingMaskIntoConstraints="NO" id="HtN-ds-Cyx">
-                                <rect key="frame" x="270" y="303.5" width="20" height="20"/>
+                                <rect key="frame" x="261" y="303.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="36c-f1-KkF"/>
                                     <constraint firstAttribute="width" constant="20" id="ibn-Sm-wvF"/>
@@ -123,7 +124,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Vector" width="14" height="14"/>
+        <image name="bell" width="16" height="16"/>
         <image name="directions_black_24dp 1" width="20" height="20"/>
         <image name="gps" width="12" height="14"/>
         <image name="today1" width="128" height="103.5"/>
