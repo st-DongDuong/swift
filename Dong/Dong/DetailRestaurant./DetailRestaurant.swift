@@ -6,15 +6,12 @@
 //
 
 import UIKit
-
 class DetailRestaurant: UIViewController {
     var orderItems :[OrderItem] = []
-    
+    var restaurant: Restaurant?
+
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    
-    var restaurant: Restaurant?
-    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,27 +20,27 @@ class DetailRestaurant: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
-
+        
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
         navigationController?.navigationBar.isHidden = false
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configDetail()
         
         navigationController?.navigationBar.isHidden = true
-              self.tabBarController?.tabBar.isHidden = true
-
+        self.tabBarController?.tabBar.isHidden = true
+        
         viewFooter.layer.cornerRadius = 20
         headerView.layer.cornerRadius = 16
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
-    
-   }
+        
+    }
     
     // MARK: - checkOutButton
     @IBAction func checkOutButton(_ sender: Any) {
@@ -57,10 +54,9 @@ class DetailRestaurant: UIViewController {
         OrderHistories.orderHistories.append(order)
         print(OrderHistories.orderHistories)
         present(checkOut, animated: true, completion: nil)
-       
-    
+        
     }
-    
+
     // MARK: - backButton
     @IBAction private func  backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
@@ -73,7 +69,7 @@ class DetailRestaurant: UIViewController {
         cartOrder.delegate = self
         cartOrder.modalPresentationStyle = .fullScreen
         present(cartOrder, animated: true, completion: nil)
-       collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     // MARK: - ConfigDetail
@@ -89,7 +85,7 @@ class DetailRestaurant: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "HeaderRecomendMenu")
         
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -144,11 +140,10 @@ extension DetailRestaurant :UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            let HeaderDetailCollection = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: "HeaderRecomendMenu", for: indexPath)
-            return HeaderDetailCollection
-        }
+        let HeaderDetailCollection = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,withReuseIdentifier: "HeaderRecomendMenu", for: indexPath)
+        return HeaderDetailCollection
     }
+}
 
 
 extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
@@ -181,8 +176,6 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("BẤM VÀO CELL COLLEC VÀ TRUYÊN DỮ LIỆU THUẬN")
-               
         if indexPath.section != 0 {
             let order  = OrderingViewController()
             order.delegate = self  // nhận uỷ quyền từ màn hình bên kia
@@ -198,13 +191,11 @@ extension DetailRestaurant :OrderingDelegate{
         
         switch action {
         case .save(let menuItem, let amount, let notes, let totalprice):
-            
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
             numberLabel.text = "\(amount)"
             priceLabel.text  = "Check Out: \(totalprice),000đ "
             
             orderItems.append(orderItem)
-            
             print(orderItems.count)
         }
     }
@@ -225,6 +216,3 @@ extension DetailRestaurant: CartViewControllerDelegate {
         }
     }
 }
-
-
-

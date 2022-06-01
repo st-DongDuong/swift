@@ -35,7 +35,6 @@ class CustomOrderHistory: UITableViewCell {
     }
     
     @IBAction func detailButton(_ sender: Any) {
-        
     
     }
 }

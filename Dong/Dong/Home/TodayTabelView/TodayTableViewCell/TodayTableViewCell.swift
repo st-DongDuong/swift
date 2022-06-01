@@ -58,8 +58,7 @@ extension TodayTableViewCell: UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollection", for: indexPath) as? CustomCollection else {
             return UICollectionViewCell()
         }
-
-        cell.updateToday(image: menusRes[indexPath.row].photos.first ?? "", name: menusRes[indexPath.row].name, address: menusRes[indexPath.row].address.address)
+        cell.updateToday(image: menusRes[indexPath.row].photos.first ?? "", name: menusRes[indexPath.row].name, price: menusRes[indexPath.row].menus.first?.price ?? 0)
      return cell
     
 }

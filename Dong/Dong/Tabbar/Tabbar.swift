@@ -21,27 +21,23 @@ class Tabbar : UITabBarController{
     func setTab(){
         let home   = HomeViewController()
         let homeNavi = UINavigationController(rootViewController: home)
-        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "h1")?.withRenderingMode(.alwaysOriginal), tag: 0)
-        
+        homeNavi.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "home")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "home1")?.withRenderingMode(.alwaysOriginal))
             
         let listVC = OrderHistory()
         let listNavi = UINavigationController(rootViewController: listVC)
-        listVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), tag: 1)
+        listVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "list")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "list1")?.withRenderingMode(.alwaysOriginal))
         
-        
-        let user = UserViewController()
-        let userNavi = UINavigationController(rootViewController: user)
-        user.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "user")?.withRenderingMode(.alwaysOriginal), tag: 2)
-            
+        let userVC = UserViewController()
+        userVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "user")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "user1")?.withRenderingMode(.alwaysOriginal))
            
-        let viewContro = [homeNavi,listNavi,userNavi]
-//            let tagBarController = UITabBarController()
+        let viewContro = [homeNavi,listNavi,userVC]
         setViewControllers(viewContro, animated: true)
         
     }
-    func setColor(){
-        tabBar.tintColor = .red
+    
+    func setColor() {
         tabBar.layer.cornerRadius = 16
-        tabBar.layer.maskedCorners = [.layerMinXMinYCorner , .layerMinXMinYCorner  ]
+        tabBar.clipsToBounds  = true
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner , .layerMaxXMinYCorner  ]
     }
 }

@@ -6,16 +6,17 @@
 //
 
 import UIKit
-protocol CustomTableViewDelegate: AnyObject{
-    func cell(_cell:CustomTableView, action: CustomTableView.Action)
+protocol CustomTableViewDelegate: AnyObject {
+    func cell(cell:CustomTableView, action: CustomTableView.Action)
 }
+
 class CustomTableView: UITableViewCell {
     
-    enum Action{
-        case data(Restaurant)
+    enum Action {
+        
+        case datas
         
     }
-   // var menuExplore : [Restaurant] = []
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,11 +34,15 @@ class CustomTableView: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
    }
+    @IBAction func detailButton(_ sender: Any) {
+        delegate?.cell(cell: self,action: .datas)
+    }
+    
     func updateTabel(image:String, name:String, address:String){
         guard let url = URL(string: image) else { return }
         imageTable.downloaded(from: url)
             nameLabel.text = name
         addressLabel.text = address
+        
         }
-    
 }

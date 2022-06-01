@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tab
         window?.makeKeyAndVisible()
         return true
+    
     }
 }
 
@@ -26,11 +27,12 @@ class OrderHistories {
     static var orderHistories: [Order] = []
 }
 
+
 class ItemOrdering { // create variable global to add item inside when chooose
     static var cart: [OrderItem] = []
 }
 
-struct Order{
+struct Order {
     var restaurant:Restaurant
     var paymentDate: Date
     var orderItems: [OrderItem]
@@ -38,8 +40,7 @@ struct Order{
 
 struct OrderItem {
     var MenuItem: Menu
-//    var restaurant: Int
     var amout: Int
     var note: String
-   // var descrip: String
+
 }

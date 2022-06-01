@@ -11,7 +11,8 @@ class HomeViewController: UIViewController {
     var listMenus: [Menu] = []
     var listBanner: [Banner] = []
     var listRestaurant: [Restaurant] = []
-    
+
+    //var viewModel: HomeViewModelType = HomeViewModel()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -27,11 +28,11 @@ class HomeViewController: UIViewController {
         return control
     }()
     
-    @IBAction func addressButton(_ sender: Any) {
-        let map = MapVC()
-        navigationController?.pushViewController(map, animated: true)
-    }
-    
+//    @IBAction func addressButton(_ sender: Any) {
+//        viewModel.adrressButton()
+//
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
@@ -41,16 +42,15 @@ class HomeViewController: UIViewController {
         setupPageControl()
         getApiRestaurant()
         getApiBanner()      
-        navigationController?.navigationBar.isHidden = true
-
+  
     }
     
     @IBAction func userButton(_ sender: Any) {
         print("alo")
         let user = UserViewController()
-        
         navigationController?.pushViewController(user, animated: true)
-    
+        navigationController?.navigationBar.isHidden = true
+
     }
     
     private func showLoadingView(isShow: Bool) {
@@ -106,6 +106,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     func configCollectionView() {
         let cellBanner = UINib(nibName: "CustomCollectionBanner", bundle: nil)
         bannerCollectionView.register(cellBanner, forCellWithReuseIdentifier: "CustomCollectionBanner")
@@ -157,10 +158,8 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
     private func configNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
-    
     }
     
     func getApiRestaurant(completion: @escaping (Bool) -> Void) {
@@ -212,6 +211,7 @@ class HomeViewController: UIViewController {
                 
             }
         }
+        
         task.resume()
     }
 }
@@ -229,7 +229,7 @@ extension HomeViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionBanner", for: indexPath) as? CustomCollectionBanner else {
             return UICollectionViewCell()
         }
-        
+       // let list = viewModel.getListBanner(at: indexPath.)
         cell.updateBanner(image: listBanner[indexPath.item].imageUrl)
         return cell
     }
@@ -239,8 +239,8 @@ extension HomeViewController : UICollectionViewDataSource {
         pageControl.currentPage = indexPath.row
     }
 }
-// MARK: - DelegateBanner
 
+// MARK: - DelegateBanner
 extension HomeViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 120)
@@ -267,6 +267,8 @@ extension HomeViewController:  UITableViewDataSource {
             return 1
         } else {
             return listRestaurant.count
+            //viewModel.getlistRestaurant().count
+            
         }
     }
     
@@ -284,11 +286,14 @@ extension HomeViewController:  UITableViewDataSource {
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableView") as? CustomTableView else {
+            
                 return UITableViewCell()
+                
                 
             }
             
             cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "", name: listRestaurant[indexPath.row].name, address: listRestaurant[indexPath.row].address.address )
+        cell.delegate = self
             return cell
         }
     }
@@ -302,11 +307,15 @@ extension HomeViewController:  UITableViewDataSource {
             headerView.updateHeader(name: "Today New Arivable", detail: "Best of the today food list update")
             headerView.tag = 0
             headerView.delegate = self
+            
         } else {
+            
             headerView.updateHeader(name: "Explore Restaurant", detail: "Check your city Near by Restaurant")
             headerView.tag = 1
-          //  headerView.delegate = self
+            headerView.delegate = self
+            
         }
+        
         return headerView
     }
 }
@@ -343,15 +352,33 @@ extension HomeViewController: HeaderViewDelegate{
     func view(_view: HeaderView, action: HeaderView.Action) {
         switch action {
         case .seeAll(let tag):
-           // if tag == 0 {
-                let see = SeeAllViewController()
+            if tag == 0 {
+                let today = ListMenuTodayDetail()
+                today.listMenu  = listRestaurant
+                guard navigationController?.topViewController == self else { return }   //màn hình bị push qua 2 lần
+                navigationController?.pushViewController(today, animated: true)
+                print("---------0----------------\(tag)")
+            } else {
+                let see = ListExploreRestaurantDetail()
+                see.listRestaurant = listRestaurant
+                guard navigationController?.topViewController == self else { return }
                 navigationController?.pushViewController(see, animated: true)
-//                print("---------0----------------\(tag)")
-//            } else {
-//                print("---------1----------------\(view.tag)")
-//            }
+                print("---------1----------------\(view.tag)")
+            }
         }
     }
-    
 }
 
+extension HomeViewController: CustomTableViewDelegate {
+    func cell(cell: CustomTableView, action: CustomTableView.Action) {
+        switch action{
+        case.datas:
+            
+            guard let index = tableView.indexPath(for: cell) else {return}
+            let vc = DetailRestaurant()
+            vc.restaurant = listRestaurant[index.row]
+        navigationController?.pushViewController(vc, animated: true)
+        
+        }
+    }
+}

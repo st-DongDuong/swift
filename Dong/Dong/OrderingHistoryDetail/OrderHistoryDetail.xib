@@ -17,6 +17,7 @@
                 <outlet property="priceLabel" destination="fPI-1C-Rwi" id="Und-G6-N1Z"/>
                 <outlet property="tableView" destination="TY2-Xd-BAc" id="UTI-za-tm2"/>
                 <outlet property="timeLable" destination="Bf2-i5-gTp" id="PdD-xG-vno"/>
+                <outlet property="totalLabel" destination="fPI-1C-Rwi" id="mB4-eB-K1z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +45,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <color key="backgroundColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="wxt-6D-Oy3" firstAttribute="centerY" secondItem="0Cd-5A-8se" secondAttribute="centerY" id="Aty-iv-zFW"/>
                         <constraint firstItem="wxt-6D-Oy3" firstAttribute="centerX" secondItem="0Cd-5A-8se" secondAttribute="centerX" id="OJA-SX-qig"/>
@@ -66,6 +67,14 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwM-ky-xUy">
+                            <rect key="frame" x="44" y="18" width="305" height="58"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="totalButton:" destination="-1" eventType="touchUpInside" id="WkQ-Vh-Rkf"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 </view>
@@ -121,15 +130,12 @@
     </objects>
     <resources>
         <image name="Frame" width="24" height="24"/>
-        <image name="Vector" width="14" height="14"/>
+        <image name="Vector" width="11" height="14"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

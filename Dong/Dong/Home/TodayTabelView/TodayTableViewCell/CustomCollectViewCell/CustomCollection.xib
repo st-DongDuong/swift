@@ -22,15 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="148" height="196"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Biryani" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMj-up-3Bh">
-                                <rect key="frame" x="10" y="136.5" width="133" height="20.5"/>
+                                <rect key="frame" x="10" y="148.5" width="133" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-4h-Mfp">
-                                <rect key="frame" x="35" y="162" width="108" height="24"/>
-                                <string key="text">Ambrosia Hotel &amp;
-Restaurant</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21,000đ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-4h-Mfp">
+                                <rect key="frame" x="35" y="174" width="108" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,9 +40,6 @@ Restaurant</string>
                                     <constraint firstAttribute="height" constant="130" id="TRd-G2-7ja"/>
                                     <constraint firstAttribute="width" constant="128" id="cdl-b6-ZWc"/>
                                 </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gps" translatesAutoresizingMaskIntoConstraints="NO" id="Aza-0M-ssZ">
-                                <rect key="frame" x="15" y="162" width="12" height="26"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKQ-kM-Rig">
                                 <rect key="frame" x="10" y="131" width="128" height="19"/>
@@ -63,13 +58,9 @@ Restaurant</string>
                             <constraint firstItem="nEA-4h-Mfp" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="35" id="3Dh-Er-MUP"/>
                             <constraint firstAttribute="bottom" secondItem="nEA-4h-Mfp" secondAttribute="bottom" constant="10" id="3ZO-d5-pos"/>
                             <constraint firstItem="euV-RF-v2j" firstAttribute="top" secondItem="xDp-xg-zRp" secondAttribute="top" constant="10" id="3e3-jK-28x"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aza-0M-ssZ" secondAttribute="trailing" constant="20" id="4pp-xC-CJ9"/>
                             <constraint firstAttribute="trailing" secondItem="nEA-4h-Mfp" secondAttribute="trailing" constant="5" id="Ga7-vy-BpY"/>
                             <constraint firstItem="tKQ-kM-Rig" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="GhX-h6-bTf"/>
-                            <constraint firstItem="Aza-0M-ssZ" firstAttribute="bottom" secondItem="xDp-xg-zRp" secondAttribute="bottomMargin" id="IRJ-Iq-Zsn"/>
-                            <constraint firstItem="Aza-0M-ssZ" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="5" id="Ix5-e5-FbO"/>
                             <constraint firstItem="FMj-up-3Bh" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="J7P-mL-zep"/>
-                            <constraint firstItem="Aza-0M-ssZ" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="15" id="Moa-gz-qvk"/>
                             <constraint firstAttribute="trailing" secondItem="euV-RF-v2j" secondAttribute="trailing" constant="10" id="UGP-2W-roO"/>
                             <constraint firstAttribute="trailing" secondItem="tKQ-kM-Rig" secondAttribute="trailing" constant="10" id="i1v-Td-A7f"/>
                             <constraint firstItem="nEA-4h-Mfp" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="5" id="lYY-aD-vBf"/>
@@ -97,16 +88,15 @@ Restaurant</string>
                 </mask>
             </variation>
             <connections>
-                <outlet property="addressToday" destination="nEA-4h-Mfp" id="ex9-Lw-x8q"/>
                 <outlet property="imageToday" destination="euV-RF-v2j" id="1Pw-2P-qWU"/>
                 <outlet property="nameToday" destination="FMj-up-3Bh" id="Iim-Se-tb2"/>
+                <outlet property="priceToday" destination="nEA-4h-Mfp" id="rVg-Uq-Y5v"/>
                 <outlet property="totalVieww" destination="xDp-xg-zRp" id="q1A-NM-2iV"/>
             </connections>
             <point key="canvasLocation" x="-1726.0869565217392" y="-38.169642857142854"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="gps" width="12" height="14"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

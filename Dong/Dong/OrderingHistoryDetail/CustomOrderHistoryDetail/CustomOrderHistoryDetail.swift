@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomViewOrdering: UITableViewCell {
+class CustomOrderHistoryDetail: UITableViewCell {
 
     @IBOutlet weak var priceHis: UILabel!
     @IBOutlet weak var qualityHis: UILabel!

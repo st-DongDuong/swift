@@ -16,7 +16,7 @@ class CartViewController: UIViewController {
         case totalAmount(totalOrder:Int, number: Int)
         case reload
     }
-    weak var delegate: CartViewControllerDelegate?
+    weak var delegate: CartViewControllerDelegate?  
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
@@ -50,15 +50,20 @@ class CartViewController: UIViewController {
 
         coverLable.layer.cornerRadius = 10
         footerView.layer.cornerRadius = 10
+        footerView.clipsToBounds = true
+        footerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
+        headerView.layer.cornerRadius  =  10
+        headerView.clipsToBounds = true
     }
     
-   override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
-   
-   }
+//   override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
+//
+//   }
     
     func updateCart() {
         price = 0
@@ -76,7 +81,7 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func checkOutButton(_ sender: Any) {
-       
+        
         ItemOrdering.cart.removeAll()
             tableView.reloadData()
             dismiss(animated: true, completion: nil)
@@ -89,7 +94,6 @@ class CartViewController: UIViewController {
         delegate?.cartdata(self, .totalAmount(totalOrder: totalAmout, number: price))
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
-       // tableView.reloadData()
     }
     
     @IBAction func clearButton(_ sender: UIButton) {

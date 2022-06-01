@@ -10,7 +10,7 @@ import UIKit
 class CustomCollection: UICollectionViewCell {
 
     @IBOutlet weak var totalVieww: UIView!
-    @IBOutlet weak var addressToday: UILabel!
+    @IBOutlet weak var priceToday: UILabel!
     @IBOutlet weak var nameToday: UILabel!
     @IBOutlet weak var imageToday: UIImageView!
     override func awakeFromNib() {
@@ -23,10 +23,10 @@ class CustomCollection: UICollectionViewCell {
         totalVieww.clipsToBounds = true
     }
     
-    func updateToday(image: String, name:String, address:String){
+    func updateToday(image: String, name:String, price: Int){
         imageToday.downloaded(from: image)
         nameToday.text = name
-        addressToday.text = address
+        priceToday.text = "\(price),000d"
     }
  
 }
