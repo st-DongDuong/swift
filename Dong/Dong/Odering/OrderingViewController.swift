@@ -96,8 +96,12 @@ class OrderingViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
+    var totalprice = 0
+        ItemOrdering.cart.forEach{ item in
+            number += item.amout
+            totalprice += number * item.MenuItem.price
+        }
         
-        let totalprice = ((menu?.price ?? 0) * number ) 
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
         delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note, price: totalprice ))
@@ -106,4 +110,3 @@ class OrderingViewController: UIViewController {
         totalLabel.text = "\(totalprice),000đ"
     }
 }
-

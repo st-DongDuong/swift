@@ -194,7 +194,6 @@ extension DetailRestaurant :OrderingDelegate{
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
             numberLabel.text = "\(amount)"
             priceLabel.text  = "Check Out: \(totalprice),000đ "
-            
             orderItems.append(orderItem)
             print(orderItems.count)
         }
