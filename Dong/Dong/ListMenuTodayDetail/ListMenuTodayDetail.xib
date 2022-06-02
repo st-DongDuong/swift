@@ -45,10 +45,18 @@
                                 <action selector="backButton:" destination="-1" eventType="touchUpInside" id="ae4-m2-7lT"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ListMenuToday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdj-oe-FGi">
+                            <rect key="frame" x="149.5" y="14.5" width="115" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="jcd-it-Ha9" secondAttribute="trailing" constant="366" id="0Jn-iX-99s"/>
+                        <constraint firstItem="xdj-oe-FGi" firstAttribute="centerY" secondItem="MS2-Lr-iup" secondAttribute="centerY" id="5yN-Pf-nKf"/>
+                        <constraint firstItem="xdj-oe-FGi" firstAttribute="centerX" secondItem="MS2-Lr-iup" secondAttribute="centerX" id="C8G-Dy-n9H"/>
                         <constraint firstItem="jcd-it-Ha9" firstAttribute="top" secondItem="MS2-Lr-iup" secondAttribute="top" constant="15" id="aXj-sq-Qk8"/>
                         <constraint firstAttribute="bottom" secondItem="jcd-it-Ha9" secondAttribute="bottom" constant="11" id="ifu-Di-TPS"/>
                         <constraint firstItem="jcd-it-Ha9" firstAttribute="leading" secondItem="MS2-Lr-iup" secondAttribute="leading" constant="24" id="oVu-xs-fFs"/>

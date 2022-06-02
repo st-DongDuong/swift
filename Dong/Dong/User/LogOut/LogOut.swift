@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Footer: UITableViewCell {
+class LogOut: UITableViewCell {
 
     @IBOutlet weak var totalView: UIView!
     override func awakeFromNib() {

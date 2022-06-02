@@ -6,10 +6,6 @@
 //
 
 import UIKit
-
-//protocol TodayTableViewCellDelegate: AnyObject {
-//    func cell(_ cell: TodayTableViewCell,_ action: TodayTableViewCell.Action)
-//}
 protocol TodayTableViewCellDelegate : AnyObject{
     func cell(_ cell :TodayTableViewCell,_ action: TodayTableViewCell.Action)
 }
@@ -19,9 +15,8 @@ class TodayTableViewCell: UITableViewCell {
     enum Action {
         case didSelect(Restaurant)
     }
-
-   
-    var menusRes: [Restaurant] = [] // gán. = res để truy cập thông tin cho cell
+    
+    var menusRes: [Restaurant] = []
     var listMe : [Menu] = []
     @IBOutlet weak var collectionToday: UICollectionView!
     
@@ -29,15 +24,14 @@ class TodayTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         configToday()
     }
-   
-    func reloadData(){
+    
+    func reloadData() {
         collectionToday.reloadData()
     }
     
-    func configToday(){
+    func configToday()      {
         let cell = UINib(nibName: "CustomCollection", bundle: nil)
         collectionToday.register(cell, forCellWithReuseIdentifier: "CustomCollection")
         collectionToday.dataSource = self
@@ -59,21 +53,21 @@ extension TodayTableViewCell: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
         cell.updateToday(image: menusRes[indexPath.row].photos.first ?? "", name: menusRes[indexPath.row].name, price: menusRes[indexPath.row].menus.first?.price ?? 0)
-     return cell
-    
-}
+        return cell
+        
+    }
 }
 
 extension TodayTableViewCell : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      return  CGSize(width: 150, height: 200)
+        return  CGSize(width: 150, height: 200)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // print("alo: \(menusRes[indexPath.row])")
         delegate?.cell(self, .didSelect(menusRes[indexPath.row]))
     }
 }

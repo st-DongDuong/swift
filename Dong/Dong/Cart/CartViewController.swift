@@ -16,6 +16,7 @@ class CartViewController: UIViewController {
         case totalAmount(totalOrder:Int, number: Int)
         case reload
     }
+    
     weak var delegate: CartViewControllerDelegate?  
     
     @IBOutlet weak var tableView: UITableView!
@@ -26,14 +27,10 @@ class CartViewController: UIViewController {
     @IBOutlet weak var coverLable: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
-    
     @IBOutlet weak var headerView: UIView!
     
     var cartDetail: Restaurant?
-    
-    //    var hisOrder:Restaurant?
-    //    var total: Restaurant?
-    
+
     var totalAmout = 0
     var price: Int = 0
     override func viewDidLoad() {
@@ -44,7 +41,7 @@ class CartViewController: UIViewController {
         if ItemOrdering.cart.isEmpty {
             footerView.isHidden = true
             tableView.reloadData()
-        }else {
+        } else {
             footerView.isHidden = false
         }
 
@@ -57,25 +54,16 @@ class CartViewController: UIViewController {
         headerView.layer.cornerRadius  =  10
         headerView.clipsToBounds = true
     }
-    
-//   override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.tabBar.isHidden = true
-//
-//   }
-    
+
     func updateCart() {
         price = 0
         totalAmout = 0
         ItemOrdering.cart.forEach{ item in
-            let amout = item.amout
-            let pri = item.MenuItem.price 
-            price += amout * pri
-            totalAmout += item.amout // cộng dồn mỗi lần lấy vào total
+            price += item.MenuItem.price * item.amout
+            totalAmout += item.amout
             
         }
-        
+    
         priceLabel.text = "\(price),000đ"
         qualityLabel.text = "\(totalAmout) items " // bỏ ra ngoài for để lấy tổng thôi
     }
@@ -107,7 +95,6 @@ class CartViewController: UIViewController {
         let cell = UINib(nibName: "CartCustom", bundle: nil)
         tableView.register(cell, forCellReuseIdentifier: "CartCustom")
         
-        //tableView.delegate = self
         tableView.dataSource = self
     }
 }
@@ -131,16 +118,15 @@ extension CartViewController : UITableViewDataSource {
     }
 }
 
-extension CartViewController :CartCustomDelegate{
+extension CartViewController :CartCustomDelegate {
     func cell(_ cell: CartCustom, _ action: CartCustom.Action) {
         switch action {
         case .amount( let number):
-            print(number)
+            
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             ItemOrdering.cart[indexPath.row].amout = number
             updateCart()
-            priceLabel.text  = "\(price),000đ"
-            // qualityLabel.text = "\(totalAmout)"
+        
         }
     }
     

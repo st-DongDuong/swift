@@ -17,12 +17,27 @@ class ListMenuTodayDetail: UIViewController {
         super.viewDidLoad()
         configCollection()
         self.navigationItem.title  = "ListMenuTodayDetail"
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.isToolbarHidden = true
+    
         headerListMenu.layer.cornerRadius = 15
         headerListMenu.clipsToBounds  = true
         headerListMenu.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

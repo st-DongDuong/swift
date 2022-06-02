@@ -6,12 +6,11 @@
 //
 
 import UIKit
-
 class OrderHistory: UIViewController {
-   
+    
     @IBOutlet weak var viewHeader: UIView!
     @IBOutlet weak var tableView: UITableView!
-  
+    
     var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
         control.tintColor = .red
@@ -25,7 +24,7 @@ class OrderHistory: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         viewHeader.layer.cornerRadius = 10
         viewHeader.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
-    
+        
     }
     
     func configTable() {
@@ -62,30 +61,21 @@ extension OrderHistory :UITableViewDataSource {
             address: OrderHistories.orderHistories[indexPath.row].restaurant.address.address )
         
         return cell
-    
+        
     }
 }
 
-extension OrderHistory : UITableViewDelegate{
+extension OrderHistory : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
         
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let order  = OrderHistoryDetail()
         order.nameRes = OrderHistories.orderHistories[indexPath.row].restaurant.name
         order.data = OrderHistories.orderHistories[indexPath.row].orderItems
         navigationController?.pushViewController(order, animated: true)
+        
     }
-    
 }
-
-//}
-//extension HistoryVC: DetailResDelegate {
-//    func view(_ view: DetailRes, _ action: DetailRes.Action) {
-//        //switch action {
-//       // case .saveHistory(let restaurant):
-////            HistoryRestaurantData.listRestaurant.append(restaurant)
-//        }
-//    }
-

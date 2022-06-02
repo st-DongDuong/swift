@@ -38,11 +38,19 @@
                                 <action selector="backButton:" destination="-1" eventType="touchUpInside" id="ekn-bz-9AC"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ListExploreRestaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cam-Wf-Lpx">
+                            <rect key="frame" x="123.5" y="14.5" width="167" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.1960784314" green="0.71764705880000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="htU-hj-kFj" firstAttribute="top" secondItem="TxD-Ym-MuJ" secondAttribute="top" constant="14" id="JZn-Rz-UpM"/>
                         <constraint firstItem="htU-hj-kFj" firstAttribute="leading" secondItem="TxD-Ym-MuJ" secondAttribute="leading" constant="30" id="bBF-fP-b4G"/>
+                        <constraint firstItem="cam-Wf-Lpx" firstAttribute="centerY" secondItem="TxD-Ym-MuJ" secondAttribute="centerY" id="lDO-54-5rM"/>
+                        <constraint firstItem="cam-Wf-Lpx" firstAttribute="centerX" secondItem="TxD-Ym-MuJ" secondAttribute="centerX" id="qCC-Os-WSy"/>
                         <constraint firstAttribute="bottom" secondItem="htU-hj-kFj" secondAttribute="bottom" constant="12" id="yhe-IO-gdD"/>
                     </constraints>
                 </view>

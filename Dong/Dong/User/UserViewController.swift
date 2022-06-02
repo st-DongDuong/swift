@@ -14,23 +14,21 @@ class UserViewController: UIViewController {
         
         super.viewDidLoad()
         configUser()
-        
-        //self.tabBarController?.tabBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
     }
     
-    func configUser(){
-        let cell1 = UINib(nibName: "Cell1", bundle: nil)
-        tableView.register(cell1, forCellReuseIdentifier: "Cell1")
-      
-        let cell2 = UINib(nibName: "Cell2", bundle: nil)
-        tableView.register(cell2, forCellReuseIdentifier: "Cell2")
+    func configUser() {
+        let InforUser = UINib(nibName: "InforUser", bundle: nil)
+        tableView.register(InforUser, forCellReuseIdentifier: "InforUser")
         
-        let cell3 = UINib(nibName: "Cell3", bundle: nil)
-        tableView.register(cell3, forCellReuseIdentifier: "Cell3")
+        let AcountSetting = UINib(nibName: "AcountSetting", bundle: nil)
+        tableView.register(AcountSetting, forCellReuseIdentifier: "AcountSetting")
         
-        let Footer = UINib(nibName: "Footer", bundle: nil)
-        tableView.register(Footer, forCellReuseIdentifier: "Footer")
+        let More = UINib(nibName: "More", bundle: nil)
+        tableView.register(More, forCellReuseIdentifier: "More")
+        
+        let LogOut = UINib(nibName: "LogOut", bundle: nil)
+        tableView.register(LogOut, forCellReuseIdentifier: "LogOut")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -48,44 +46,57 @@ extension UserViewController :UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
-        guard let cell1 = tableView.dequeueReusableCell(withIdentifier: "Cell1",for: indexPath) as? Cell1 else {
-                return Cell1()
+            guard let InforUser = tableView.dequeueReusableCell(withIdentifier: "InforUser",for: indexPath) as? InforUser else {
+                return InforUser()
             }
-            return cell1
-        } else if (indexPath.section  == 1 ){
-
-            guard let cell2 = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as? Cell2 else {
-                return Cell2()
+            
+            return InforUser
+            
+        } else if (indexPath.section  == 1 ) {
+            guard let AcountSetting = tableView.dequeueReusableCell(withIdentifier: "AcountSetting", for: indexPath) as? AcountSetting else {
+                return AcountSetting()
             }
-            return cell2
-        } else if(indexPath.section == 2) {
-            guard let cell3 = tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as? Cell3 else {
-                return Cell3()
+            
+            return AcountSetting
+            
+        } else if (indexPath.section == 2) {
+            guard let More = tableView.dequeueReusableCell(withIdentifier: "More", for: indexPath) as? More else {
+                
+                return More()
             }
-            return cell3
+            
+            return More
+            
         } else {
-            guard let Footer = tableView.dequeueReusableCell(withIdentifier: "Footer", for: indexPath) as? Footer else {
-                return Footer()
+            guard let LogOut = tableView.dequeueReusableCell(withIdentifier: "LogOut" , for: indexPath) as? LogOut  else {
+                
+                return LogOut()
             }
-            return Footer
             
+            return LogOut
         }
-        }
+    }
 }
-    extension UserViewController: UITableViewDelegate {
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            if indexPath.section == 0{
-                return 80
-            }else if(indexPath.section == 1){
-                return 120
-            } else {
-                return 200
-            }
-    }
+
+extension UserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 80
             
-        func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-            200
+        } else if(indexPath.section == 1) {
+            
+            return 120
+            
+        } else {
+            
+            return 200
         }
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        
+        200
+    }
+}
 
 

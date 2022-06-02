@@ -10,10 +10,9 @@ protocol CartCustomDelegate: AnyObject {
     func cell(_ cell: CartCustom,_ action: CartCustom.Action)
 }
 class CartCustom: UITableViewCell {
-   
+    
     enum Action {
         case amount(number: Int)
-
     }
     
     var number = 0
@@ -33,8 +32,7 @@ class CartCustom: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
     func updateCart(name:String, note:String, price:Int, number:Int){
@@ -47,18 +45,18 @@ class CartCustom: UITableViewCell {
     
     @IBAction func plusButton(_ sender: Any) {
         
-       number += 1
+        number += 1
         numberLabel.text = "\(number)"
         delegate?.cell(self, .amount(number: number))
-    
+        
     }
+    
     @IBAction func minusButton(_ sender: Any) {
         if number > 0 {
-        number -= 1
-        numberLabel.text = "\(number)"
-        delegate?.cell(self, .amount(number: number))
-
+            number -= 1
+            numberLabel.text = "\(number)"
+            delegate?.cell(self, .amount(number: number))
+            
         }
-        
     }
 }

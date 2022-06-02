@@ -6,20 +6,16 @@
 //
 
 import UIKit
-
 protocol OrderingDelegate: AnyObject {
     func cell(_ cell: OrderingViewController,_ action: OrderingViewController.Action)
-    
- }
+}
 
 class OrderingViewController: UIViewController {
-    
     enum Action {
         case save(menuItem: Menu, amount: Int, notes: String, price: Int)
-    
     }
-
-    weak var delegate:OrderingDelegate?
+    
+    weak var delegate: OrderingDelegate?
     
     @IBOutlet weak var descrip: UILabel!
     @IBOutlet weak var headerView: UIView!
@@ -34,27 +30,33 @@ class OrderingViewController: UIViewController {
     @IBOutlet weak var viewAdd: UIView!
     
     var menu: Menu?
-    var number:Int = 0
+    var number: Int = 0
     var total: Int = 0
     var note: String = ""
     var descri: String = ""
+    
+    var totalprice = 0
+    var totalNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
         headerView.layer.cornerRadius = 10
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        
         footerView.layer.cornerRadius = 15
         footerView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner ]
+        
         addview.layer.cornerRadius = 15
         imageTest.layer.cornerRadius = 8
-        headerView.layer.cornerRadius = 16
         viewAdd.layer.cornerRadius = 10
+        //  saveOrder()
         
     }
-        
+    
     @IBAction func pop(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        
     }
     
     private func updateView() {
@@ -66,20 +68,25 @@ class OrderingViewController: UIViewController {
         nameLabel.text = menu.name
         priceLabel.text = "\(menu.price)" + ",000đ"
         descrip.text = menu.description
+        
     }
     
     @IBAction func minusOrder(_ sender: Any) {
         if number > 0 {
             number -= 1
-            totalLabel.text = " Add : \((menu?.price ?? 0) * number ),000đ"
+            let price = ((menu?.price ?? 0) * number )
+            totalLabel.text = " Add : \(price),000đ"
             numberLabel.text = "\(number)"
+            
         }
     }
     
     @IBAction func plusOrder(_ sender: Any) {
         number += 1
-        totalLabel.text = "Add : \((menu?.price ?? 0) * number ),000đ"
+        let price = ((menu?.price ?? 0) * number )
+        totalLabel.text = "Add : \(price),000đ"
         numberLabel.text = "\(number)"
+        
     }
     
     func saveOrder () {  // tạo hàm để lưu lại những biến đã chọn
@@ -92,21 +99,27 @@ class OrderingViewController: UIViewController {
         } else {
             
             ItemOrdering.cart.append(item)
+            
         }
     }
     
     @IBAction func addButton(_ sender: Any) {
-    var totalprice = 0
-        ItemOrdering.cart.forEach{ item in
-            number += item.amout
-            totalprice += number * item.MenuItem.price
+        
+        ItemOrdering.cart.forEach { item in
+            totalprice += item.amout * item.MenuItem.price
+            totalNumber  += item.amout
+            
         }
         
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
-        delegate?.cell(self, .save(menuItem: menu!, amount: number, notes: note, price: totalprice ))
+        delegate?.cell(self, .save(menuItem: menu!,
+                                   amount: totalNumber,
+                                   notes: note,
+                                   price: totalprice))
+        
         dismiss(animated: true, completion: nil)
         saveOrder()
-        totalLabel.text = "\(totalprice),000đ"
+        
     }
 }

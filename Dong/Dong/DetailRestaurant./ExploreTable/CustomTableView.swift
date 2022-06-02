@@ -13,10 +13,9 @@ protocol CustomTableViewDelegate: AnyObject {
 class CustomTableView: UITableViewCell {
     
     enum Action {
-        
         case datas
-        
     }
+    
     @IBOutlet weak var totalView: UIView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -29,20 +28,22 @@ class CustomTableView: UITableViewCell {
         totalView.layer.cornerRadius = 10
         imageTable.layer.cornerRadius = 8
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-   }
-    @IBAction func detailButton(_ sender: Any) {
-        delegate?.cell(cell: self,action: .datas)
+        
     }
     
-    func updateTabel(image:String, name:String, address:String){
+    @IBAction func detailButton(_ sender: Any) {
+        delegate?.cell(cell: self,action: .datas)
+    
+    }
+    
+    func updateTabel(image: String, name: String, address: String){
         guard let url = URL(string: image) else { return }
         imageTable.downloaded(from: url)
-            nameLabel.text = name
+        nameLabel.text = name
         addressLabel.text = address
         
-        }
+    }
 }

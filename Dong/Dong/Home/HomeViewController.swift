@@ -11,8 +11,8 @@ class HomeViewController: UIViewController {
     var listMenus: [Menu] = []
     var listBanner: [Banner] = []
     var listRestaurant: [Restaurant] = []
-
-    //var viewModel: HomeViewModelType = HomeViewModel()
+    
+    //var viewModel = HomeViewModel()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -28,29 +28,22 @@ class HomeViewController: UIViewController {
         return control
     }()
     
-//    @IBAction func addressButton(_ sender: Any) {
-//        viewModel.adrressButton()
-//
-//    }
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
         configCollectionView()
         configTableView()
-       // indexPathOfCurrentCell()
+        indexPathOfCurrentCell()
         setupPageControl()
         getApiRestaurant()
-        getApiBanner()      
-  
+        getApiBanner()
     }
     
     @IBAction func userButton(_ sender: Any) {
-        print("alo")
         let user = UserViewController()
         navigationController?.pushViewController(user, animated: true)
         navigationController?.navigationBar.isHidden = true
-
+        
     }
     
     private func showLoadingView(isShow: Bool) {
@@ -58,13 +51,15 @@ class HomeViewController: UIViewController {
             loadingView.isHidden = false
             containerLoadingView.isHidden = false
             loadingView.startAnimating()
+            
         } else {
+            
             loadingView.isHidden = true
             containerLoadingView.isHidden = true
             loadingView.stopAnimating()
         }
     }
-
+    
     @objc func refreshData() {
         getApiBanner()
         getApiRestaurant()
@@ -79,8 +74,8 @@ class HomeViewController: UIViewController {
                 
             }
             
-        this.showLoadingView(isShow: false)
-        this.bannerCollectionView.reloadData()
+            this.showLoadingView(isShow: false)
+            this.bannerCollectionView.reloadData()
             
         }
     }
@@ -90,22 +85,23 @@ class HomeViewController: UIViewController {
         getApiRestaurant { [weak self] isSuccess in
             guard let this = self else {
                 return
+            
             }
             
             DispatchQueue.main.async {
                 this.showLoadingView(isShow: false)
                 this.tableView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                this.refreshControl.endRefreshing()
-                this.tableView.contentOffset = .zero
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                this.tableView.scrollsToTop = true
+                    this.refreshControl.endRefreshing()
+                    this.tableView.contentOffset = .zero
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        this.tableView.scrollsToTop = true
+                        
                     }
                 })
             }
         }
     }
-    
     
     func configCollectionView() {
         let cellBanner = UINib(nibName: "CustomCollectionBanner", bundle: nil)
@@ -127,10 +123,11 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = refreshControl
-
+        
     }
     
     private func setupPageControl() {
+        
         pageControl.numberOfPages = 5
         pageControl.currentPageIndicatorTintColor = .green
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(2)
@@ -150,46 +147,49 @@ class HomeViewController: UIViewController {
         visbleOffset.y += bannerCollectionView.center.y
         bannerCollectionView.indexPathForItem(at: visbleOffset)
         guard let indexPath = bannerCollectionView.indexPathForItem(at: visbleOffset) else {
+          
             return nil
+            
         }
         
         return indexPath
-    
+        
     }
     
     // MARK: - Navigation
     private func configNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     func getApiRestaurant(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "https://ios-interns.herokuapp.com/api/restaurants?page=0&limit=20") else {
-            return
-    }
+            return }
         
         let configuration = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: configuration)
-        let task = session.dataTask(with: url) { data, _, error in
+        let task = session.dataTask(with: url) { data, response, error in
             if error == nil {
                 completion(false)
-    }
+            }
+            
             if let data = data {
-            let decoder = JSONDecoder()
-            if let datas = try? decoder.decode(RestaurantResponse.self, from: data) {
-            for item in datas.data {
-            self.listRestaurant.append(item)
-        
-        }
-                
-        DispatchQueue.main.async {
-        completion(true)
+                let decoder = JSONDecoder()
+                if let datas = try? decoder.decode(RestaurantResponse.self, from: data) {
+                    for item in datas.data {
+                        self.listRestaurant.append(item)
+                        
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completion(true)
+                    }
                 }
             }
         }
-    }
         
         task.resume()
-    
+        
     }
     
     func getApiBanner(completion: @escaping() -> Void) {
@@ -218,7 +218,7 @@ class HomeViewController: UIViewController {
 // MARK: - BannerCollection
 extension HomeViewController : UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1// trả về 1 section của table trên
+        1 // trả về 1 section của table trên
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -229,7 +229,7 @@ extension HomeViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionBanner", for: indexPath) as? CustomCollectionBanner else {
             return UICollectionViewCell()
         }
-       // let list = viewModel.getListBanner(at: indexPath.)
+        
         cell.updateBanner(image: listBanner[indexPath.item].imageUrl)
         return cell
     }
@@ -237,6 +237,7 @@ extension HomeViewController : UICollectionViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) { // thêm thằng ni mới scroll ở trên dc
         guard let indexPath = indexPathOfCurrentCell() else { return }
         pageControl.currentPage = indexPath.row
+        
     }
 }
 
@@ -250,10 +251,6 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout{
         return UIEdgeInsets(top: 20, left: 40, bottom: 5, right: 30)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print(indexPath.row)
-    }
 }
 
 // MARK: - tableView
@@ -265,18 +262,19 @@ extension HomeViewController:  UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
+            
         } else {
+            
             return listRestaurant.count
-            //viewModel.getlistRestaurant().count
             
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.section == 0){
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTableViewCell") as? TodayTableViewCell else {
+        if (indexPath.section == 0) {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTableViewCell") as?  TodayTableViewCell else  {
                 return UITableViewCell()
-        }
+            }
             
             cell.menusRes = listRestaurant
             cell.reloadData()
@@ -286,37 +284,43 @@ extension HomeViewController:  UITableViewDataSource {
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableView") as? CustomTableView else {
-            
                 return UITableViewCell()
-                
                 
             }
             
-            cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "", name: listRestaurant[indexPath.row].name, address: listRestaurant[indexPath.row].address.address )
-        cell.delegate = self
+            cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "",
+                name: listRestaurant[indexPath.row].name,
+                address: listRestaurant[indexPath.row].address.address )
+            cell.delegate = self
             return cell
+            
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as?
                 HeaderView else {
-            return UIView()
-        }
+                    
+                    return UIView()
+                }
+        
         if section == 0 {
-            headerView.updateHeader(name: "Today New Arivable", detail: "Best of the today food list update")
+            headerView.updateHeader(name: "Today New Arivable",
+                                    detail: "Best of the today food list update")
             headerView.tag = 0
             headerView.delegate = self
             
         } else {
             
-            headerView.updateHeader(name: "Explore Restaurant", detail: "Check your city Near by Restaurant")
+            headerView.updateHeader(name: "Explore Restaurant",
+                                    detail: "Check your city Near by Restaurant")
             headerView.tag = 1
             headerView.delegate = self
             
         }
         
         return headerView
+        
     }
 }
 
@@ -342,7 +346,7 @@ extension HomeViewController: UITableViewDelegate {
             
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         70
     }
@@ -357,13 +361,14 @@ extension HomeViewController: HeaderViewDelegate{
                 today.listMenu  = listRestaurant
                 guard navigationController?.topViewController == self else { return }   //màn hình bị push qua 2 lần
                 navigationController?.pushViewController(today, animated: true)
-                print("---------0----------------\(tag)")
+                
             } else {
+                
                 let see = ListExploreRestaurantDetail()
                 see.listRestaurant = listRestaurant
                 guard navigationController?.topViewController == self else { return }
                 navigationController?.pushViewController(see, animated: true)
-                print("---------1----------------\(view.tag)")
+                
             }
         }
     }
@@ -373,12 +378,11 @@ extension HomeViewController: CustomTableViewDelegate {
     func cell(cell: CustomTableView, action: CustomTableView.Action) {
         switch action{
         case.datas:
-            
             guard let index = tableView.indexPath(for: cell) else {return}
             let vc = DetailRestaurant()
             vc.restaurant = listRestaurant[index.row]
-        navigationController?.pushViewController(vc, animated: true)
-        
+            navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
 }

@@ -24,7 +24,6 @@ class CustomDetailRestaurant: UICollectionViewCell {
         imageView.downloaded(from: image)
         nameLael.text = name
         addressLabel.text = address
-        
-
+    
     }
 }

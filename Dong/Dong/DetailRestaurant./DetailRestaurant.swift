@@ -9,7 +9,7 @@ import UIKit
 class DetailRestaurant: UIViewController {
     var orderItems :[OrderItem] = []
     var restaurant: Restaurant?
-
+    
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
@@ -39,15 +39,15 @@ class DetailRestaurant: UIViewController {
         viewFooter.layer.cornerRadius = 20
         headerView.layer.cornerRadius = 16
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
-        
+        update()
     }
     
-    // MARK: - checkOutButton
     @IBAction func checkOutButton(_ sender: Any) {
         let checkOut = CartViewController()
         let order = Order(restaurant: restaurant!,
                           paymentDate: Date(),
                           orderItems: orderItems)
+        
         checkOut.delegate = self
         
         // 2.Save Order
@@ -56,8 +56,7 @@ class DetailRestaurant: UIViewController {
         present(checkOut, animated: true, completion: nil)
         
     }
-
-    // MARK: - backButton
+    
     @IBAction private func  backButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
@@ -67,9 +66,11 @@ class DetailRestaurant: UIViewController {
         let cartOrder = CartViewController()
         cartOrder.cartDetail = restaurant
         cartOrder.delegate = self
+        
         cartOrder.modalPresentationStyle = .fullScreen
         present(cartOrder, animated: true, completion: nil)
         collectionView.reloadData()
+        
     }
     
     // MARK: - ConfigDetail
@@ -99,15 +100,16 @@ extension DetailRestaurant :UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 1
+            
         } else {
+            
             return restaurant?.menus.count ?? 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomDetailRestaurant", for: indexPath) as? CustomDetailRestaurant  else {
-                
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomDetailRestaurant", for: indexPath) as? CustomDetailRestaurant  else {
                 return UICollectionViewCell()
             }
             
@@ -117,8 +119,7 @@ extension DetailRestaurant :UICollectionViewDataSource {
             return cell
             
         } else {
-            guard  let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomRecomendMenu", for: indexPath) as? CustomRecomendMenu  else {
-                
+            guard let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomRecomendMenu", for: indexPath) as? CustomRecomendMenu  else {
                 return UICollectionViewCell()
             }
             
@@ -134,17 +135,21 @@ extension DetailRestaurant :UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
             return CGSize (width: 0, height: 0)
+            
         } else {
+            
             return CGSize (width: collectionView.bounds.width, height: 70)
+            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let HeaderDetailCollection = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,withReuseIdentifier: "HeaderRecomendMenu", for: indexPath)
+        
         return HeaderDetailCollection
+        
     }
 }
-
 
 extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -159,11 +164,13 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0{
+            
             return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 14)
             
         } else {
             
             return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)
+            
         }
     }
     
@@ -178,22 +185,35 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section != 0 {
             let order  = OrderingViewController()
-            order.delegate = self  // nhận uỷ quyền từ màn hình bên kia
+            order.delegate = self
             order.menu = restaurant?.menus[indexPath.item]
             order.modalPresentationStyle = .fullScreen
             present(order, animated: true, completion: nil)
         }
     }
+    
+    func update(){
+        var total = 0
+        var number = 0
+        
+        ItemOrdering.cart.forEach { item in
+            total += item.amout * item.MenuItem.price
+            number += item.amout
+        }
+        
+        priceLabel.text =  "check out: \(total)"
+        numberLabel.text = "\(number)"
+    }
 }
 
 extension DetailRestaurant :OrderingDelegate{
     func cell(_ cell: OrderingViewController, _ action: OrderingViewController.Action) {
-        
         switch action {
         case .save(let menuItem, let amount, let notes, let totalprice):
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
             numberLabel.text = "\(amount)"
             priceLabel.text  = "Check Out: \(totalprice),000đ "
+            collectionView.reloadData()
             orderItems.append(orderItem)
             print(orderItems.count)
         }
@@ -203,10 +223,12 @@ extension DetailRestaurant :OrderingDelegate{
 extension DetailRestaurant: CartViewControllerDelegate {
     func cartdata(_ cart: CartViewController, _ Action: CartViewController.Action) {
         switch Action{
+            
         case .totalAmount(let totalAmount, let number ):
             numberLabel.text = "\(totalAmount )"
             priceLabel.text = "Check Out: \(number),000đ"
             collectionView.reloadData()
+            
         case .reload:
             numberLabel.text = "0"
             priceLabel.text = "Check Out: "

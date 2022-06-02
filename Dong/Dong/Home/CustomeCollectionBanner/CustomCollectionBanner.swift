@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class CustomCollectionBanner: UICollectionViewCell {
 
     @IBOutlet weak var totalView: UIView!
@@ -19,7 +18,7 @@ class CustomCollectionBanner: UICollectionViewCell {
 
     }
 
-    func updateBanner(image:String){
+    func updateBanner(image:String) {
         guard let url = URL(string: image) else { return }
         imagBanner.downloaded(from: url)
     }
