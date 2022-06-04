@@ -49,8 +49,8 @@
 		DEA8C15C2822D6D100F91CBA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8C15A2822D6D100F91CBA /* UserViewController.swift */; };
 		DEA8C15D2822D6D100F91CBA /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA8C15B2822D6D100F91CBA /* UserViewController.xib */; };
 		DEA8C1602822D6FB00F91CBA /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8C15F2822D6FB00F91CBA /* Tabbar.swift */; };
-		DEA8C1692822DB4800F91CBA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8C1672822DB4800F91CBA /* MapVC.swift */; };
-		DEA8C16A2822DB4800F91CBA /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA8C1682822DB4800F91CBA /* MapVC.xib */; };
+		DEA8C1692822DB4800F91CBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8C1672822DB4800F91CBA /* MapViewController.swift */; };
+		DEA8C16A2822DB4800F91CBA /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA8C1682822DB4800F91CBA /* MapViewController.xib */; };
 		DEA8C1712822E1A500F91CBA /* CustomCollectionBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8C16F2822E1A500F91CBA /* CustomCollectionBanner.swift */; };
 		DEA8C1722822E1A500F91CBA /* CustomCollectionBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA8C1702822E1A500F91CBA /* CustomCollectionBanner.xib */; };
 		DEC4FBEF282620CF00B871E9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC4FBEE282620CF00B871E9 /* HeaderView.swift */; };
@@ -64,6 +64,8 @@
 		DEC4FC172828F81E00B871E9 /* SetUpImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC4FC162828F81E00B871E9 /* SetUpImageApi.swift */; };
 		DEC4FC1C282A5FDA00B871E9 /* InforUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC4FC1A282A5FDA00B871E9 /* InforUser.swift */; };
 		DEC4FC1D282A5FDA00B871E9 /* InforUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC4FC1B282A5FDA00B871E9 /* InforUser.xib */; };
+		DEF0E9E3284AFA2E007FAE3C /* DetailListRecommendMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0E9E1284AFA2E007FAE3C /* DetailListRecommendMenu.swift */; };
+		DEF0E9E4284AFA2E007FAE3C /* DetailListRecommendMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEF0E9E2284AFA2E007FAE3C /* DetailListRecommendMenu.xib */; };
 		DEFF60552831FCEC0039A0A9 /* OrderHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFF60532831FCEC0039A0A9 /* OrderHistory.swift */; };
 		DEFF60562831FCEC0039A0A9 /* OrderHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFF60542831FCEC0039A0A9 /* OrderHistory.xib */; };
 /* End PBXBuildFile section */
@@ -113,8 +115,8 @@
 		DEA8C15A2822D6D100F91CBA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		DEA8C15B2822D6D100F91CBA /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		DEA8C15F2822D6FB00F91CBA /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
-		DEA8C1672822DB4800F91CBA /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		DEA8C1682822DB4800F91CBA /* MapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
+		DEA8C1672822DB4800F91CBA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DEA8C1682822DB4800F91CBA /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		DEA8C16F2822E1A500F91CBA /* CustomCollectionBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionBanner.swift; sourceTree = "<group>"; };
 		DEA8C1702822E1A500F91CBA /* CustomCollectionBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionBanner.xib; sourceTree = "<group>"; };
 		DEC4FBEE282620CF00B871E9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -128,6 +130,8 @@
 		DEC4FC162828F81E00B871E9 /* SetUpImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpImageApi.swift; sourceTree = "<group>"; };
 		DEC4FC1A282A5FDA00B871E9 /* InforUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforUser.swift; sourceTree = "<group>"; };
 		DEC4FC1B282A5FDA00B871E9 /* InforUser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforUser.xib; sourceTree = "<group>"; };
+		DEF0E9E1284AFA2E007FAE3C /* DetailListRecommendMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListRecommendMenu.swift; sourceTree = "<group>"; };
+		DEF0E9E2284AFA2E007FAE3C /* DetailListRecommendMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailListRecommendMenu.xib; sourceTree = "<group>"; };
 		DEFF60532831FCEC0039A0A9 /* OrderHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistory.swift; sourceTree = "<group>"; };
 		DEFF60542831FCEC0039A0A9 /* OrderHistory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistory.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,6 +334,7 @@
 		DEA8C13628226EE500F91CBA /* Dong */ = {
 			isa = PBXGroup;
 			children = (
+				DEF0E9E0284A184C007FAE3C /* DetailListRecomendMenu */,
 				DEA8C15E2822D6E400F91CBA /* Tabbar */,
 				DEA8C1622822DB1300F91CBA /* Map */,
 				DEA8C14D2822D5C700F91CBA /* User */,
@@ -389,8 +394,8 @@
 		DEA8C1622822DB1300F91CBA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				DEA8C1672822DB4800F91CBA /* MapVC.swift */,
-				DEA8C1682822DB4800F91CBA /* MapVC.xib */,
+				DEA8C1672822DB4800F91CBA /* MapViewController.swift */,
+				DEA8C1682822DB4800F91CBA /* MapViewController.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -446,6 +451,15 @@
 				DEC4FC162828F81E00B871E9 /* SetUpImageApi.swift */,
 			);
 			path = SetUpImageApi;
+			sourceTree = "<group>";
+		};
+		DEF0E9E0284A184C007FAE3C /* DetailListRecomendMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DEF0E9E1284AFA2E007FAE3C /* DetailListRecommendMenu.swift */,
+				DEF0E9E2284AFA2E007FAE3C /* DetailListRecommendMenu.xib */,
+			);
+			path = DetailListRecomendMenu;
 			sourceTree = "<group>";
 		};
 		DEFF60522831FCCD0039A0A9 /* OrderHistory */ = {
@@ -517,6 +531,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF0E9E4284AFA2E007FAE3C /* DetailListRecommendMenu.xib in Resources */,
 				DE90ADD3283E1F6600F31DD0 /* ListExploreRestaurantDetail.xib in Resources */,
 				DE1F9D77282CC12D00AE5EF2 /* CartCustom.xib in Resources */,
 				DEA8C1722822E1A500F91CBA /* CustomCollectionBanner.xib in Resources */,
@@ -543,7 +558,7 @@
 				DE898AB52835EDFC00112CA5 /* OrderHistoryDetail.xib in Resources */,
 				DE1F9D68282CBBA700AE5EF2 /* OrderingViewController.xib in Resources */,
 				DE757C5E282BB4A1004DD227 /* CustomRecomendMenu.xib in Resources */,
-				DEA8C16A2822DB4800F91CBA /* MapVC.xib in Resources */,
+				DEA8C16A2822DB4800F91CBA /* MapViewController.xib in Resources */,
 				DEC4FC142828BEBD00B871E9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,7 +598,7 @@
 				DEC4FC0228266EBB00B871E9 /* More.swift in Sources */,
 				DE90ADD2283E1F6600F31DD0 /* ListExploreRestaurantDetail.swift in Sources */,
 				DEC4FC172828F81E00B871E9 /* SetUpImageApi.swift in Sources */,
-				DEA8C1692822DB4800F91CBA /* MapVC.swift in Sources */,
+				DEA8C1692822DB4800F91CBA /* MapViewController.swift in Sources */,
 				DE757C52282BB35B004DD227 /* DetailRestaurant.swift in Sources */,
 				DE0C7C4B2823C773002C0A25 /* CustomTableView.swift in Sources */,
 				DEC4FC132828BEBD00B871E9 /* HomeViewController.swift in Sources */,
@@ -597,6 +612,7 @@
 				DE898AB92835F29B00112CA5 /* CustomOrderHistoryDetail.swift in Sources */,
 				DE1F9D67282CBBA700AE5EF2 /* OrderingViewController.swift in Sources */,
 				DE1F9D76282CC12D00AE5EF2 /* CartCustom.swift in Sources */,
+				DEF0E9E3284AFA2E007FAE3C /* DetailListRecommendMenu.swift in Sources */,
 				DE898AB42835EDFC00112CA5 /* OrderHistoryDetail.swift in Sources */,
 				DEC4FC1C282A5FDA00B871E9 /* InforUser.swift in Sources */,
 				DEA8C15C2822D6D100F91CBA /* UserViewController.swift in Sources */,

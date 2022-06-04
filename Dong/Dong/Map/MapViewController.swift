@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-class MapVC: UIViewController {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
    
@@ -43,7 +43,7 @@ class MapVC: UIViewController {
     }
 }
 
-extension MapVC: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
         pin.animatesDrop = true

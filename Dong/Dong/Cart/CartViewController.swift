@@ -30,20 +30,15 @@ class CartViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     
     var cartDetail: Restaurant?
-
+    var orderItems :[OrderItem] = []
+    
     var totalAmout = 0
     var price: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
         updateCart()
-        
-        if ItemOrdering.cart.isEmpty {
-            footerView.isHidden = true
-            tableView.reloadData()
-        } else {
-            footerView.isHidden = false
-        }
+        tableView.reloadData()
 
         coverLable.layer.cornerRadius = 10
         footerView.layer.cornerRadius = 10
@@ -58,7 +53,7 @@ class CartViewController: UIViewController {
     func updateCart() {
         price = 0
         totalAmout = 0
-        ItemOrdering.cart.forEach{ item in
+        orderItems.forEach{ item in
             price += item.MenuItem.price * item.amout
             totalAmout += item.amout
             
@@ -70,7 +65,7 @@ class CartViewController: UIViewController {
     
     @IBAction func checkOutButton(_ sender: Any) {
         
-        ItemOrdering.cart.removeAll()
+        orderItems.removeAll()
             tableView.reloadData()
             dismiss(animated: true, completion: nil)
         delegate?.cartdata(self, .totalAmount(totalOrder: totalAmout , number: price))
@@ -85,6 +80,7 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func clearButton(_ sender: UIButton) {
+        
         ItemOrdering.cart.removeAll()
         dismiss(animated: true, completion: nil)
         delegate?.cartdata(self, .reload)
@@ -101,17 +97,19 @@ class CartViewController: UIViewController {
 
 extension CartViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ItemOrdering.cart.count
+        orderItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartCustom") as? CartCustom else {
             return UITableViewCell()
         }
-        cell.updateCart(name: ItemOrdering.cart[indexPath.row].MenuItem.name ,
-                        note: ItemOrdering.cart[indexPath.row].note ,
-                        price: ItemOrdering.cart[indexPath.row].MenuItem.price ,
-                        number: ItemOrdering.cart[indexPath.row].amout)
+        
+        let data = orderItems[indexPath.row]
+        cell.updateCart(name: data.MenuItem.name ,
+                        note: data.note ,
+                        price: data.MenuItem.price ,
+                        number: data.amout)
         
         cell.delegate = self
         return cell
@@ -124,7 +122,7 @@ extension CartViewController :CartCustomDelegate {
         case .amount( let number):
             
             guard let indexPath = tableView.indexPath(for: cell) else { return }
-            ItemOrdering.cart[indexPath.row].amout = number
+            orderItems[indexPath.row].amout = number
             updateCart()
         
         }

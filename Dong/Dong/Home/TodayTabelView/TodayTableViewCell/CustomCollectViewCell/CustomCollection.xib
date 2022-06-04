@@ -21,14 +21,14 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-xg-zRp">
                         <rect key="frame" x="0.0" y="0.0" width="148" height="196"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Biryani" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMj-up-3Bh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Biryani" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMj-up-3Bh">
                                 <rect key="frame" x="10" y="148.5" width="133" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21,000đ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-4h-Mfp">
-                                <rect key="frame" x="35" y="174" width="108" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21,000đ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-4h-Mfp">
+                                <rect key="frame" x="57" y="174" width="39.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,30 +41,15 @@
                                     <constraint firstAttribute="width" constant="128" id="cdl-b6-ZWc"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKQ-kM-Rig">
-                                <rect key="frame" x="10" y="131" width="128" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="VB3-is-Ddd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <connections>
-                                    <action selector="todayButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="k04-b1-ndW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="35" id="3Dh-Er-MUP"/>
-                            <constraint firstAttribute="bottom" secondItem="nEA-4h-Mfp" secondAttribute="bottom" constant="10" id="3ZO-d5-pos"/>
                             <constraint firstItem="euV-RF-v2j" firstAttribute="top" secondItem="xDp-xg-zRp" secondAttribute="top" constant="10" id="3e3-jK-28x"/>
-                            <constraint firstAttribute="trailing" secondItem="nEA-4h-Mfp" secondAttribute="trailing" constant="5" id="Ga7-vy-BpY"/>
-                            <constraint firstItem="tKQ-kM-Rig" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="GhX-h6-bTf"/>
                             <constraint firstItem="FMj-up-3Bh" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="J7P-mL-zep"/>
                             <constraint firstAttribute="trailing" secondItem="euV-RF-v2j" secondAttribute="trailing" constant="10" id="UGP-2W-roO"/>
-                            <constraint firstAttribute="trailing" secondItem="tKQ-kM-Rig" secondAttribute="trailing" constant="10" id="i1v-Td-A7f"/>
-                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="5" id="lYY-aD-vBf"/>
-                            <constraint firstItem="tKQ-kM-Rig" firstAttribute="top" secondItem="xDp-xg-zRp" secondAttribute="top" constant="131" id="pvZ-b7-aMK"/>
+                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="centerX" secondItem="FMj-up-3Bh" secondAttribute="centerX" id="XSP-gU-rQT"/>
+                            <constraint firstAttribute="bottom" secondItem="nEA-4h-Mfp" secondAttribute="bottom" constant="10" id="YAX-YW-tUN"/>
+                            <constraint firstItem="nEA-4h-Mfp" firstAttribute="top" secondItem="FMj-up-3Bh" secondAttribute="bottom" constant="5" id="lTG-XM-D4J"/>
                             <constraint firstItem="euV-RF-v2j" firstAttribute="leading" secondItem="xDp-xg-zRp" secondAttribute="leading" constant="10" id="z4W-vp-yZT"/>
                             <constraint firstAttribute="trailing" secondItem="FMj-up-3Bh" secondAttribute="trailing" constant="5" id="zs2-RA-lP4"/>
                         </constraints>

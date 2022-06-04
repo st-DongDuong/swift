@@ -66,7 +66,7 @@ Chittagong</string>
                                     <color key="baseBackgroundColor" red="0.19607843137254902" green="0.71764705882352942" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="detailButton:" destination="-1" eventType="touchUpInside" id="tee-wT-3ba"/>
+                                    <action selector="detailButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nt7-bt-GPZ"/>
                                 </connections>
                             </button>
                         </subviews>

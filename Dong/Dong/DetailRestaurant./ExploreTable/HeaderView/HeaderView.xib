@@ -24,10 +24,6 @@
                                 <constraint firstAttribute="width" constant="74" id="iee-sa-KTU"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <connections>
-                                <action selector="seeAllButton:" destination="-1" eventType="touchUpInside" id="69Z-gz-Crq"/>
-                                <action selector="seeAllButton:" destination="tWh-Gx-wX6" eventType="touchUpInside" id="ALl-OT-F0K"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,6 +53,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEm-Nk-cz5">
+                    <rect key="frame" x="309" y="10" width="69" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="seeAllButton:" destination="tWh-Gx-wX6" eventType="touchUpInside" id="qBC-2F-fbr"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="LLc-oR-h0f"/>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

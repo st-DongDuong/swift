@@ -24,9 +24,9 @@ class DetailRestaurant: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-        navigationController?.navigationBar.isHidden = false
+           super.viewWillDisappear(animated)
+           self.tabBarController?.tabBar.isHidden = false
+           navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -43,17 +43,20 @@ class DetailRestaurant: UIViewController {
     }
     
     @IBAction func checkOutButton(_ sender: Any) {
-        let checkOut = CartViewController()
+//        let checkOut = CartViewController()
         let order = Order(restaurant: restaurant!,
                           paymentDate: Date(),
                           orderItems: orderItems)
-        
-        checkOut.delegate = self
-        
+//        checkOut.cartDetail = restaurant
+//        checkOut.orderItems = orderItems
+//        checkOut.delegate = self
+
         // 2.Save Order
         OrderHistories.orderHistories.append(order)
+        orderItems.removeAll()
+        update()
         print(OrderHistories.orderHistories)
-        present(checkOut, animated: true, completion: nil)
+//        present(checkOut, animated: true, completion: nil)
         
     }
     
@@ -65,6 +68,7 @@ class DetailRestaurant: UIViewController {
     @IBAction func cartButton(_ sender: Any) {
         let cartOrder = CartViewController()
         cartOrder.cartDetail = restaurant
+        cartOrder.orderItems = orderItems
         cartOrder.delegate = self
         
         cartOrder.modalPresentationStyle = .fullScreen
@@ -85,7 +89,7 @@ class DetailRestaurant: UIViewController {
             UINib(nibName: "HeaderRecomendMenu", bundle: Bundle.main),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "HeaderRecomendMenu")
-        
+    
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -192,16 +196,16 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    func update(){
-        var total = 0
+    func update() {
+        var totalPrice = 0
         var number = 0
         
-        ItemOrdering.cart.forEach { item in
-            total += item.amout * item.MenuItem.price
+        orderItems.forEach { item in
+            totalPrice += item.amout * item.MenuItem.price
             number += item.amout
         }
         
-        priceLabel.text =  "check out: \(total)"
+        priceLabel.text =  "check out: \(totalPrice),000đ"
         numberLabel.text = "\(number)"
     }
 }
@@ -211,10 +215,9 @@ extension DetailRestaurant :OrderingDelegate{
         switch action {
         case .save(let menuItem, let amount, let notes, let totalprice):
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
-            numberLabel.text = "\(amount)"
-            priceLabel.text  = "Check Out: \(totalprice),000đ "
-            collectionView.reloadData()
             orderItems.append(orderItem)
+            update()
+//            collectionView.reloadData()
             print(orderItems.count)
         }
     }
@@ -236,4 +239,19 @@ extension DetailRestaurant: CartViewControllerDelegate {
             
         }
     }
+}
+extension DetailRestaurant: HeaderRecomendMenuDelegate{
+    func detail(detail: HeaderRecomendMenu, action: HeaderRecomendMenu.Action) {
+        switch action{
+        case .data:
+            let vc = ListMenuTodayDetail()
+
+            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.navigationBar.isHidden = true
+            tabBarController?.tabBar.isHidden = true
+
+        }
+    }
+
+
 }

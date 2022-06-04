@@ -104,22 +104,15 @@ class OrderingViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        
-        ItemOrdering.cart.forEach { item in
-            totalprice += item.amout * item.MenuItem.price
-            totalNumber  += item.amout
-            
-        }
-        
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
         delegate?.cell(self, .save(menuItem: menu!,
-                                   amount: totalNumber,
+                                   amount: Int(numberLabel.text ?? "0") ?? 0,
                                    notes: note,
                                    price: totalprice))
         
         dismiss(animated: true, completion: nil)
-        saveOrder()
+//        saveOrder()
         
     }
 }

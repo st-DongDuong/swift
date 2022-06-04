@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+
 class CustomRecomendMenu: UICollectionViewCell {
 
     @IBOutlet weak var totalViewCustom: UIView!

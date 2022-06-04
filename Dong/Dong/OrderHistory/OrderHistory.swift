@@ -59,7 +59,7 @@ extension OrderHistory :UITableViewDataSource {
             image: OrderHistories.orderHistories[indexPath.row].restaurant.photos.first ?? "",
             name: OrderHistories.orderHistories[indexPath.row].restaurant.name ,
             address: OrderHistories.orderHistories[indexPath.row].restaurant.address.address )
-        
+        cell.delegate = self
         return cell
         
     }
@@ -70,12 +70,16 @@ extension OrderHistory : UITableViewDelegate {
         100
         
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let order  = OrderHistoryDetail()
-        order.nameRes = OrderHistories.orderHistories[indexPath.row].restaurant.name
-        order.data = OrderHistories.orderHistories[indexPath.row].orderItems
-        navigationController?.pushViewController(order, animated: true)
+}
+
+extension OrderHistory: CustomOrderHistoryDelegate{
+    func check(button: CustomOrderHistory, action: CustomOrderHistory.Action) {
         
+        let order  = OrderHistoryDetail()
+        guard let index = tableView.indexPath(for:button) else {return}
+            order.nameRes = OrderHistories.orderHistories[index.row].restaurant.name
+        order.data = OrderHistories.orderHistories[index.row].orderItems
+            navigationController?.pushViewController(order, animated: true)
     }
 }
+

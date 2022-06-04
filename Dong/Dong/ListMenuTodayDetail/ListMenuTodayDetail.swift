@@ -13,6 +13,7 @@ class ListMenuTodayDetail: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
   
     var listMenu: [Restaurant] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollection()
@@ -36,13 +37,12 @@ class ListMenuTodayDetail: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    
-    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    
     }
     
-    func configCollection(){
+    func configCollection() {
         let cell = UINib(nibName: "CustomRecomendMenu", bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: "CustomRecomendMenu")
         
@@ -58,23 +58,33 @@ extension ListMenuTodayDetail :UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomRecomendMenu", for: indexPath) as? CustomRecomendMenu else {
+            
             return UICollectionViewCell()
     }
-
-        cell.updateDetail2(img: listMenu[indexPath.item].photos.first ?? "" , name: listMenu[indexPath.item].name  , price: listMenu[indexPath.item].menus.first?.price ?? 0)
+        cell.updateDetail2(img: listMenu[indexPath.item].photos.first ?? "" ,
+                           name: listMenu[indexPath.item].menus.first?.name ?? "" ,
+                           price: listMenu[indexPath.item].menus.first?.price ?? 0)
         return cell
     }
 }
 
 extension ListMenuTodayDetail: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170 , height: 200)
+        
+        return CGSize(width: UIScreen.main.bounds.width / 2 - 20, height: 200)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     //   let vc = It()
-        
-        
+            let vc  = DetailRestaurant()
+        vc.restaurant = listMenu[indexPath.item]
+        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
 }

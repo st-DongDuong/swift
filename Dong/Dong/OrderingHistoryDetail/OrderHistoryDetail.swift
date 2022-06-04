@@ -75,7 +75,7 @@ class OrderHistoryDetail: UIViewController {
             let price = item.MenuItem.price
             let amount = item.amout
             total += price * amount
-            priceLabel.text  = "Total: \(total) $"
+            priceLabel.text  = "Total: \(total),000đ"
             
         }
     }

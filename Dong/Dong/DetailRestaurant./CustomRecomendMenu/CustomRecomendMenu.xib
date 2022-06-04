@@ -18,10 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="170" height="197"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSV-8T-utI">
+                    <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSV-8T-utI">
                         <rect key="frame" x="0.0" y="0.0" width="170" height="197"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơm gà xé trộn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB7-id-dsy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơm gà xé trộn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB7-id-dsy">
                                 <rect key="frame" x="8" y="129" width="139" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Hv8-7Y-TT9"/>
@@ -30,8 +30,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-gp-yKh">
-                                <rect key="frame" x="8" y="157" width="30.5" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-gp-yKh">
+                                <rect key="frame" x="8" y="157" width="152" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="XKj-3P-FEq"/>
                                 </constraints>
@@ -49,6 +49,7 @@
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bOk-N5-gTE" secondAttribute="trailing" constant="8" id="23e-bt-Qr3"/>
+                            <constraint firstAttribute="trailing" secondItem="dRL-gp-yKh" secondAttribute="trailing" constant="10" id="2Re-0h-ylH"/>
                             <constraint firstAttribute="trailing" secondItem="TB7-id-dsy" secondAttribute="trailing" constant="23" id="3CP-4K-nbp"/>
                             <constraint firstItem="dRL-gp-yKh" firstAttribute="top" secondItem="TB7-id-dsy" secondAttribute="bottom" constant="8" id="CcG-p4-96h"/>
                             <constraint firstItem="bOk-N5-gTE" firstAttribute="leading" secondItem="TSV-8T-utI" secondAttribute="leading" constant="8" id="MH3-9U-TTE"/>
@@ -75,7 +76,7 @@
                 <outlet property="priceLabel" destination="dRL-gp-yKh" id="cTI-sR-85I"/>
                 <outlet property="totalViewCustom" destination="TSV-8T-utI" id="Cth-4L-C2x"/>
             </connections>
-            <point key="canvasLocation" x="-214" y="78"/>
+            <point key="canvasLocation" x="-214.49275362318843" y="77.34375"/>
         </collectionViewCell>
     </objects>
     <resources>

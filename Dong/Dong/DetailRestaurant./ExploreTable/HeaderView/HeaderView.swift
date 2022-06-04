@@ -17,11 +17,12 @@ class HeaderView: UITableViewHeaderFooterView {
         case seeAll(tag: Int)
     }
     
+    @IBOutlet weak var menuDetail: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
     weak var delegate:HeaderViewDelegate?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundView = UIView(frame: self.bounds)
