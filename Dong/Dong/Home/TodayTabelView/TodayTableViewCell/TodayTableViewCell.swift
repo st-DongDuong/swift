@@ -8,7 +8,7 @@
 import UIKit
 protocol TodayTableViewCellDelegate : AnyObject{
     func cell(_ cell :TodayTableViewCell,_ action: TodayTableViewCell.Action)
-
+    
 }
 
 class TodayTableViewCell: UITableViewCell {
@@ -17,11 +17,8 @@ class TodayTableViewCell: UITableViewCell {
         case didSelect(Restaurant)
     }
     
-   var menusRes: [Restaurant] = []
-   // var menusRes: Restaurant?
-    
+    var menusRes: [Restaurant] = []
     @IBOutlet weak var collectionToday: UICollectionView!
-
     weak var delegate: TodayTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -35,10 +32,8 @@ class TodayTableViewCell: UITableViewCell {
     }
     
     func configToday() {
-        
         let cell = UINib(nibName: "CustomCollection", bundle: nil)
         collectionToday.register(cell, forCellWithReuseIdentifier: "CustomCollection")
-        
         collectionToday.dataSource = self
         collectionToday.delegate = self
         
@@ -46,30 +41,26 @@ class TodayTableViewCell: UITableViewCell {
 }
 
 extension TodayTableViewCell: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return menusRes.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollection",
-                    for: indexPath) as? CustomCollection else {
+                                                            for: indexPath) as? CustomCollection else {
             
             return UICollectionViewCell()
-    
+            
         }
         
-        cell.updateToday (image: menusRes[indexPath.row].photos.first ?? "" ,
-                          name: menusRes[indexPath.row].menus.first?.name ?? "",
-                         price: menusRes[indexPath.row].menus.first?.price ?? 0)
-        
+        let data = menusRes[indexPath.row]
+        cell.updateToday (image: data.photos.first ?? "" , name: data.menus.first?.name ?? "",
+                          price: data.menus.first?.price ?? 0)
         return cell
         
     }
@@ -77,19 +68,14 @@ extension TodayTableViewCell: UICollectionViewDataSource {
 
 extension TodayTableViewCell : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
         return  CGSize(width: 150, height: 200)
-    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.cell(self, .didSelect(menusRes[indexPath.row]))
-        
     }
 }

@@ -96,15 +96,15 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWq-cv-Ngi">
-                            <rect key="frame" x="192" y="19.5" width="30" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWq-cv-Ngi">
+                            <rect key="frame" x="174" y="20" width="68" height="30"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <connections>
                                 <action selector="checkOutButton:" destination="-1" eventType="touchUpInside" id="NUf-uf-9Y8"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2L-Cl-GLf">
-                            <rect key="frame" x="46" y="26" width="48" height="17"/>
+                            <rect key="frame" x="46" y="27" width="48" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -115,13 +115,17 @@
                         <constraint firstAttribute="bottom" secondItem="jzr-al-rn1" secondAttribute="bottom" constant="27" id="3l8-qq-ctj"/>
                         <constraint firstItem="wOG-Mf-cQI" firstAttribute="leading" secondItem="86J-xk-Dqz" secondAttribute="trailing" constant="60.5" id="4xp-8s-6V4"/>
                         <constraint firstAttribute="bottom" secondItem="l2L-Cl-GLf" secondAttribute="bottom" constant="40" id="9HE-u2-RMm"/>
+                        <constraint firstItem="eWq-cv-Ngi" firstAttribute="leading" secondItem="l2L-Cl-GLf" secondAttribute="trailing" constant="80" id="BFI-J7-047"/>
                         <constraint firstAttribute="trailing" secondItem="wOG-Mf-cQI" secondAttribute="trailing" constant="46" id="BKK-eO-GaQ"/>
                         <constraint firstItem="jzr-al-rn1" firstAttribute="leading" secondItem="wZa-aW-LeV" secondAttribute="leading" constant="22" id="C8E-Wr-6xt"/>
+                        <constraint firstItem="wOG-Mf-cQI" firstAttribute="leading" secondItem="eWq-cv-Ngi" secondAttribute="trailing" constant="60" id="EeV-EK-ILu"/>
                         <constraint firstItem="l2L-Cl-GLf" firstAttribute="centerY" secondItem="eWq-cv-Ngi" secondAttribute="centerY" id="Jey-q2-ZRg"/>
                         <constraint firstItem="86J-xk-Dqz" firstAttribute="centerX" secondItem="wZa-aW-LeV" secondAttribute="centerX" id="NrH-ua-zSY"/>
                         <constraint firstItem="jzr-al-rn1" firstAttribute="top" secondItem="wZa-aW-LeV" secondAttribute="top" constant="11" id="PIG-X9-gMI"/>
                         <constraint firstItem="l2L-Cl-GLf" firstAttribute="leading" secondItem="wZa-aW-LeV" secondAttribute="leading" constant="46" id="T1W-kI-w3W"/>
                         <constraint firstAttribute="bottom" secondItem="86J-xk-Dqz" secondAttribute="bottom" constant="40" id="V7a-Id-eJM"/>
+                        <constraint firstItem="eWq-cv-Ngi" firstAttribute="top" secondItem="wZa-aW-LeV" secondAttribute="top" constant="20" id="bQL-WH-OER"/>
+                        <constraint firstAttribute="bottom" secondItem="eWq-cv-Ngi" secondAttribute="bottom" constant="33" id="bsb-c3-mY9"/>
                         <constraint firstAttribute="trailing" secondItem="jzr-al-rn1" secondAttribute="trailing" constant="22" id="j1S-dj-qYV"/>
                         <constraint firstItem="86J-xk-Dqz" firstAttribute="leading" secondItem="l2L-Cl-GLf" secondAttribute="trailing" constant="79" id="tqw-he-fTR"/>
                         <constraint firstAttribute="bottom" secondItem="wOG-Mf-cQI" secondAttribute="bottom" constant="40" id="xWB-eG-9Xv"/>

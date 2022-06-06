@@ -18,8 +18,7 @@ class CustomCollection: UICollectionViewCell {
         super.awakeFromNib()
         imageToday.layer.cornerRadius = 8
         imageToday.clipsToBounds = true
-        imageToday.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
+        imageToday.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]        
         totalVieww.layer.cornerRadius = 16
         totalVieww.clipsToBounds = true
     }

@@ -27,11 +27,6 @@ class OrderHistories {
     static var orderHistories: [Order] = []
 }
 
-
-class ItemOrdering { // create variable global to add item inside when chooose
-    static var cart: [OrderItem] = []
-}
-
 struct Order {
     var restaurant:Restaurant
     var paymentDate: Date

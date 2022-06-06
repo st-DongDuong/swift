@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
         getApiRestaurant { [weak self] isSuccess in
             guard let this = self else {
                 return
-            
+                
             }
             
             DispatchQueue.main.async {
@@ -118,13 +118,10 @@ class HomeViewController: UIViewController {
     func configTableView() {
         let cellTable1 = UINib(nibName: "TodayTableViewCell", bundle: nil)
         tableView.register(cellTable1, forCellReuseIdentifier: "TodayTableViewCell")
-        
         let cellTable2 = UINib(nibName: "CustomTableView", bundle: nil)
         tableView.register(cellTable2, forCellReuseIdentifier: "CustomTableView")
-        
         let cellHeader = UINib(nibName: "HeaderView", bundle: nil)
         tableView.register(cellHeader, forHeaderFooterViewReuseIdentifier: "HeaderView")
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = refreshControl
@@ -132,7 +129,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setupPageControl() {
-        
         pageControl.numberOfPages = 5
         pageControl.currentPageIndicatorTintColor = .green
         pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(2)
@@ -152,7 +148,6 @@ class HomeViewController: UIViewController {
         visbleOffset.y += bannerCollectionView.center.y
         bannerCollectionView.indexPathForItem(at: visbleOffset)
         guard let indexPath = bannerCollectionView.indexPathForItem(at: visbleOffset) else {
-          
             return nil
             
         }
@@ -294,15 +289,15 @@ extension HomeViewController:  UITableViewDataSource {
                 
             }
             
-            cell.updateTabel(image: listRestaurant[indexPath.row].photos.first ?? "",
-                name: listRestaurant[indexPath.row].name,
-                address: listRestaurant[indexPath.row].address.address )
+            let data = listRestaurant[indexPath.row]
+            cell.updateTabel(image: data.photos.first ?? "",
+                             name: data.name,
+                             address: data.address.address )
             cell.delegate = self
             return cell
             
         }
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as?

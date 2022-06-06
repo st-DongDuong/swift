@@ -24,9 +24,9 @@ class DetailRestaurant: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-           self.tabBarController?.tabBar.isHidden = false
-           navigationController?.navigationBar.isHidden = true
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -43,20 +43,14 @@ class DetailRestaurant: UIViewController {
     }
     
     @IBAction func checkOutButton(_ sender: Any) {
-//        let checkOut = CartViewController()
         let order = Order(restaurant: restaurant!,
                           paymentDate: Date(),
                           orderItems: orderItems)
-//        checkOut.cartDetail = restaurant
-//        checkOut.orderItems = orderItems
-//        checkOut.delegate = self
-
-        // 2.Save Order
+        
         OrderHistories.orderHistories.append(order)
         orderItems.removeAll()
         update()
         print(OrderHistories.orderHistories)
-//        present(checkOut, animated: true, completion: nil)
         
     }
     
@@ -67,7 +61,7 @@ class DetailRestaurant: UIViewController {
     // MARK: - cartButtonTotal
     @IBAction func cartButton(_ sender: Any) {
         let cartOrder = CartViewController()
-        cartOrder.cartDetail = restaurant
+//        cartOrder.cartDetail = restaurant
         cartOrder.orderItems = orderItems
         cartOrder.delegate = self
         
@@ -89,7 +83,7 @@ class DetailRestaurant: UIViewController {
             UINib(nibName: "HeaderRecomendMenu", bundle: Bundle.main),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "HeaderRecomendMenu")
-    
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -117,41 +111,36 @@ extension DetailRestaurant :UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            cell.updateCell1(image: restaurant?.photos.first ?? "",
-                             name: restaurant?.name ?? "",
+            cell.updateCell1(image: restaurant?.photos.first ?? "",name: restaurant?.name ?? "",
                              address: restaurant?.address.address ?? "")
             return cell
             
         } else {
+            
             guard let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomRecomendMenu", for: indexPath) as? CustomRecomendMenu  else {
                 return UICollectionViewCell()
             }
             
-            cell2.updateDetail2(img: restaurant?.menus[indexPath.item].imageUrl ?? "",
-                                name: restaurant?.menus[indexPath.item].name ?? "",
-                                price: restaurant?.menus[indexPath.item].price ?? 0)
-            
+            let data = restaurant?.menus[indexPath.item]
+            cell2.updateDetail2(img: data?.imageUrl ?? "", name: data?.name ?? "", price:data?.price ?? 0)
             return cell2
-            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
+            
             return CGSize (width: 0, height: 0)
             
         } else {
             
             return CGSize (width: collectionView.bounds.width, height: 70)
-            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let HeaderDetailCollection = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,withReuseIdentifier: "HeaderRecomendMenu", for: indexPath)
-        
         return HeaderDetailCollection
-        
     }
 }
 
@@ -167,14 +156,13 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 0{
+        if section == 0 {
             
             return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 14)
             
         } else {
             
-            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)
-            
+            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)            
         }
     }
     
@@ -217,41 +205,22 @@ extension DetailRestaurant :OrderingDelegate{
             let orderItem = OrderItem(MenuItem: menuItem, amout: amount, note: notes)
             orderItems.append(orderItem)
             update()
-//            collectionView.reloadData()
-            print(orderItems.count)
         }
     }
 }
 
 extension DetailRestaurant: CartViewControllerDelegate {
     func cartdata(_ cart: CartViewController, _ Action: CartViewController.Action) {
-        switch Action{
-            
+        switch Action {
         case .totalAmount(let totalAmount, let number ):
             numberLabel.text = "\(totalAmount )"
             priceLabel.text = "Check Out: \(number),000đ"
             collectionView.reloadData()
-            
         case .reload:
             numberLabel.text = "0"
             priceLabel.text = "Check Out: "
             collectionView.reloadData()
-            
         }
     }
 }
-extension DetailRestaurant: HeaderRecomendMenuDelegate{
-    func detail(detail: HeaderRecomendMenu, action: HeaderRecomendMenu.Action) {
-        switch action{
-        case .data:
-            let vc = ListMenuTodayDetail()
 
-            navigationController?.pushViewController(vc, animated: true)
-            navigationController?.navigationBar.isHidden = true
-            tabBarController?.tabBar.isHidden = true
-
-        }
-    }
-
-
-}

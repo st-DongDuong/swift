@@ -50,7 +50,6 @@ class OrderingViewController: UIViewController {
         addview.layer.cornerRadius = 15
         imageTest.layer.cornerRadius = 8
         viewAdd.layer.cornerRadius = 10
-        //  saveOrder()
         
     }
     
@@ -62,6 +61,7 @@ class OrderingViewController: UIViewController {
     private func updateView() {
         guard let menu = menu else {
             return
+            
         }
         
         imageTest.downloaded(from: menu.imageUrl)
@@ -89,30 +89,11 @@ class OrderingViewController: UIViewController {
         
     }
     
-    func saveOrder () {  // tạo hàm để lưu lại những biến đã chọn
-        let item = OrderItem(MenuItem: menu!, amout: number, note: note)
-        if let index = ItemOrdering.cart.firstIndex(
-            where: {$0.MenuItem.id == item.MenuItem.id }) {
-            // so sánh id khi chọn == vs id đã chọn first thì thêm vô
-            ItemOrdering.cart[index] = item
-            
-        } else {
-            
-            ItemOrdering.cart.append(item)
-            
-        }
-    }
-    
     @IBAction func addButton(_ sender: Any) {
         note = noteToStore.text ?? ""
         descri = descrip.text ?? ""
-        delegate?.cell(self, .save(menuItem: menu!,
-                                   amount: Int(numberLabel.text ?? "0") ?? 0,
-                                   notes: note,
-                                   price: totalprice))
-        
+        delegate?.cell(self, .save(menuItem: menu!, amount: Int(numberLabel.text ?? "0") ?? 0, notes: note, price: totalprice))
         dismiss(animated: true, completion: nil)
-//        saveOrder()
         
     }
 }

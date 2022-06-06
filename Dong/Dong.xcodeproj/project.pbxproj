@@ -179,7 +179,6 @@
 			children = (
 				DE0C7C492823C773002C0A25 /* CustomTableView.swift */,
 				DE0C7C4A2823C773002C0A25 /* CustomTableView.xib */,
-				DEC4FBE928261E4B00B871E9 /* HeaderView */,
 			);
 			path = ExploreTable;
 			sourceTree = "<group>";
@@ -377,6 +376,7 @@
 				DEC4FC112828BEBD00B871E9 /* HomeViewController.swift */,
 				DEC4FC122828BEBD00B871E9 /* HomeViewController.xib */,
 				DE90ADE72844753A00F31DD0 /* HomeViewModel.swift */,
+				DEC4FBE928261E4B00B871E9 /* HeaderView */,
 				DEA8C16D2822E11D00F91CBA /* CustomeCollectionBanner */,
 				DE0C7C342823C407002C0A25 /* TodayTabelView */,
 			);
