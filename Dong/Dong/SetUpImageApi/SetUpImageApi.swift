@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 extension UIImageView {
   func downloaded(from url: URL, contentMode mode: ContentMode = .scaleToFill) {
     contentMode = mode
@@ -20,11 +19,11 @@ extension UIImageView {
       }
     }
     .resume()
- 
   }
     
   func downloaded(from link: String, contentMode mode: ContentMode = .scaleToFill) {
     guard let url = URL(string: link) else { return }
     downloaded(from: url, contentMode: mode)
+  
   }
 }

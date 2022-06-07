@@ -7,8 +7,7 @@
 
 import UIKit
 protocol TodayTableViewCellDelegate : AnyObject{
-    func cell(_ cell :TodayTableViewCell,_ action: TodayTableViewCell.Action)
-    
+    func cell(_ cell: TodayTableViewCell,_ action: TodayTableViewCell.Action)
 }
 
 class TodayTableViewCell: UITableViewCell {
@@ -29,6 +28,7 @@ class TodayTableViewCell: UITableViewCell {
     
     func reloadData() {
         collectionToday.reloadData()
+    
     }
     
     func configToday() {

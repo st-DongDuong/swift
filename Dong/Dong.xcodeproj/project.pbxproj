@@ -13,7 +13,7 @@
 		DE0C7C4C2823C773002C0A25 /* CustomTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C7C4A2823C773002C0A25 /* CustomTableView.xib */; };
 		DE0C7C502823D66F002C0A25 /* TodayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C7C4E2823D66F002C0A25 /* TodayTableViewCell.swift */; };
 		DE0C7C512823D66F002C0A25 /* TodayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE0C7C4F2823D66F002C0A25 /* TodayTableViewCell.xib */; };
-		DE0C7C5328242FD1002C0A25 /* infor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C7C5228242FD1002C0A25 /* infor.swift */; };
+		DE0C7C5328242FD1002C0A25 /* Infor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C7C5228242FD1002C0A25 /* Infor.swift */; };
 		DE1F9D67282CBBA700AE5EF2 /* OrderingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F9D65282CBBA700AE5EF2 /* OrderingViewController.swift */; };
 		DE1F9D68282CBBA700AE5EF2 /* OrderingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1F9D66282CBBA700AE5EF2 /* OrderingViewController.xib */; };
 		DE1F9D71282CC10200AE5EF2 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F9D6F282CC10200AE5EF2 /* CartViewController.swift */; };
@@ -77,7 +77,7 @@
 		DE0C7C4A2823C773002C0A25 /* CustomTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableView.xib; sourceTree = "<group>"; };
 		DE0C7C4E2823D66F002C0A25 /* TodayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableViewCell.swift; sourceTree = "<group>"; };
 		DE0C7C4F2823D66F002C0A25 /* TodayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayTableViewCell.xib; sourceTree = "<group>"; };
-		DE0C7C5228242FD1002C0A25 /* infor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infor.swift; sourceTree = "<group>"; };
+		DE0C7C5228242FD1002C0A25 /* Infor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infor.swift; sourceTree = "<group>"; };
 		DE1F9D65282CBBA700AE5EF2 /* OrderingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingViewController.swift; sourceTree = "<group>"; };
 		DE1F9D66282CBBA700AE5EF2 /* OrderingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderingViewController.xib; sourceTree = "<group>"; };
 		DE1F9D6F282CC10200AE5EF2 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 				DE757C50282BB35B004DD227 /* DetailRestaurant.swift */,
 				DE757C51282BB35B004DD227 /* DetailRestaurant.xib */,
 				DE757C55282BB44B004DD227 /* CustomDetailRestaurant */,
+				DE757C3A282BA673004DD227 /* HeaderRecomendMenu */,
 				DE757C56282BB459004DD227 /* CustomRecomendMenu */,
-				DE0C7C432823C64C002C0A25 /* ExploreTable */,
 			);
 			path = DetailRestaurant.;
 			sourceTree = "<group>";
@@ -255,7 +255,6 @@
 			children = (
 				DE757C5B282BB4A1004DD227 /* CustomRecomendMenu.swift */,
 				DE757C5C282BB4A1004DD227 /* CustomRecomendMenu.xib */,
-				DE757C3A282BA673004DD227 /* HeaderRecomendMenu */,
 			);
 			path = CustomRecomendMenu;
 			sourceTree = "<group>";
@@ -348,7 +347,7 @@
 				DEC4FC152828F7FE00B871E9 /* SetUpImageApi */,
 				DE90ADD9283F2E3600F31DD0 /* LoadingView */,
 				DEA8C13728226EE500F91CBA /* AppDelegate.swift */,
-				DE0C7C5228242FD1002C0A25 /* infor.swift */,
+				DE0C7C5228242FD1002C0A25 /* Infor.swift */,
 				DEA8C13D28226EE500F91CBA /* Main.storyboard */,
 				DEA8C14028226EE700F91CBA /* Assets.xcassets */,
 				DEA8C14228226EE700F91CBA /* LaunchScreen.storyboard */,
@@ -378,6 +377,7 @@
 				DE90ADE72844753A00F31DD0 /* HomeViewModel.swift */,
 				DEC4FBE928261E4B00B871E9 /* HeaderView */,
 				DEA8C16D2822E11D00F91CBA /* CustomeCollectionBanner */,
+				DE0C7C432823C64C002C0A25 /* ExploreTable */,
 				DE0C7C342823C407002C0A25 /* TodayTabelView */,
 			);
 			path = Home;
@@ -603,7 +603,7 @@
 				DE0C7C4B2823C773002C0A25 /* CustomTableView.swift in Sources */,
 				DEC4FC132828BEBD00B871E9 /* HomeViewController.swift in Sources */,
 				DE90ADE52844680C00F31DD0 /* ListMenuTodayDetail.swift in Sources */,
-				DE0C7C5328242FD1002C0A25 /* infor.swift in Sources */,
+				DE0C7C5328242FD1002C0A25 /* Infor.swift in Sources */,
 				DE0C7C412823C635002C0A25 /* CustomCollection.swift in Sources */,
 				DE757C59282BB48C004DD227 /* CustomDetailRestaurant.swift in Sources */,
 				DEA8C1602822D6FB00F91CBA /* Tabbar.swift in Sources */,

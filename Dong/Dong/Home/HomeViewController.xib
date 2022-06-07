@@ -124,7 +124,7 @@
                         <constraint firstItem="Nbm-o3-Isc" firstAttribute="centerY" secondItem="j3D-1r-bVS" secondAttribute="centerY" id="x3N-U7-8Ee"/>
                     </constraints>
                 </view>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-zJ-pbb">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-zJ-pbb">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVQ-cH-B50" customClass="LoadingView" customModule="Dong" customModuleProvider="target">

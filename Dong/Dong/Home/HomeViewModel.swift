@@ -11,14 +11,27 @@
 //    var listMenus: [Menu] = []
 //    var listBanner: [Banner] = []
 //    var listRestaurant: [Restaurant] = []
-//
-//
-//
-//    func getApiRestaurant(completion: @escaping (Bool) -> Void) {
-//
+//    
+//    
+//    
+//    func getListBanner(at index: Int) -> Restaurant {
+//        listRestaurant[index]
 //    }
 //
+//    func getlistRestaurant() -> [Restaurant] {
+//        listRestaurant
+//    }
 //
+//    func numberOfItemsInSection() -> Int {
+//        listBanner.count
+//    }
+//
+//    
+//    func getApiRestaurant(completion: @escaping (Bool) -> Void) {
+//  
+//    }
+//    
+//    
 //    func getApiRestaurant(completion: @escaping (Bool) -> Void) {
 //        guard let url = URL(string: "https://ios-interns.herokuapp.com/api/restaurants?page=0&limit=20") else { return }
 //        let configuration = URLSessionConfiguration.ephemeral
@@ -33,14 +46,14 @@
 //                    for item in datas.data {
 //                        self.listRestaurant.append(item)
 //                    }
-//
+//                        
 //                    DispatchQueue.main.async {
 //                        completion(true)
 //                    }
 //                }
 //            }
 //        }
-//
+//        
 //        task.resume()
 //    }
 //
@@ -55,14 +68,14 @@
 //                    for item in datas.data {
 //                        self.listBanner.append(item)
 //                    }
-//
+//                    
 //                    DispatchQueue.main.async { //func chay từ trên xuống, khi api về
 //                        completion()
 //                    }
 //                }
 //            }
 //        }
-//
+//        
 //        task.resume()
 //    }
 //}

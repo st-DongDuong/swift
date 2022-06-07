@@ -59,9 +59,9 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func checkOutButton(_ sender: Any) {
-//        orderItems.removeAll()
-//        print(OrderHistories.orderHistories)
-//        tableView.reloadData()
+        orderItems.removeAll()
+        print(OrderHistories.orderHistories)
+        tableView.reloadData()
         dismiss(animated: true, completion: nil)
         delegate?.cartdata(self, .totalAmount(totalOrder: totalAmout , number: price))
         delegate?.cartdata(self, .reload)

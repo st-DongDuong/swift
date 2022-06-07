@@ -7,6 +7,7 @@
 
 import UIKit
 class DetailRestaurant: UIViewController {
+   
     var orderItems :[OrderItem] = []
     var restaurant: Restaurant?
     
@@ -20,9 +21,15 @@ class DetailRestaurant: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
-        
+        if orderItems.isEmpty == true {
+            viewFooter.isHidden = true
+            
+        } else {
+            
+            viewFooter.isHidden = false
+        }
     }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
@@ -32,14 +39,13 @@ class DetailRestaurant: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configDetail()
-        
         navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        
         viewFooter.layer.cornerRadius = 20
         headerView.layer.cornerRadius = 16
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner ]
         update()
+        
     }
     
     @IBAction func checkOutButton(_ sender: Any) {
@@ -61,7 +67,7 @@ class DetailRestaurant: UIViewController {
     // MARK: - cartButtonTotal
     @IBAction func cartButton(_ sender: Any) {
         let cartOrder = CartViewController()
-//        cartOrder.cartDetail = restaurant
+        //        cartOrder.cartDetail = restaurant
         cartOrder.orderItems = orderItems
         cartOrder.delegate = self
         
@@ -71,7 +77,6 @@ class DetailRestaurant: UIViewController {
         
     }
     
-    // MARK: - ConfigDetail
     func configDetail() {
         let CustomDetailRestaurant = UINib(nibName: "CustomDetailRestaurant", bundle: nil)
         collectionView.register(CustomDetailRestaurant, forCellWithReuseIdentifier: "CustomDetailRestaurant")
@@ -83,7 +88,6 @@ class DetailRestaurant: UIViewController {
             UINib(nibName: "HeaderRecomendMenu", bundle: Bundle.main),
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "HeaderRecomendMenu")
-        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -108,6 +112,7 @@ extension DetailRestaurant :UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomDetailRestaurant", for: indexPath) as? CustomDetailRestaurant  else {
+                
                 return UICollectionViewCell()
             }
             
@@ -162,7 +167,8 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
             
         } else {
             
-            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)            
+            return UIEdgeInsets(top: 12, left: 10, bottom: 6, right: 9)
+            
         }
     }
     
@@ -198,7 +204,7 @@ extension DetailRestaurant: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension DetailRestaurant :OrderingDelegate{
+extension DetailRestaurant :OrderingDelegate {
     func cell(_ cell: OrderingViewController, _ action: OrderingViewController.Action) {
         switch action {
         case .save(let menuItem, let amount, let notes, let totalprice):

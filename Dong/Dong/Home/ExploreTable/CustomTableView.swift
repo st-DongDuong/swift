@@ -27,6 +27,7 @@ class CustomTableView: UITableViewCell {
         super.awakeFromNib()
         totalView.layer.cornerRadius = 10
         imageTable.layer.cornerRadius = 8
+    
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
